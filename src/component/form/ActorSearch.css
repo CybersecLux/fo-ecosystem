@@ -1,0 +1,20 @@
+
+.ActorSearch div .FormLine .row {
+	padding: 3px 0px !important;
+}
+
+.ActorSearch-taxonomy-link-container {
+	padding: 3px 0px 0px 0px;
+	text-align: center;
+}
+
+.ActorSearch-taxonomy-link {
+	cursor: pointer;
+	color: #009fe3 !important;
+	width: 100%;
+	text-align: center;
+}
+
+.ActorSearch-tree-taxonomy {
+	margin: 10px 0px;
+}
