@@ -14,35 +14,20 @@ export default class PageCompany extends React.Component {
 		super(props);
 
 		this.getCompanyContent = this.getCompanyContent.bind(this);
-		this.getTaxonomy = this.getTaxonomy.bind(this);
 
 		this.state = {
 			company: null,
-			taxonomy: null,
 		};
 	}
 
 	componentDidMount() {
 		this.getCompanyContent();
-		this.getTaxonomy();
 	}
 
 	getCompanyContent() {
 		getRequest.call(this, "public/get_public_company/" + this.props.match.params.id, (data) => {
 			this.setState({
 				company: data,
-			});
-		}, (response) => {
-			nm.warning(response.statusText);
-		}, (error) => {
-			nm.error(error.message);
-		});
-	}
-
-	getTaxonomy() {
-		getRequest.call(this, "public/get_public_taxonomy", (data) => {
-			this.setState({
-				taxonomy: data,
 			});
 		}, (response) => {
 			nm.warning(response.statusText);
@@ -139,11 +124,11 @@ export default class PageCompany extends React.Component {
 					</div>
 				</div>
 
-				{this.state.company !== null && this.state.taxonomy !== null
-					&& this.state.taxonomy.categories !== undefined
+				{this.state.company !== null && this.props.taxonomy !== null
+					&& this.props.taxonomy.categories !== undefined
 					? <div className="row row-spaced">
-						{this.state.taxonomy.categories
-							.filter((c) => this.state.taxonomy.category_hierarchy.map((h) => h.parent_category)
+						{this.props.taxonomy.categories
+							.filter((c) => this.props.taxonomy.category_hierarchy.map((h) => h.parent_category)
 								.indexOf(c.name) < 0)
 							.map((c) => (
 								<div
@@ -153,7 +138,7 @@ export default class PageCompany extends React.Component {
 
 									<TreeTaxonomy
 										companyAssignment={this.state.company.taxonomy_assignment}
-										taxonomy={this.state.taxonomy}
+										taxonomy={this.props.taxonomy}
 										category={c.name}
 									/>
 								</div>

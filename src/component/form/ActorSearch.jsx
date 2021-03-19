@@ -85,7 +85,7 @@ export default class ActorSearch extends React.Component {
 										&& this.props.taxonomy.categories !== undefined
 										? <TreeTaxonomy
 											companyAssignment={[]}
-											taxonomy={this.state.taxonomy}
+											taxonomy={this.props.taxonomy}
 											category={"SERVICE GROUP"}
 										/>
 										: <Loading
