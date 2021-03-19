@@ -3,12 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.6.0",
     "chart.js": "^2.9.4",
     "d3": "^6.5.0",
     "leaflet": "^1.7.1",
     "lodash": "^4.17.21",
-    "moment": "^2.29.1",
     "react": "^16.14.0",
     "react-bootstrap": "^1.5.1",
     "react-chartjs-2": "^2.11.1",
@@ -16,10 +14,8 @@
     "react-d3-tree": "^2.0.1",
     "react-dom": "^16.3.1",
     "react-leaflet": "^3.1.0",
-    "react-moment": "^1.1.1",
     "react-notifications": "^1.6.0",
     "react-particles-js": "^3.4.1",
-    "react-responsive-carousel": "^3.2.12",
     "react-router-dom": "^5.2.0",
     "react-select": "^3.2.0",
     "reactjs-popup": "^2.0.4",
@@ -35,14 +31,9 @@
     "lint-fix": "eslint --fix --ext .js --ext .jsx src"
   },
   "devDependencies": {
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.15.6",
-    "enzyme-to-json": "^3.3.3",
     "eslint": "^7.21.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "identity-obj-proxy": "^3.0.0",
     "react-scripts": "4.0.0",
-    "react-test-renderer": "^16.3.2",
     "source-map-explorer": "^1.6.0"
   },
   "browserslist": {
