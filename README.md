@@ -8,7 +8,7 @@ With the following link: https://nodejs.org/en/download/
 >npm update
 
 # Install the dependencies
->cd ~/project/bo-front
+>cd ~/project/fo-ecosystem
 >npm install
 
 # Run the project
