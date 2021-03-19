@@ -104,7 +104,7 @@ export default class InsideApp extends React.Component {
 							render={(props) => <PageCompany {...props} taxonomy={this.state.taxonomy} />}
 						/>
 						<Route
-							path="/cyberactors"
+							path="/companies"
 							render={(props) => <PageEcosystem {...props} taxonomy={this.state.taxonomy} />}
 						/>
 						<Route

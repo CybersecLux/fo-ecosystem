@@ -63,7 +63,7 @@ export default class Footer extends React.Component {
 									rel="noreferrer"
 									target="_blank"
 									title="About">
-									<Link to="/cyberactors">Cyber actors</Link>
+									<Link to="/companies">Companies</Link>
 								</a>
 							</div>
 							<div>

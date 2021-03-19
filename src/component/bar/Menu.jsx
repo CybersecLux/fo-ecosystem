@@ -30,9 +30,9 @@ export default class Menu extends React.Component {
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="mr-sm-2 ml-auto">
 							<Nav.Link>
-								<Link to="/cyberactors">
-									<div className="Menu-title">Cyber actors</div>
-									<div className="Menu-description">Services and competences</div>
+								<Link to="/companies">
+									<div className="Menu-title">Companies</div>
+									<div className="Menu-description">Solution and/or service providers</div>
 								</Link>
 							</Nav.Link>
 							<Nav.Link>

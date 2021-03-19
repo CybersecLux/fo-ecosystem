@@ -102,7 +102,7 @@ export default class PageEcosystem extends React.Component {
 					<div className="col-md-12">
 						<Breadcrumb>
 							<Breadcrumb.Item><Link to="/">CYBERSECURITY LUXEMBOURG</Link></Breadcrumb.Item>
-							<Breadcrumb.Item><Link to="/cyberactors">CYBER ACTORS</Link></Breadcrumb.Item>
+							<Breadcrumb.Item><Link to="/companies">COMPANIES</Link></Breadcrumb.Item>
 						</Breadcrumb>
 					</div>
 				</div>
