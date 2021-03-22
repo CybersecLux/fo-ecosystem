@@ -8,6 +8,7 @@ import Menu from "./bar/Menu.jsx";
 import Footer from "./bar/Footer.jsx";
 import PageAbout from "./PageAbout.jsx";
 import PageEcosystem from "./PageEcosystem.jsx";
+import PageCompanies from "./PageCompanies.jsx";
 import PageMap from "./PageMap.jsx";
 import PageCompany from "./PageCompany.jsx";
 import PagePublic from "./PagePublic.jsx";
@@ -105,7 +106,7 @@ export default class InsideApp extends React.Component {
 						/>
 						<Route
 							path="/companies"
-							render={(props) => <PageEcosystem {...props} taxonomy={this.state.taxonomy} />}
+							render={(props) => <PageCompanies {...props} taxonomy={this.state.taxonomy} />}
 						/>
 						<Route
 							path="/publicsector"
@@ -118,6 +119,10 @@ export default class InsideApp extends React.Component {
 						<Route
 							path="/about"
 							render={(props) => <PageAbout {...props} />}
+						/>
+						<Route
+							path="/ecosystem"
+							render={(props) => <PageEcosystem {...props} taxonomy={this.state.taxonomy} />}
 						/>
 						<Route
 							path="/map"

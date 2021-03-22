@@ -8,3 +8,7 @@
 	margin: 5px 0px 20px 0px;
 	max-width: 100%;
 }
+
+.PageAbout .breadcrumb {
+	background-color: #CCC !important;
+}

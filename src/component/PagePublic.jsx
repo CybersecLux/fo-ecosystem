@@ -1,5 +1,5 @@
 import React from "react";
-import "./PageEcosystem.css";
+import "./PagePublic.css";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { Link } from "react-router-dom";
 import { NotificationManager as nm } from "react-notifications";

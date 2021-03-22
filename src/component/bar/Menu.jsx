@@ -28,23 +28,36 @@ export default class Menu extends React.Component {
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
-						<Nav className="mr-sm-2 ml-auto">
-							<Nav.Link>
+						<Nav className="Menu-left mr-sm-2 ml-auto">
+							<Nav.Link className="Menu-item-blue">
 								<Link to="/companies">
 									<div className="Menu-title">Companies</div>
-									<div className="Menu-description">Solution and/or service providers</div>
+									<div className="Menu-description">Solution and service providers</div>
 								</Link>
 							</Nav.Link>
-							<Nav.Link>
+							<Nav.Link className="Menu-item-red">
 								<Link to="/publicsector">
 									<div className="Menu-title">Public sector</div>
 									<div className="Menu-description">Authorities and regulators</div>
 								</Link>
 							</Nav.Link>
-							<Nav.Link>
+							<Nav.Link className="Menu-item-black">
 								<Link to="/civilsociety">
 									<div className="Menu-title">Civil society</div>
 									<div className="Menu-description">Collective strengths</div>
+								</Link>
+							</Nav.Link>
+						</Nav>
+						<Nav className="Menu-right mr-sm-2 ml-auto">
+							<Nav.Link eventKey="4.1">
+								<Link to="/ecosystem">
+									<div className={"Menu-image"}>
+										<img src="/img/network.svg" viewBox="0 0 20 20"/>
+									</div>
+									<div className={"Menu-image-text"}>
+										<div className="Menu-title">Ecosystem</div>
+										<div className="Menu-description">Global view</div>
+									</div>
 								</Link>
 							</Nav.Link>
 							<Nav.Link eventKey="4.1">
@@ -54,10 +67,14 @@ export default class Menu extends React.Component {
 									</div>
 									<div className={"Menu-image-text"}>
 										<div className="Menu-title">Map</div>
-										<div className="Menu-description">Interactive view</div>
+										<div className="Menu-description">Geographic view</div>
 									</div>
 								</Link>
 							</Nav.Link>
+						</Nav>
+					</Navbar.Collapse>
+					<Navbar.Collapse id="basic-navbar-nav">
+						<Nav className="Menu-top-right mr-sm-2 ml-auto">
 							<Nav.Link eventKey="4.1">
 								<Link to="/about">
 									<div className="Menu-title">About</div>

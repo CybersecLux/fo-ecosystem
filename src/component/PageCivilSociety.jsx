@@ -60,7 +60,7 @@ export default class PageCivilSociety extends React.Component {
 
 	render() {
 		return (
-			<div className={"PagePublic page max-sized-page"}>
+			<div className={"PageCivilSociety page max-sized-page"}>
 				<div className="row">
 					<div className="col-md-12">
 						<Breadcrumb>

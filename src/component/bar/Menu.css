@@ -5,7 +5,7 @@
 }
 
 .navbar a {
-    color: #000 !important;
+    color: #000;
     text-decoration: none;
 }
 
@@ -43,6 +43,73 @@
 
 .nav-item .dropdown-menu .dropdown-item:hover {
     color: #000;
+}
+
+.Menu-item-blue {
+    background: 
+        linear-gradient( 45deg,transparent 10px,#009fe3 0) left /50.5% 100%,
+        linear-gradient( 225deg,transparent 10px,#009fe3 0) right/50.5% 100%;
+    background-repeat:no-repeat;
+    width: 180px;
+    margin-right: 15px;
+}
+
+.Menu-item-blue:hover {
+    background: #009fe3 !important;
+}
+
+.Menu-item-red {
+    background: 
+        linear-gradient( 45deg,transparent 10px,#e40613 0) left /50.5% 100%,
+        linear-gradient( 225deg,transparent 10px,#e40613 0) right/50.5% 100%;
+    background-repeat:no-repeat;
+    width: 180px;
+    margin-right: 15px;
+}
+
+.Menu-item-red:hover {
+    background: #e40613 !important;
+}
+
+.Menu-item-black {
+    background: 
+        linear-gradient( 45deg,transparent 10px,#000 0) left /50.5% 100%,
+        linear-gradient( 225deg,transparent 10px,#000 0) right/50.5% 100%;
+    background-repeat:no-repeat;
+    width: 180px;
+    margin-right: 15px;
+}
+
+.Menu-item-black:hover {
+    background: #000 !important;
+}
+
+.Menu-item-blue a, .Menu-item-red a, .Menu-item-black a {
+    text-align: center;
+    color: #fff !important;
+}
+
+@media (min-width: 0px) {
+    .Menu-top-right {
+    }
+}
+
+@media (min-width: 992px) {
+    .Menu-top-right {
+        position: absolute;
+        top: 20px;
+        right: 5px;
+    }
+}
+
+.Menu-left {
+    margin-left: 0px !important;
+    margin-right: auto !important;
+}
+
+.Menu-right {
+    margin-left: auto !important;
+    margin-right: 0px !important;
 }
 
 .Menu-logo {
