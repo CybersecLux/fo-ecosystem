@@ -129,7 +129,7 @@ export default class InsideApp extends React.Component {
 							render={(props) => <PageMap {...props} taxonomy={this.state.taxonomy}/>}
 						/>
 
-						<Route path="/" render={(props) => <PageEcosystem {...props} />}/>
+						<Route path="/" render={(props) => <PageCompanies {...props} />}/>
 					</Switch>
 				</div>
 				<Footer/>

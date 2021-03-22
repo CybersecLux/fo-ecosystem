@@ -23,7 +23,7 @@ export default class ActorSearch extends React.Component {
 
 				<div className={"col-md-12"}>
 					<FormLine
-						label={"Actor name"}
+						label={"Company name"}
 						value={this.props.filters.name === undefined
 							? [] : this.props.filters.name}
 						onChange={(v) => this.props.onChange("name", v)}

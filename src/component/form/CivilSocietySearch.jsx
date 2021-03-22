@@ -23,7 +23,7 @@ export default class CivilSocietySearch extends React.Component {
 
 				<div className={"col-md-12"}>
 					<FormLine
-						label={"Company name"}
+						label={"Entity name"}
 						value={this.props.filters.name === undefined
 							? [] : this.props.filters.name}
 						onChange={(v) => this.props.onChange("name", v)}
