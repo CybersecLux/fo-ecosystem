@@ -111,9 +111,9 @@ export default class PageHome extends React.Component {
 					<div className={"PageHome-polygon-blue"}/>
 
 					<div className={"row PageHome-polygon-blue-content"}>
-						<div className="col-md-6"/>
+						<div className="col-md-3 col-lg-5"/>
 
-						<div className="col-md-6">
+						<div className="col-md-9 col-lg-7">
 							<div className={"row"}>
 								<div className="col-md-12 PageHome-title1">
 									Looking for a company or entity in the field of cybersecurity in Luxembourg?
@@ -178,29 +178,35 @@ export default class PageHome extends React.Component {
 					<div className={"PageHome-polygon-red"}/>
 
 					<div className={"row PageHome-polygon-red-content"}>
-						<div className="col-md-6">
+						<div className="col-md-9 col-lg-7">
 							<div className={"row"}>
 								<div className="col-md-12 PageHome-title1">
 									An almost exhaustive range of cybersecurity solutions covering
 									the risk management supply chain
 								</div>
 								<div className="col-md-4">
-									<Analytic
-										value={this.getEcosystemRoleCount("ECOSYSTEM ROLE", "ACTOR")}
-										desc={"Private companies"}
-									/>
+									<Link to="/companies">
+										<Analytic
+											value={this.getEcosystemRoleCount("ECOSYSTEM ROLE", "ACTOR")}
+											desc={"Private companies"}
+										/>
+									</Link>
 								</div>
 								<div className="col-md-4">
-									<Analytic
-										value={this.getEcosystemRoleCount("ENTITY TYPE", "PUBLIC SECTOR")}
-										desc={"Public entities"}
-									/>
+									<Link to="/publicsector">
+										<Analytic
+											value={this.getEcosystemRoleCount("ENTITY TYPE", "PUBLIC SECTOR")}
+											desc={"Public entities"}
+										/>
+									</Link>
 								</div>
 								<div className="col-md-4">
-									<Analytic
-										value={this.getEcosystemRoleCount("ENTITY TYPE", "CIVIL SOCIETY")}
-										desc={"Civil society organisations"}
-									/>
+									<Link to="/civilsociety">
+										<Analytic
+											value={this.getEcosystemRoleCount("ENTITY TYPE", "CIVIL SOCIETY")}
+											desc={"Civil society organisations"}
+										/>
+									</Link>
 								</div>
 								<div className="col-md-12 PageHome-title1">
 									Value chain distribution:

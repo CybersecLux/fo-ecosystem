@@ -1,10 +1,8 @@
 
 .Footer {
-  position: absolute;
   width: 100%;
   background-color: black;
-  bottom: 0;
-  height: 260px;
+  min-height: 260px;
 }
 
 .Footer h3 {
