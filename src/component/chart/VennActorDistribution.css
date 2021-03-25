@@ -39,7 +39,7 @@
 }
 [data-venn-sets="Has cybersecurity as a core business"] { 
 	fill: #fed7da !important; 
-	stroke: black !important;
+	stroke: #e40613 !important;
 	stroke-width: 3px;
 }
 [data-venn-sets="Has cybersecurity as a core business"] text { 

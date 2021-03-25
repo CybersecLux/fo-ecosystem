@@ -1,0 +1,110 @@
+
+.PageHome {
+	margin-top: 50px;
+}
+
+.PageHome-polygon-wrapper-blue, .PageHome-polygon-wrapper-red {
+	position: relative;
+	padding: 10px 20px 0px 20px;
+}
+
+@keyframes polygon-blue-move {
+    from { transform : translate(-6em, 6em) }
+    to   { transform : translateY(0em) }
+}
+
+.PageHome-polygon-blue {
+	animation-name: polygon-blue-move;
+    animation-duration: 1s;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 200vh;
+	height: 200vh;
+	background-image: url("../img/polygon-blue.svg");
+	background-position: right 0px top 0px;
+	background-size: cover;
+}
+
+.PageHome-polygon-blue-content {
+	animation-delay: 3s;
+	animation: fadeIn ease 3s;
+	-webkit-animation: fadeIn ease 3s;
+	-moz-animation: fadeIn ease 3s;
+	-o-animation: fadeIn ease 3s;
+	-ms-animation: fadeIn ease 3s;
+}
+
+@keyframes polygon-red-move {
+    from { transform : translate(6em, 6em) }
+    to   { transform : translateY(0em) }
+}
+
+.PageHome-polygon-red {
+	animation-name: polygon-red-move;
+    animation-duration: 2s;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 200vh;
+	height: 200vh;
+	background-image: url("../img/polygon-red.svg");
+	background-position: left 0px top 0px;
+	background-size: cover;
+}
+
+.PageHome-polygon-red-content {
+	animation: fadeIn ease 4s;
+	-webkit-animation: fadeIn ease 4s;
+	-moz-animation: fadeIn ease 4s;
+	-o-animation: fadeIn ease 4s;
+	-ms-animation: fadeIn ease 4s;
+}
+
+.PageHome-polygon-wrapper-blue .row {
+	min-height: 500px;
+}
+
+.PageHome-polygon-wrapper-red {
+	min-height: 1250px;
+}
+
+.PageHome-polygon-wrapper-red .row {
+	min-height: 500px;
+}
+
+.PageHome .Menu-item-blue, .PageHome .Menu-item-red {
+	margin-bottom: 15px;
+}
+
+.PageHome-menu {
+	width: 220px;
+	padding: 20px;
+	background-color: white;
+	background: linear-gradient(45deg, transparent 10px, #ffffff 0) left /50.5% 100%, 
+		linear-gradient(225deg, transparent 10px, #ffffff 0) right/50.5% 100%;
+	background-repeat:no-repeat;
+}
+
+.PageHome-menu .nav-link {
+	height: 64px;
+}
+
+.PageHome-title1 {
+	font-family: "Fjalla One", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 25px;
+	color: #fff;
+}
+
+.PageHome-title2 {
+	font-size: 22px;
+	color: #fff;
+}
+
+.PageHome .Analytic-value {
+	color: white !important
+}
+
+.PageHome .Analytic-desc {
+	color: #ccc !important
+}

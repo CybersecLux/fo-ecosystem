@@ -2,10 +2,10 @@ import React from "react";
 import "./InsideApp.css";
 import { Route, Switch } from "react-router-dom";
 import { NotificationManager as nm } from "react-notifications";
-import Particles from "react-particles-js";
 import GovBar from "./bar/GovBar.jsx";
 import Menu from "./bar/Menu.jsx";
 import Footer from "./bar/Footer.jsx";
+import PageHome from "./PageHome.jsx";
 import PageAbout from "./PageAbout.jsx";
 import PageEcosystem from "./PageEcosystem.jsx";
 import PageCompanies from "./PageCompanies.jsx";
@@ -46,59 +46,14 @@ export default class InsideApp extends React.Component {
 		return (
 			<div id="InsideApp">
 				<GovBar/>
-				<Menu
-					logged={this.state.logged}
-					email={this.state.email}
+				<Route
+					render={(props) => <Menu
+						logged={this.state.logged}
+						email={this.state.email}
+						{...props}
+					/>}
 				/>
 				<div id="InsideApp-content">
-					<Particles
-						params={{
-							particles: {
-								number: {
-									value: 50,
-								},
-								size: {
-									value: 4,
-								},
-								color: {
-									value: ["#009fe3", "#e40613"],
-								},
-								shape: {
-									type: "images",
-									stroke: {
-										width: 0,
-										color: "black",
-									},
-									images: [
-										{
-											src: "/favicon.ico",
-											width: 1000,
-											height: 1000,
-										},
-									],
-								},
-								move: {
-									enable: true,
-									speed: 0.2,
-								},
-								opacity: {
-									value: 0.1,
-									anim: {
-										enable: false,
-									},
-								},
-								line_linked: {
-									enable: true,
-									distance: 150,
-									color: {
-										value: "#000000",
-									},
-									opacity: 0.1,
-									width: 1,
-								},
-							},
-						}}
-					/>
 					<Switch>
 						<Route
 							path="/company/:id"
@@ -129,7 +84,7 @@ export default class InsideApp extends React.Component {
 							render={(props) => <PageMap {...props} taxonomy={this.state.taxonomy}/>}
 						/>
 
-						<Route path="/" render={(props) => <PageCompanies {...props} />}/>
+						<Route path="/" render={(props) => <PageHome {...props} />}/>
 					</Switch>
 				</div>
 				<Footer/>

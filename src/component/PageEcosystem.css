@@ -7,12 +7,14 @@
 	height: 100%;
 	z-index: 900;
 	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 #PageEcosystem {
 	width: 100%;
 	min-height: 100%;
 	background-color: white;
+
 }
 
 .PageEcosystem-back-button {
@@ -20,6 +22,7 @@
 	position: fixed;
 	bottom: 30px;
 	left: 26px;
+	padding: 0px !important;
 }
 
 #PageEcosystem > div {
@@ -66,12 +69,23 @@
 	width: 100%;
 }
 
-#PageEcosystem .black-bordered {
+#PageEcosystem .blue-bordered {
 	background:
-        linear-gradient(to right, black 1px, transparent 2px) 0 0,
-        linear-gradient(to left, black 1px, transparent 2px) 100% 100%,
-        linear-gradient(to bottom, black 1px, transparent 2px) 0 0,
-        linear-gradient(to top, black 1px, transparent 2px) 100% 100% !important;
+        linear-gradient(to right, #8fddff 2px, transparent 3px) 0 0,
+        linear-gradient(to left, #8fddff 2px, transparent 3px) 100% 100%,
+        linear-gradient(to bottom, #8fddff 2px, transparent 3px) 0 0,
+        linear-gradient(to top, #8fddff 2px, transparent 3px) 100% 100% !important;
+    background-repeat: no-repeat !important;
+    background-size: 80px 80px !important;
+    padding: 20px 20px 80px 20px;
+}
+
+#PageEcosystem .red-bordered {
+	background:
+        linear-gradient(to right, #ffa8b0 2px, transparent 3px) 0 0,
+        linear-gradient(to left, #ffa8b0 2px, transparent 3px) 100% 100%,
+        linear-gradient(to bottom, #ffa8b0 2px, transparent 3px) 0 0,
+        linear-gradient(to top, #ffa8b0 2px, transparent 3px) 100% 100% !important;
     background-repeat: no-repeat !important;
     background-size: 80px 80px !important;
     padding: 20px 20px 80px 20px;
@@ -87,6 +101,10 @@
 
 .PageEcosystem-national-actors h1 {
 	color: #009fe3;
+}
+
+.PageEcosystem-national-actors .PageEcosystem-national-actors-legal {
+	padding: 10px 20px;
 }
 
 /* PageEcosystem-national-strategy */
@@ -126,9 +144,31 @@
 	background-image: -webkit-linear-gradient(-90deg, transparent 0%, transparent 50%, white 50%, white 100%),
                   -webkit-linear-gradient(0deg, rgba(228,6,9,.2) 0%, rgba(228,6,9,.2) 50%, white 50%, white 100%);
 	background-size:.25em .25em;
+	padding-bottom: 120px !important;
 }
 
 .PageEcosystem-companies h1 {
 	color: #e40613 !important;
 	text-align: right;
+}
+
+.PageEcosystem-companies .Analytic-value {
+	color: #e40613 !important;
+}
+
+.PageEcosystem-companies .PageEcosystem-actor-distribution {
+	height: 100%;
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.PageEcosystem-companies .PageEcosystem-actor-distribution .VennActorDistribution {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
 }
