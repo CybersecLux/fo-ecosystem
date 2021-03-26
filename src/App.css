@@ -430,3 +430,30 @@ textarea {
 canvas {
    	background: "#fff" !important;
 }
+
+/* Collapsible */ 
+
+.Collapsible {
+	position: relative;
+	margin: 30px 20px 0px 20px;
+	border-top: solid 1px;
+    border-bottom: solid 1px;
+}
+
+.Collapsible__trigger p {
+	position: relative;
+	padding: 8px 70px 8px 20px;
+	font-style: italic;
+	cursor: pointer;
+	margin-bottom: 0px;
+}
+
+.Collapsible:after {
+    position: absolute;
+    content: "▼";
+    color: grey;
+    font-size: 20px;
+    line-height: 0;
+    top: 22px;
+    right: 30px;
+}

@@ -2,6 +2,7 @@ import React from "react";
 import "./PageAbout.css";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { Link } from "react-router-dom";
+import Collapsible from "react-collapsible";
 
 export default class PageAbout extends React.Component {
 	constructor(props) {
@@ -31,150 +32,144 @@ export default class PageAbout extends React.Component {
 						<h1>A FOREWORD FROM MR FRANZ FAYOT, MINISTER OF THE ECONOMY</h1>
 					</div>
 
-					<div className="col-md-12">
-						{// eslint-disable-next-line
-						}<p><b>A trusted cybersecurity ecosystem for a flourishing digital economy</b></p>
-						{// eslint-disable-next-line
-						}<p>We are on the eve of creating ultra-connected human societies, based increasingly on mobile technologies, the growing use of cloud computing solutions and the continued development of the Internet of Things. While welcoming new opportunities, we also expose ourselves to multiple new risks, with an augmented dependency on the availability and reliability of data.</p>
-						{// eslint-disable-next-line
-						}<p>This phenomenon highlights the increasingly transversal responsibility of policy and decision-makers and the growing importance of businesses and citizens called to take part in shaping tomorrows society. The digital transition requests each of us to grow into a more accountable and informed user of technology.</p>
-						{// eslint-disable-next-line
-						}<p>Europe calls for the creation of sovereign products and services that guarantee these values. Luxembourg, with its IT and cybersecurity ecosystem, is answering this call in multiple ways.</p>
-						{// eslint-disable-next-line
-						}<p>New challenges, requesting innovative cybersecurity services and products lie ahead of us, while we continue to consolidate security in existing networks and systems. Cooperation, national and international, will play an ever-important role.</p>
-						{// eslint-disable-next-line
-						}<p>In order to achieve an inclusive, flourishing and trusted digital economy, the Ministry of the Economy especially promotes best practices among businesses and the implementation of informed governance via a collaborative risk management approach.</p>
-						{// eslint-disable-next-line
-						}<p>I am pleased to endorse the mapping 2020 of the national cybersecurity ecosystem. It is another proof of the success of continuous cooperation taking place at the level of our partners in education and research, the public & private partnerships, the authorities and regulators, and of our local companies & start-ups.</p>
-						{// eslint-disable-next-line
-						}<p>It is their expertise and their commitment, embedded in the national cybersecurity strategy coordinated by the Interministerial coordination committee for cyber prevention and cybersecurity, that creates the fabric of the trusted cybersecurity ecosystem we proud ourselves with in Luxembourg.</p>
-						<p><b>Mr Franz Fayot</b></p>
-						<p><b>Minister of the Economy</b></p>
+					<div className="col-md-6">
+						<img src="/img/franz-fayot-500.jpg" viewBox="0 0 20 20"/>
+					</div>
+
+					<div className="col-md-6">
+						<div className="PageAbout-quote">
+							{// eslint-disable-next-line
+							}<p>In order to achieve an inclusive, flourishing and trusted digital economy, the Ministry of the Economy especially promotes best practices among businesses and the implementation of informed governance via a collaborative risk management approach.</p>
+							<p>- Mr Franz Fayot, Minister of the Economy</p>
+						</div>
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="col-md-2"/>
+					<div className="col-md-8">
+						<Collapsible trigger={<p>Read more</p>}>
+							<div className="row">
+								<div className="col-md-12">
+									{// eslint-disable-next-line
+									}<p>We are on the eve of creating ultra-connected human societies, based increasingly on mobile technologies, the growing use of cloud computing solutions and the continued development of the Internet of Things. While welcoming new opportunities, we also expose ourselves to multiple new risks, with an augmented dependency on the availability and reliability of data.</p>
+									{// eslint-disable-next-line
+									}<p>This phenomenon highlights the increasingly transversal responsibility of policy and decision-makers and the growing importance of businesses and citizens called to take part in shaping tomorrows society. The digital transition requests each of us to grow into a more accountable and informed user of technology.</p>
+									{// eslint-disable-next-line
+									}<p>Europe calls for the creation of sovereign products and services that guarantee these values. Luxembourg, with its IT and cybersecurity ecosystem, is answering this call in multiple ways.</p>
+									{// eslint-disable-next-line
+									}<p>New challenges, requesting innovative cybersecurity services and products lie ahead of us, while we continue to consolidate security in existing networks and systems. Cooperation, national and international, will play an ever-important role.</p>
+									{// eslint-disable-next-line
+									}<p>In order to achieve an inclusive, flourishing and trusted digital economy, the Ministry of the Economy especially promotes best practices among businesses and the implementation of informed governance via a collaborative risk management approach.</p>
+									{// eslint-disable-next-line
+									}<p>I am pleased to endorse the mapping 2020 of the national cybersecurity ecosystem. It is another proof of the success of continuous cooperation taking place at the level of our partners in education and research, the public & private partnerships, the authorities and regulators, and of our local companies & start-ups.</p>
+									{// eslint-disable-next-line
+									}<p>It is their expertise and their commitment, embedded in the national cybersecurity strategy coordinated by the Interministerial coordination committee for cyber prevention and cybersecurity, that creates the fabric of the trusted cybersecurity ecosystem we proud ourselves with in Luxembourg.</p>
+									<p><b>Mr Franz Fayot</b></p>
+									<p><b>Minister of the Economy</b></p>
+								</div>
+							</div>
+						</Collapsible>
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-md-12">
-						<h1>A DEDICATED BRAND AND PLATFORM</h1>
+						{// eslint-disable-next-line
+						}<h1>CYBERSECURITY Luxembourg, a trusted cybersecurity ecosystem for a flourishing digital economy</h1>
 					</div>
 
 					<div className="col-md-12">
 						{// eslint-disable-next-line
-						}<p>Under the high patronage of the Ministry of the Economy, the <b>CYBERSECURITY LUXEMBOURG</b> initiative was launched under Minister Étienne Schneider to foster and enhance public-private cooperation in cybersecurity aligned with and integrated into the national cybersecurity strategy.</p>
+						}<p><b>CYBERSECURITY Luxembourg</b> is an initiative gathering <b>300+ public-private players</b> in the field of cybersecurity with the aim to develop national cooperation, foster innovation and further develop the cybersecurity market in Luxembourg. The initiative is part of the national cybersecurity strategy.</p>
 						{// eslint-disable-next-line
-						}<p><b>CYBERSECURITY LUXEMBOURG</b> is led and driven by key national cybersecurity stakeholders: <b>HCPN</b> and <b>SECURITYMADEIN.LU</b>, and actively supported, by the national agency for innovation and the promotion of Luxembourg’s expertise internationally: <b>Luxinnovation</b>.</p>
+						}<p>Under the High Patronage of the Ministry of the Economy, <b>CYBERSECURITY Luxembourg</b> is led and driven by key national cybersecurity stakeholders that are HCNP, High Commission for National Protection and SECURITYMADEIN.LU, the cybersecurity agency for the Luxembourg economy and municipalities, and actively supported by Luxinnovation, the national agency for innovation and the promotion of Luxembourg’s expertise internationally.</p>
 						{// eslint-disable-next-line
-						}<p>This national brand was created to foster, promote and give common visibility to the cybersecurity ecosystem. It can be used by all members and stakeholders of the cybersecurity ecosystem to promote their events or campaigns, in compliance with the graphic guidelines.</p>
+						}<p>The objective of such an initiative is to federate the Luxembourg cybersecurity ecosystem and promote it through the national brand “<b>CYBERSECURITY Luxembourg</b>”, an integral part of the toolbox intended to enhance the image and structure the promotion of Luxembourg in the field of cybersecurity. Cybersecurity is a key component in the country’s efforts to promote all aspects of the digital transformation and develop its data-driven economy.</p>
 					</div>
 				</div>
 
-				<div className="row row-spaced justify-content-md-center PageAbout-our-teams">
+				<div className="row">
 					<div className="col-md-12">
-						<h1>THE DRIVING SEAT</h1>
+						{// eslint-disable-next-line
+						}<h1>A comprehensive web portal to boost the cybersecurity community</h1>
 					</div>
-					<div className="col-md-3">
-						<h2>HCPN</h2>
-						<div className={"centered"}>
-							<a
-								href="https://hcpn.gouvernement.lu/fr.html"
-								rel="noreferrer"
-								target="_blank"
-								title="About"
-								className="text-capitalize">
-								<img
-									src="img/hcpn-logo.png"
-								/>
-							</a>
-						</div>
-						<div>
-							{// eslint-disable-next-line
-							}<p>As coordinator of the national cybersecurity strategy, HCPN drives the initiative by integrating it into the national cybersecurity strategy.</p>
-						</div>
-						<a
-							href="https://hcpn.gouvernement.lu/fr.html"
-							rel="noreferrer"
-							target="_blank"
-							title="HCPN"
-							className="text-capitalize">
-							Visit website
-						</a>
-					</div>
-					<div className="col-md-3">
-						<h2>LUXINNOVATION</h2>
-						<div className={"centered"}>
-							<a
-								href="https://www.luxinnovation.lu/"
-								rel="noreferrer"
-								target="_blank"
-								title="HCPN"
-								className="text-capitalize">
-								<img
-									src="img/luxinnovation-logo.jpg"
-								/>
-							</a>
-						</div>
-						<div>
-							{// eslint-disable-next-line
-							}<p>Luxinnovation brings into the project its expertise in terms of market intelligence and ecosystem promotion.</p>
-						</div>
-						<a
-							href="https://www.luxinnovation.lu/"
-							rel="noreferrer"
-							target="_blank"
-							title="About"
-							className="text-capitalize">
-							Visit website
-						</a>
-					</div>
-					<div className="col-md-3">
-						<h2>SECURITYMADEIN.LU</h2>
-						<div className={"centered"}>
-							<a
-								href="https://securitymadein.lu/"
-								rel="noreferrer"
-								target="_blank"
-								title="LUXXINOVATION"
-								className="text-capitalize">
-								<img
-									src="img/secin-logo.png"
-								/>
-							</a>
-						</div>
-						<div>
-							{// eslint-disable-next-line
-							}<p>The cybersecurity agency for the Luxembourg economy and municipalities will be in charge of the overall coordination of the initiative.</p>
-						</div>
-						<a
-							className="right-button text-capitalize"
-							href="https://securitymadein.lu/"
-							rel="noreferrer"
-							target="_blank"
-							title="SECURITYMADEIN.LU">
-							Visit website
-						</a>
+
+					<div className="col-md-12">
+						{// eslint-disable-next-line
+						}<p>The release of the interactive <b>CYBERSECURITY Luxembourg</b> ecosystem mapping kicks off this web portal, meant to be a comprehensive, central and neutral information gathering for the cybersecurity community.</p>
+						{// eslint-disable-next-line
+						}<p>The market mapping gathers all 300+ companies providing cybersecurity services and products as well as the public entities in charge of the regulations that apply to the sector and civil society associations active in cybersecurity. Categorised on the basis of the ECSO Cybersecurity Market Radar, the directory provides an almost exhaustive range of cybersecurity solutions that cover the risk management supply, highlighting the existing expertise and knowledge and identifying gaps and opportunities for improvement.</p>
+						{// eslint-disable-next-line
+						}<p>While the first mapping has been introduced in October 2019, there are currently one-quarter of the 300+ companies within the ecosystem that have cybersecurity as core business. Other companies offer services and solutions beyond cybersecurity. Thus, cybersecurity has been integrated as a focus area (i.e. insurance providing dedicated solutions for cybersecurity) among non-IT traditional businesses, which makes it the real strength of the Luxembourg ecosystem. The many start-ups included in the mapping show the great innovation potential existing in the country.</p>
+						{// eslint-disable-next-line
+						}<p>The market mapping will not only promote the national ecosystem among Luxembourg businesses but also at the European level.</p>
 					</div>
 				</div>
 
 				<div className="row row-spaced">
 					<div className="col-md-12">
-						<h1>WHY SHOULD YOU JOIN THE ECOSYSTEM?</h1>
+						{// eslint-disable-next-line
+						}<h1>Join the CYBERSECURITY Luxembourg ecosystem!</h1>
 					</div>
 
 					<div className="col-md-12">
 						{// eslint-disable-next-line
-						}<p>Cybersecurity is key to successfully steering the digital transformation of our economy – and your business. The last 20 years, the Grand-Duchy has invested substantially in and has created a competitive ecosystem for cybersecurity.</p>
-						{// eslint-disable-next-line
-						}<p><b>SECURITYMADEIN.LU</b>, in close collaboration with Luxinnovation, has developed a coordination framework to promote the Luxembourg cybersecurity ecosystem, making sure that, throughout the year, you will obtain the visibility you need and thus be able to optimise business opportunities.</p>
-						{// eslint-disable-next-line
-						}<p>Our online platform will provide information about public and private organisations, their services, activities, news and events. We would be delighted for you to be part of this initiative!</p>
-						{// eslint-disable-next-line
-						}<p>Being part of the ecosystem means you are well informed and your voice can be heard throughout the ecosystem. Do not forget: business is all about making connections, proper cybersecurity is a guarantee for a continuous and sustainable IT business, without which business itself is now inconceivable.</p>
-						{// eslint-disable-next-line
 						}<p><b>Are you a Luxembourg-based company with cybersecurity services?</b></p>
 						{// eslint-disable-next-line
-						}<p><b>Then, you should join the CYBERSECURITY LUXEMBOURG ecosystem and benefit from business and visibility opportunities in the country, and abroad!</b></p>
+						}<p>Feel free to join the CYBERSECURITY Luxembourg ecosystem and benefit from business and visibility opportunities throughout the country, and abroad!</p>
 						{// eslint-disable-next-line
-						}<p><b>You can register HERE</b></p>
+						}<p>Register HERE</p>
+					</div>
+					<div className="col-md-2"/>
+					<div className="col-md-8">
+						{// eslint-disable-next-line
+						}<Collapsible trigger={<p>Read more about the methodology used for the ecosystem mapping</p>}>
+							<div className="row">
+								<div className="col-md-12">
+									{// eslint-disable-next-line
+									}<p>To assess and analyse the companies and organisations that make up the ecosystem, the following criteria are considered:</p>
+									<ul>
+										<li>the company or organisation should have a legal entity in Luxembourg,</li>
+										<li>it should provide at least one cybersecurity service or solution.</li>
+									</ul>
+								</div>
+								<div className="col-md-12">
+									<h3>A 3-step process</h3>
+								</div>
+								<div className="col-md-12">
+									<img
+										src="img/3-step-process.png"
+									/>
+								</div>
+								<div className="col-md-12">
+									{// eslint-disable-next-line
+									}<b>1. Data was gathered using different sources from the Market Intelligence service of Luxinnovation (LXI-Market Intelligence). The used data sources are as follows:</b>
+								</div>
+								<div className="col-md-12">
+									<img
+										src="img/market-intelligence-data.png"
+									/>
+								</div>
+								<div className="col-md-12">
+									{// eslint-disable-next-line
+									}<b>2. Each company was then reviewed and categorised by SECURITYMADEIN.LU based on the ECSO Cybersecurity Market Radar.</b>
+								</div>
+								<div className="col-md-12">
+									<img
+										src="img/cybersecurity-ecso-taxonomy.png"
+									/>
+								</div>
+								<div className="col-md-12">
+									{// eslint-disable-next-line
+									}As part of this step, SECURITYMADEIN.LU identified the members of the ecosystem whose core business is related to cybersecurity and categorised the solutions provided by each member of the ecosystem.
+								</div>
+								<div className="col-md-12">
+									{// eslint-disable-next-line
+									}<b>3. Finally, LXI-Market Intelligence and SECURITYMADEIN.LU analysed the ecosystem.</b>
+								</div>
+							</div>
+						</Collapsible>
 					</div>
 				</div>
 			</div>
