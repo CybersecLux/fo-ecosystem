@@ -43,9 +43,6 @@ h1 {
     font-weight: normal;
     padding: 0px 10px;
     margin: 25px 0px 15px 0px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 h2 {
@@ -55,9 +52,6 @@ h2 {
     font-weight: normal;
     padding: 0px 10px;
     margin: 25px 0px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 h3 {
@@ -67,9 +61,6 @@ h3 {
     font-weight: normal;
     padding: 0px 10px;
     margin: 10px 0px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     font-size: 22px;
 }
 
@@ -79,9 +70,6 @@ h4 {
     font-weight: normal;
     padding: 0px 10px;
     margin: 10px 0px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     font-size: 16px;
 }
 
@@ -333,6 +321,10 @@ textarea {
 	-ms-animation: fadeIn ease .5s;
 }
 
+.Popup-full-size-content h2 {
+	width: calc(100% - 70px);
+}
+
 .Popup-small-size-content {
 	width: 60% !important;
 	max-height: 90% !important;
@@ -448,9 +440,19 @@ canvas {
 	margin-bottom: 0px;
 }
 
-.Collapsible:after {
+.Collapsible .is-closed:after {
     position: absolute;
     content: "▼";
+    color: grey;
+    font-size: 20px;
+    line-height: 0;
+    top: 22px;
+    right: 30px;
+}
+
+.Collapsible .is-open:after {
+    position: absolute;
+    content: "▲";
     color: grey;
     font-size: 20px;
     line-height: 0;

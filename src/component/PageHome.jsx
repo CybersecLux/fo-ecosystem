@@ -1,6 +1,7 @@
 import React from "react";
 import "./PageHome.css";
 import { NotificationManager as nm } from "react-notifications";
+import Popup from "reactjs-popup";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import Analytic from "./box/Analytic.jsx";
@@ -118,9 +119,65 @@ export default class PageHome extends React.Component {
 								<div className="col-md-12 PageHome-title1">
 									Looking for a company or entity in the field of cybersecurity in Luxembourg?
 								</div>
+
 								<div className="col-md-12 PageHome-title2">
 									Search among the <b>300+ players</b> that make up the <b>ecosystem</b>
 								</div>
+
+								<div className={"col-md-12"}>
+									<Popup
+										className={"Popup-full-size"}
+										trigger={
+											<a className={"PageHome-how-to-use"}>
+												How to use the platform?
+											</a>
+										}
+										modal
+										open={this.state.isTaxonomyDetailOpen}
+									>
+										{(close) => (
+											<div className={"row PageHome-how-to-use-content"}>
+												<div className={"col-md-12"}>
+													{// eslint-disable-next-line
+													}<h2>HOW TO NAVIGATE THROUGH THE LUXEMBOURG CYBERSECURITY ECOSYSTEM APP</h2>
+													<div className="top-right-buttons">
+														<button
+															className={"red-background"}
+															onClick={close}>
+															<i className="fas fa-times"/>
+														</button>
+													</div>
+												</div>
+
+												<div className={"col-md-12"}>
+													{// eslint-disable-next-line
+													}<p>The Luxembourg cybersecurity ecosystem mapping has been divided into 3 categories of players:</p>
+													<ul>
+														{// eslint-disable-next-line
+														}<li><b>Private companies</b> that offer services & solutions in the field of cybersecurity,</li>
+														{// eslint-disable-next-line
+														}<li><b>Public entities</b> (authorities and regulators) that are in charge or involved in the application of the regulations applying to the sector,</li>
+														{// eslint-disable-next-line
+														}<li><b>Civil society organisations</b> that bring together collective strengths to address cybersecurity topics.</li>
+													</ul>
+													{// eslint-disable-next-line
+													}<p>The companies’ directory has been categorised upon the <a target="_blank" rel="noreferrer" href="http://www.ecs-org.eu/documents/uploads/ecso-cybersecurity-market-radar-brochure.pdf">ECSO Cybersecurity Market Radar</a>.</p>
+													{// eslint-disable-next-line
+													}<p>The ECSO Cybersecurity Market Radar serves as a comprehensive visualisation tool, marking a significant step forward in ensuring the transparency of the European cybersecurity market and boosting the visibility of its deployment-ready cybersecurity solutions and capabilities.</p>
+													{// eslint-disable-next-line
+													}<p>The Radar presents a market-oriented taxonomy of cybersecurity capabilities, developed by the ECSO working groups, dealing with market analysis, investments, cybersecurity companies and regions. The ECSO Radar indicates 5 capabilities: identify, protect, detect, respond, recover.</p>		
+												</div>
+
+												<div className={"col-md-12"}>
+													<img
+														src="img/cybersecurity-ecso-taxonomy.png"
+													/>
+												</div>
+											</div>
+										)}
+									</Popup>
+								</div>
+
 								<div className="col-md-6 navbar">
 									<div className="PageHome-menu">
 										<Nav.Link className="Menu-item-blue">
