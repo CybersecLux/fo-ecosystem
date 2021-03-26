@@ -208,8 +208,8 @@ export default class PageHome extends React.Component {
 										/>
 									</Link>
 								</div>
-								<div className="col-md-12 PageHome-title1">
-									Value chain distribution:
+								<div className="col-md-12 PageHome-title2">
+									Value chain distribution of the ecosystem
 								</div>
 								{this.getValueChainDistribution() !== null
 									&& <BarValueChainDistribution
