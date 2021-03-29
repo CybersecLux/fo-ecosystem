@@ -83,9 +83,9 @@ export default class PageAbout extends React.Component {
 						{// eslint-disable-next-line
 						}<p><b>CYBERSECURITY Luxembourg</b> is an initiative gathering <b>300+ public-private players</b> in the field of cybersecurity with the aim to develop national cooperation, foster innovation and further develop the cybersecurity market in Luxembourg. The initiative is part of the national cybersecurity strategy.</p>
 						{// eslint-disable-next-line
-						}<p>Under the High Patronage of the Ministry of the Economy, <b>CYBERSECURITY Luxembourg</b> is led and driven by key national cybersecurity stakeholders that are HCNP, High Commission for National Protection and SECURITYMADEIN.LU, the cybersecurity agency for the Luxembourg economy and municipalities, and actively supported by Luxinnovation, the national agency for innovation and the promotion of Luxembourg’s expertise internationally.</p>
+						}<p>Under the High Patronage of the <a target="_blank" rel="noreferrer" href="https://meco.gouvernement.lu/en.html">Ministry of the Economy</a>, <b>CYBERSECURITY Luxembourg</b> is led and driven by key national cybersecurity stakeholders that are <a target="_blank" rel="noreferrer" href="https://hcpn.gouvernement.lu/fr.html">HCNP</a>, High Commission for National Protection and <a target="_blank" rel="noreferrer" href="https://securitymadein.lu/">SECURITYMADEIN.LU</a>, the cybersecurity agency for the Luxembourg economy and municipalities, and actively supported by <a target="_blank" rel="noreferrer" href="https://www.luxinnovation.lu/">Luxinnovation</a>, the national agency for innovation and the promotion of Luxembourg’s expertise internationally.</p>
 						{// eslint-disable-next-line
-						}<p>The objective of such an initiative is to federate the Luxembourg cybersecurity ecosystem and promote it through the national brand “<b>CYBERSECURITY Luxembourg</b>”, an integral part of the toolbox intended to enhance the image and structure the promotion of Luxembourg in the field of cybersecurity. Cybersecurity is a key component in the country’s efforts to promote all aspects of the digital transformation and develop its data-driven economy.</p>
+						}<p>The objective of such an initiative is to federate the Luxembourg cybersecurity ecosystem and promote it through the national brand “<b>CYBERSECURITY Luxembourg</b>”, an integral part of the <a target="_blank" rel="noreferrer" href="https://luxembourg.public.lu/en/toolbox.html">toolbox</a> intended to enhance the image and structure the promotion of Luxembourg in the field of cybersecurity. Cybersecurity is a key component in the country’s efforts to promote all aspects of the digital transformation and develop its data-driven economy.</p>
 					</div>
 				</div>
 
@@ -99,11 +99,11 @@ export default class PageAbout extends React.Component {
 						{// eslint-disable-next-line
 						}<p>The release of the interactive <b>CYBERSECURITY Luxembourg</b> ecosystem mapping kicks off this web portal, meant to be a comprehensive, central and neutral information gathering for the cybersecurity community.</p>
 						{// eslint-disable-next-line
-						}<p>The market mapping gathers all 300+ companies providing cybersecurity services and products as well as the public entities in charge of the regulations that apply to the sector and civil society associations active in cybersecurity. Categorised on the basis of the ECSO Cybersecurity Market Radar, the directory provides an almost exhaustive range of cybersecurity solutions that cover the risk management supply, highlighting the existing expertise and knowledge and identifying gaps and opportunities for improvement.</p>
+						}<p>The market mapping gathers all 300+ companies providing cybersecurity services and products as well as the public entities in charge of the regulations that apply to the sector and civil society associations active in cybersecurity. Categorised on the basis of the <a target="_blank" rel="noreferrer" href="http://www.ecs-org.eu/documents/uploads/ecso-cybersecurity-market-radar-brochure.pdf">ECSO Cybersecurity Market Radar</a>, the directory provides an almost exhaustive range of cybersecurity solutions that cover the risk management supply, highlighting the existing expertise and knowledge and identifying gaps and opportunities for improvement.</p>
 						{// eslint-disable-next-line
 						}<p>While the first mapping has been introduced in October 2019, there are currently one-quarter of the 300+ companies within the ecosystem that have cybersecurity as core business. Other companies offer services and solutions beyond cybersecurity. Thus, cybersecurity has been integrated as a focus area (i.e. insurance providing dedicated solutions for cybersecurity) among non-IT traditional businesses, which makes it the real strength of the Luxembourg ecosystem. The many start-ups included in the mapping show the great innovation potential existing in the country.</p>
 						{// eslint-disable-next-line
-						}<p>The market mapping will not only promote the national ecosystem among Luxembourg businesses but also at the European level.</p>
+						}<p>The market mapping will not only promote the national ecosystem among Luxembourg businesses but also at the <a target="_blank" rel="noreferrer" href="https://tools.bdi.fr/annu_craft/cybersecurity.html">European level</a>.</p>
 					</div>
 				</div>
 
@@ -153,7 +153,7 @@ export default class PageAbout extends React.Component {
 								</div>
 								<div className="col-md-12">
 									{// eslint-disable-next-line
-									}<b>2. Each company was then reviewed and categorised by SECURITYMADEIN.LU based on the ECSO Cybersecurity Market Radar.</b>
+									}<b>2. Each company was then reviewed and categorised by SECURITYMADEIN.LU based on the <a target="_blank" rel="noreferrer" href="http://www.ecs-org.eu/documents/uploads/ecso-cybersecurity-market-radar-brochure.pdf">ECSO Cybersecurity Market Radar</a>.</b>
 								</div>
 								<div className="col-md-12">
 									<img
