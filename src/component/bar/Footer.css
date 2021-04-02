@@ -5,6 +5,7 @@
   color: white;
   font-size: 12px;
   line-height: 1.2;
+  z-index: 150;
 }
 
 .Footer .Footer-patronage {

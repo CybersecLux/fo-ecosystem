@@ -225,12 +225,14 @@ export default class PageEcosystem extends React.Component {
 
 		return this.state.publicSector
 			.filter((p) => [
-				"High Commission for National Protection",
+				"Haut-Commissariat à la Protection Nationale",
 				"Directorate of Defence",
 				"State Intelligence Service",
 				"Ministry of the Economy",
 				"Institut Luxembourgeois de Régulation",
 				"Centre des Technologies de l'Information de l'Etat",
+				"Departement of Media, Telecommunications and Digital Policy",
+				"Ministry of Foreign and European Affairs",
 			].indexOf(p.name) >= 0);
 	}
 

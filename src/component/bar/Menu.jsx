@@ -79,6 +79,20 @@ export default class Menu extends React.Component {
 									</div>
 								</Link>
 							</Nav.Link>
+							{!this.props.logged || this.props.email === null
+								? <Nav.Link>
+									<Link to="/login">
+										<div className="Menu-title">Login</div>
+										<div className="Menu-description">Or register</div>
+									</Link>
+								</Nav.Link>
+								:							<Nav.Link>
+									<Link to="/privatespace">
+										<div className="Menu-title">My space</div>
+										<div className="Menu-description">as {this.props.email.split("@")[0]}</div>
+									</Link>
+								</Nav.Link>
+							}
 						</Nav>
 					</Navbar.Collapse>}
 					<Navbar.Collapse id="basic-navbar-nav">
