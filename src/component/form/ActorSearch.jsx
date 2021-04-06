@@ -4,6 +4,7 @@ import Popup from "reactjs-popup";
 import FormLine from "./FormLine.jsx";
 import Loading from "../box/Loading.jsx";
 import TreeTaxonomy from "../chart/TreeTaxonomy.jsx";
+import getLeavesOfNode from "../../utils/taxonomy.jsx";
 
 export default class ActorSearch extends React.Component {
 	constructor(props) {
@@ -12,6 +13,30 @@ export default class ActorSearch extends React.Component {
 		this.state = {
 			isTaxonomyDetailOpen: false,
 		};
+	}
+
+	getTaxonomySelectOptions() {
+		const options = [];
+		const solutionCategories = this.props.analytics.taxonomy_values
+			.filter((v) => v.category === "VALUE CHAIN");
+
+		for (let i = 0; i < solutionCategories.length; i++) {
+			options.push({
+				label: solutionCategories[i].category + " - " + solutionCategories[i].name,
+				value: solutionCategories[i].id,
+				color: "#000000",
+			});
+
+			getLeavesOfNode(this.props.analytics, [solutionCategories[i]]).forEach((l) => {
+				options.push({
+					label: l.category + " - " + l.name,
+					value: l.id,
+					color: "#AAAAAA",
+				});
+			});
+		}
+
+		return options;
 	}
 
 	render() {
@@ -30,17 +55,13 @@ export default class ActorSearch extends React.Component {
 					<FormLine
 						label={"Classification"}
 						type={"multiselect"}
-						value={this.props.filters.taxonomy_values === undefined || this.props.taxonomy === null
+						value={this.props.filters.taxonomy_values === undefined || this.props.analytics === null
 							? [] : this.props.filters.taxonomy_values}
-						options={this.props.taxonomy !== null && this.props.taxonomy !== undefined
-							&& this.props.taxonomy.values !== undefined
-							? this.props.taxonomy.values
-								.filter((v) => ["SOLUTION CATEGORY", "VALUE CHAIN", "SERVICE GROUP"]
-									.indexOf(v.category) >= 0)
-								.map((v) => ({ label: v.category + " - " + v.name, value: v.id }))
+						options={this.props.analytics !== null
+							&& this.props.analytics.taxonomy_values !== undefined
+							? this.getTaxonomySelectOptions()
 							: []}
 						onChange={(v) => this.props.onChange("taxonomy_values", v)}
-						disabled={this.state.tags === null}
 					/>
 				</div>
 

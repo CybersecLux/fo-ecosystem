@@ -28,14 +28,14 @@ export default class CivilSocietySearch extends React.Component {
 
 				<div className={"col-md-12"}>
 					<FormLine
-						label={"Classification"}
+						label={"Industry vertical"}
 						type={"multiselect"}
 						value={this.props.filters.taxonomy_values === undefined || this.props.taxonomy === null
 							? [] : this.props.filters.taxonomy_values}
 						options={this.props.taxonomy !== null && this.props.taxonomy !== undefined
 							&& this.props.taxonomy.values !== undefined
 							? this.props.taxonomy.values
-								.filter((v) => ["SOLUTION CATEGORY", "VALUE CHAIN", "SERVICE GROUP"]
+								.filter((v) => ["INDUSTRY VERTICAL"]
 									.indexOf(v.category) >= 0)
 								.map((v) => ({ label: v.category + " - " + v.name, value: v.id }))
 							: []}

@@ -43,7 +43,7 @@ export default class PagePrivateSector extends React.Component {
 	}
 
 	getCompanies() {
-		getRequest.call(this, "public/get_public_companies?ecosystem_role=ACTOR&entity_type=PRIVATE SECTOR"
+		getRequest.call(this, "public/get_public_companies?ecosystem_role=ACTOR&entity_type=PRIVATE%20SECTOR&"
 			+ dictToURI(this.state.filters), (data) => {
 			this.setState({
 				actors: data,
@@ -115,7 +115,7 @@ export default class PagePrivateSector extends React.Component {
 				</div>
 
 				<ActorSearch
-					taxonomy={this.props.taxonomy}
+					analytics={this.state.analytics}
 					filters={this.state.filters}
 					onChange={this.modifyFilters}
 					onSearch={this.onSearch}
@@ -123,7 +123,7 @@ export default class PagePrivateSector extends React.Component {
 
 				<div className="row">
 					<div className="col-md-12">
-						<h1>{this.state.actors !== null ? this.state.actors.length + " " : ""}actors</h1>
+						<h1>{this.state.actors !== null ? this.state.actors.length + " " : ""}companies</h1>
 					</div>
 				</div>
 

@@ -675,7 +675,7 @@ export default class PageDashboard extends React.Component {
 							className={"blue-background"}
 							onClick={this.props.history.goBack}
 						>
-							<i className="fas fa-arrow-circle-left"/> Go back to the app
+							<i className="fas fa-arrow-circle-left"/> Go back
 						</button>
 					</div>
 				</div>

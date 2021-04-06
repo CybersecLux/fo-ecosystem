@@ -19,6 +19,10 @@ function getSelectStyle() {
 			...base,
 			color: "inherit !important",
 		}),
+		option: (styles, { data }) => ({
+			...styles,
+			color: "color" in data ? data.color : "#000000",
+		}),
 	};
 }
 

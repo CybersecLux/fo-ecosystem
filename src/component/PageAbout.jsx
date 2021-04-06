@@ -35,12 +35,18 @@ export default class PageAbout extends React.Component {
 				</div>
 
 				<div className="row">
-					<div className="col-md-12">
+					<div className="col-md-2"/>
+					<div className="col-md-8">
 						<div className="PageAbout-quote">
 							{// eslint-disable-next-line
 							}<p>In order to achieve an inclusive, flourishing and trusted digital economy, the Ministry of the Economy especially promotes best practices among businesses and the implementation of informed governance via a collaborative risk management approach.</p>
 							<p>- Mr Franz Fayot, Minister of the Economy</p>
 						</div>
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="col-md-12">
 						<img className="PageAbout-pm-picture" src="/img/franz-fayot-500.jpg" align="left"/>
 						{// eslint-disable-next-line
 						}<p>We are on the eve of creating ultra-connected human societies, based increasingly on mobile technologies, the growing use of cloud computing solutions and the continued development of the Internet of Things. While welcoming new opportunities, we also expose ourselves to multiple new risks, with an augmented dependency on the availability and reliability of data.</p>
