@@ -25,6 +25,11 @@
     margin-bottom: 20px;
 }
 
+.navbar-toggler {
+    display: block;
+    margin: 0.2em auto;
+}
+
 .nav-link {
 }
 

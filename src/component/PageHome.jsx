@@ -6,7 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import Analytic from "./box/Analytic.jsx";
 import { getRequest } from "../utils/request.jsx";
-import BarValueChainDistribution from "./chart/BarValueChainDistribution.jsx";
+import Radar from "./chart/Radar.jsx";
 
 export default class PageHome extends React.Component {
 	constructor(props) {
@@ -75,7 +75,10 @@ export default class PageHome extends React.Component {
 				.filter((a) => leaves.indexOf(a.taxonomy_value) >= 0)
 				.map((a) => a.company);
 			concernedCompanies = [...new Set(concernedCompanies)];
-			distribution[values[i].name] = concernedCompanies.length;
+			distribution[values[i].name] = {
+				valueId: values[i].id,
+				amount: concernedCompanies.length,
+			};
 		}
 
 		return distribution;
@@ -181,8 +184,8 @@ export default class PageHome extends React.Component {
 								<div className="col-md-6 navbar">
 									<div className="PageHome-menu">
 										<Nav.Link className="Menu-item-blue">
-											<Link to="/companies">
-												<div className="Menu-title">Companies</div>
+											<Link to="/privatesector">
+												<div className="Menu-title">Private sector</div>
 												<div className="Menu-description">Solution and service providers</div>
 											</Link>
 										</Nav.Link>
@@ -203,12 +206,12 @@ export default class PageHome extends React.Component {
 								<div className="col-md-6 navbar">
 									<div className="PageHome-menu">
 										<Nav.Link>
-											<Link to="/ecosystem">
+											<Link to="/dashboard">
 												<div className={"Menu-image"}>
 													<img src="/img/network.svg" viewBox="0 0 20 20"/>
 												</div>
 												<div className={"Menu-image-text"}>
-													<div className="Menu-title">Ecosystem</div>
+													<div className="Menu-title">Dashboard</div>
 													<div className="Menu-description">Global view</div>
 												</div>
 											</Link>
@@ -242,7 +245,7 @@ export default class PageHome extends React.Component {
 									the risk management supply chain
 								</div>
 								<div className="col-md-4">
-									<Link to="/companies">
+									<Link to="/privatesector">
 										<Analytic
 											value={this.getEcosystemRoleCount("ECOSYSTEM ROLE", "ACTOR")}
 											desc={"Private companies"}
@@ -266,12 +269,15 @@ export default class PageHome extends React.Component {
 									</Link>
 								</div>
 								<div className="col-md-12 PageHome-title2">
-									Value chain distribution of the ecosystem
+									Classification of the private sector
 								</div>
-								{this.getValueChainDistribution() !== null
-									&& <BarValueChainDistribution
-										data={this.getValueChainDistribution()}
-									/>}
+								<div className="col-md-1"/>
+								<div className="col-md-11">
+									{this.getValueChainDistribution() !== null
+										&& <Radar
+											data={this.getValueChainDistribution()}
+										/>}
+								</div>
 							</div>
 						</div>
 					</div>

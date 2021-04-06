@@ -1,5 +1,5 @@
 import React from "react";
-import "./PageCompanies.css";
+import "./PagePrivateSector.css";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { Link } from "react-router-dom";
 import { NotificationManager as nm } from "react-notifications";
@@ -15,7 +15,7 @@ import BarActorAge from "./chart/BarActorAge.jsx";
 import { getUrlParameter, dictToURI } from "../utils/url.jsx";
 import VennActorDistribution from "./chart/VennActorDistribution.jsx";
 
-export default class PageCompanies extends React.Component {
+export default class PagePrivateSector extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -97,12 +97,12 @@ export default class PageCompanies extends React.Component {
 
 	render() {
 		return (
-			<div className={"PageCompanies page max-sized-page"}>
+			<div className={"PagePrivateSector page max-sized-page"}>
 				<div className="row">
 					<div className="col-md-12">
 						<Breadcrumb>
 							<Breadcrumb.Item><Link to="/">CYBERSECURITY LUXEMBOURG</Link></Breadcrumb.Item>
-							<Breadcrumb.Item><Link to="/companies">COMPANIES</Link></Breadcrumb.Item>
+							<Breadcrumb.Item><Link to="/privatesector">PRIVATE SECTOR</Link></Breadcrumb.Item>
 						</Breadcrumb>
 					</div>
 				</div>

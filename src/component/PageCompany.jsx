@@ -47,7 +47,7 @@ export default class PageCompany extends React.Component {
 					<div className="col-md-12">
 						<Breadcrumb>
 							<Breadcrumb.Item><Link to="/">CYBERSECURITY LUXEMBOURG</Link></Breadcrumb.Item>
-							<Breadcrumb.Item><Link to="/companies">COMPANY</Link></Breadcrumb.Item>
+							<Breadcrumb.Item><Link to="/">COMPANY</Link></Breadcrumb.Item>
 							{this.state.company !== null && !this.state.loading
 								? <Breadcrumb.Item>
 									<Link to={"/company/" + this.state.company.id}>{this.state.company.name}</Link>

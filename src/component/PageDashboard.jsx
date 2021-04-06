@@ -1,5 +1,5 @@
 import React from "react";
-import "./PageEcosystem.css";
+import "./PageDashboard.css";
 import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../utils/request.jsx";
 import Loading from "./box/Loading.jsx";
@@ -11,7 +11,7 @@ import BarVertical from "./chart/BarVertical.jsx";
 import DoughnutSimple from "./chart/DoughnutSimple.jsx";
 import { getPastDate } from "../utils/date.jsx";
 
-export default class PageEcosystem extends React.Component {
+export default class PageDashboard extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -370,9 +370,9 @@ export default class PageEcosystem extends React.Component {
 
 	render() {
 		return (
-			<div id={"PageEcosystem-wrapper"}>
-				<div id={"PageEcosystem"}>
-					<div className={"row PageEcosystem-national-actors"}>
+			<div id={"PageDashboard-wrapper"}>
+				<div id={"PageDashboard"}>
+					<div className={"row PageDashboard-national-actors"}>
 						<div className={"col-md-12"}>
 							<h1><i className="fas fa-landmark"/> National actors</h1>
 						</div>
@@ -448,7 +448,7 @@ export default class PageEcosystem extends React.Component {
 						<div className={"col-md-6"}>
 							<h2><i className="fas fa-balance-scale"/> Specific legal framworks</h2>
 
-							<div className={"row PageEcosystem-national-actors-legal"}>
+							<div className={"row PageDashboard-national-actors-legal"}>
 								{this.getLegalFrameworks() !== null && this.getLegalFrameworks().length > 0
 								&& this.getLegalFrameworks().map((f, i) => <div className={"col-md-12"} key={f.id}>
 									<h4>
@@ -478,8 +478,8 @@ export default class PageEcosystem extends React.Component {
 						</div>
 					</div>
 
-					<div className={"row PageEcosystem-national-strategy"}>
-						<div className={"col-md-6 col-lg-4 PageEcosystem-national-strategy-serving"}>
+					<div className={"row PageDashboard-national-strategy"}>
+						<div className={"col-md-6 col-lg-4 PageDashboard-national-strategy-serving"}>
 							<h2>Serving the public sector</h2>
 
 							<Loading
@@ -493,7 +493,7 @@ export default class PageEcosystem extends React.Component {
 							<div className={"row"}>
 								{this.getInterMinisterialCommitee() !== null
 									? this.getInterMinisterialCommitee().map((m) => <div
-										className={"col-sm-6 col-md-3 col-lg-2 PageEcosystem-national-strategy-actor"}
+										className={"col-sm-6 col-md-3 col-lg-2 PageDashboard-national-strategy-actor"}
 										key={m.id}>
 										<h3>{m.name}</h3>
 									</div>)
@@ -505,7 +505,7 @@ export default class PageEcosystem extends React.Component {
 						</div>
 
 						<div className={"col-md-6 col-lg-8"}/>
-						<div className={"col-md-6 col-lg-4 PageEcosystem-national-strategy-serving"}>
+						<div className={"col-md-6 col-lg-4 PageDashboard-national-strategy-serving"}>
 							<h2>Serving the private sector</h2>
 
 							<div className={"row"}>
@@ -537,7 +537,7 @@ export default class PageEcosystem extends React.Component {
 						</div>
 					</div>
 
-					<div className={"row PageEcosystem-companies"}>
+					<div className={"row PageDashboard-companies"}>
 						<div className={"col-md-12"}>
 							<h1>Companies <i className="fas fa-city"/></h1>
 						</div>
@@ -580,7 +580,7 @@ export default class PageEcosystem extends React.Component {
 						</div>
 
 						<div className={"col-md-6 col-xl-6"}>
-							<div className={"PageEcosystem-actor-distribution"}>
+							<div className={"PageDashboard-actor-distribution"}>
 								<VennActorDistribution
 									actors={this.state.actors !== null ? this.state.actors : []}
 								/>
@@ -670,7 +670,7 @@ export default class PageEcosystem extends React.Component {
 						</div>
 					</div>
 
-					<div className={"PageEcosystem-back-button"}>
+					<div className={"PageDashboard-back-button"}>
 						<button
 							className={"blue-background"}
 							onClick={this.props.history.goBack}

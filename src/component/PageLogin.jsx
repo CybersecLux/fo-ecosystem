@@ -17,6 +17,7 @@ export default class PageLogin extends React.Component {
 		this.requestReset = this.requestReset.bind(this);
 		this.resetPassword = this.resetPassword.bind(this);
 		this.onKeyDown = this.onKeyDown.bind(this);
+		this.createAccount = this.createAccount.bind(this);
 
 		this.state = {
 			email: null,

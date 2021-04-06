@@ -1,6 +1,5 @@
 
 .PageHome {
-	margin-top: 50px;
 }
 
 .PageHome-polygon-wrapper-blue, .PageHome-polygon-wrapper-red {
@@ -9,7 +8,7 @@
 }
 
 .PageHome-polygon-wrapper-red {
-	min-height: 1800px !important;
+	min-height: 1300px !important;
 }
 
 @keyframes polygon-blue-move {
@@ -27,6 +26,7 @@
 	height: 200vh;
 	min-width: 1800px;
 	min-height: 1800px;
+	max-height: 1800px;
 	background-image: url("../img/polygon-blue.svg");
 	background-position: right 0px top 0px;
 	background-size: cover;
@@ -55,7 +55,8 @@
 	width: 200vh;
 	height: 200vh;
 	min-width: 1800px;
-	min-height: 1800px;
+	min-height: 1300px;
+	max-height: 1300px;
 	background-image: url("../img/polygon-red.svg");
 	background-position: left 0px top 0px;
 	background-size: cover;
@@ -109,13 +110,30 @@
 	color: #fff;
 }
 
+.PageHome-polygon-red-content a {
+	text-decoration: none !important;
+}
+
+.PageHome .Analytic:hover {
+	background-color: white;
+}
+
 .PageHome .Analytic-value {
-	color: white !important
+	color: white;
 }
 
 .PageHome .Analytic-desc {
-	color: #ccc !important
+	color: #ccc;
 }
+
+.PageHome .Analytic:hover .Analytic-value {
+	color: black;
+}
+
+.PageHome .Analytic:hover .Analytic-desc {
+	color: black;
+}
+
 
 .PageHome .PageHome-how-to-use {
 	cursor: pointer;
@@ -128,3 +146,4 @@
   	margin-right: auto;
 	max-width: 100%;
 }
+

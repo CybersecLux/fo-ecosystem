@@ -38,8 +38,8 @@ export default class Menu extends React.Component {
 								</Link>
 							</Nav.Link>
 							<Nav.Link className="Menu-item-blue">
-								<Link to="/companies">
-									<div className="Menu-title">Companies</div>
+								<Link to="/privatesector">
+									<div className="Menu-title">Private sector</div>
 									<div className="Menu-description">Solution and service providers</div>
 								</Link>
 							</Nav.Link>
@@ -58,12 +58,12 @@ export default class Menu extends React.Component {
 						</Nav>
 						<Nav className="Menu-right mr-sm-2 ml-auto">
 							<Nav.Link eventKey="4.1">
-								<Link to="/ecosystem">
+								<Link to="/dashboard">
 									<div className={"Menu-image"}>
 										<img src="/img/network.svg" viewBox="0 0 20 20"/>
 									</div>
 									<div className={"Menu-image-text"}>
-										<div className="Menu-title">Ecosystem</div>
+										<div className="Menu-title">Dashboard</div>
 										<div className="Menu-description">Global view</div>
 									</div>
 								</Link>
@@ -86,7 +86,7 @@ export default class Menu extends React.Component {
 										<div className="Menu-description">Or register</div>
 									</Link>
 								</Nav.Link>
-								:							<Nav.Link>
+								: <Nav.Link>
 									<Link to="/privatespace">
 										<div className="Menu-title">My space</div>
 										<div className="Menu-description">as {this.props.email.split("@")[0]}</div>
