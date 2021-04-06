@@ -18,10 +18,6 @@ export default class CivilSocietySearch extends React.Component {
 		return (
 			<div className={"CivilSocietySearch row"}>
 				<div className={"col-md-12"}>
-					<h1>Filter</h1>
-				</div>
-
-				<div className={"col-md-12"}>
 					<FormLine
 						label={"Entity name"}
 						value={this.props.filters.name === undefined

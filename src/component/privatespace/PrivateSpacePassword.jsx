@@ -45,7 +45,7 @@ export default class PrivateSpacePassword extends React.Component {
 			<div className="PrivateSpacePassword">
 				<div className={"row row-spaced"}>
 					<div className="col-md-12">
-						<h2>Change password</h2>
+						<h1>Change password</h1>
 					</div>
 
 					{this.props.id !== null

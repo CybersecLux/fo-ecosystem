@@ -41,7 +41,7 @@ export default class PagePrivateSpace extends React.Component {
 
 	render() {
 		return (
-			<div className={"page max-sized-page"}>
+			<div className={"PagePrivateSpace page max-sized-page"}>
 				<div className="row">
 					<div className="col-md-12">
 						<Breadcrumb>

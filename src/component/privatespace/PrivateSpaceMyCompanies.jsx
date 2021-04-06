@@ -160,7 +160,7 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 			<div className="PrivateSpaceMyCompanies">
 				<div className={"row row-spaced"}>
 					<div className="col-md-12">
-						<h2>My companies</h2>
+						<h1>My companies</h1>
 					</div>
 
 					{this.state.companies !== null && this.state.companies.length > 0
@@ -172,7 +172,7 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 								<Collapsible
 									trigger={<div className={"PrivateSpaceMyCompanies-show-detail"}>Show details</div>}
 								>
-									<h3>Global information</h3>
+									<h2>Global information</h2>
 									<FormLine
 										label={this.state.fields.name}
 										value={c.name}
@@ -231,7 +231,7 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 										if (a.company_id === c.id) {
 											return (
 												<div key={a.company_id}>
-													<h3>Address</h3>
+													<h2>Address</h2>
 													<Address
 														info={a}
 														onChange={(f, v) => this.updateAddresses(y, f, v)}
@@ -290,7 +290,7 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 
 				<div className={"row row-spaced"}>
 					<div className="col-md-12">
-						<h2>Claim access to a company already in our database</h2>
+						<h1>Claim access to a company already in our database</h1>
 					</div>
 
 					<div className="col-md-12">

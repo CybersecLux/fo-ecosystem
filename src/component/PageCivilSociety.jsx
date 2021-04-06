@@ -10,6 +10,7 @@ import Company from "./item/Company.jsx";
 import SimpleTable from "./table/SimpleTable.jsx";
 import CivilSocietySearch from "./form/CivilSocietySearch.jsx";
 import { getUrlParameter, dictToURI } from "../utils/url.jsx";
+import ButtonRegister from "./form/ButtonRegister.jsx";
 
 export default class PageCivilSociety extends React.Component {
 	constructor(props) {
@@ -67,6 +68,12 @@ export default class PageCivilSociety extends React.Component {
 							<Breadcrumb.Item><Link to="/">CYBERSECURITY LUXEMBOURG</Link></Breadcrumb.Item>
 							<Breadcrumb.Item><Link to="/civilsociety">CIVIL SOCIETY</Link></Breadcrumb.Item>
 						</Breadcrumb>
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="col-md-12 right-buttons">
+						<ButtonRegister/>
 					</div>
 				</div>
 

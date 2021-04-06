@@ -1,9 +1,9 @@
 import React from "react";
-import "./Radar.css";
+import "./RadarClickableTaxonomy.css";
 import { Radar } from "react-chartjs-2";
 import { withRouter } from "react-router-dom";
 
-class RadarClickable extends React.Component {
+class RadarClickableTaxonomy extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -18,7 +18,7 @@ class RadarClickable extends React.Component {
 
 		return (
 			<div
-				className="RadarClickable"
+				className="RadarClickableTaxonomy"
 				style={{ minHeight: this.props.minHeight === undefined ? 400 : this.props.minHeight }}>
 				<Radar
 					ref={this.chartRef}
@@ -52,7 +52,7 @@ class RadarClickable extends React.Component {
 								color: "rgba(255, 255, 255, 0.5)",
 							},
 							pointLabels: {
-								fontColor: "rgba(255, 255, 255, 1)",
+								fontColor: "#ccc",
 								fontSize: this.props.fontSize === undefined ? 18 : this.props.fontSize,
 							},
 						},
@@ -83,4 +83,4 @@ class RadarClickable extends React.Component {
 	}
 }
 
-export default withRouter(RadarClickable);
+export default withRouter(RadarClickableTaxonomy);

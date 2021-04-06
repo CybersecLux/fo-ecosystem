@@ -15,10 +15,6 @@ export default class PublicSectorSearch extends React.Component {
 		return (
 			<div className={"PublicSectorSearch row"}>
 				<div className={"col-md-12"}>
-					<h1>Filter</h1>
-				</div>
-
-				<div className={"col-md-12"}>
 					<FormLine
 						label={"Entity name"}
 						value={this.props.filters.name === undefined

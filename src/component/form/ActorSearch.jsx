@@ -18,10 +18,6 @@ export default class ActorSearch extends React.Component {
 		return (
 			<div className={"ActorSearch row"}>
 				<div className={"col-md-12"}>
-					<h1>Filter</h1>
-				</div>
-
-				<div className={"col-md-12"}>
 					<FormLine
 						label={"Company name"}
 						value={this.props.filters.name === undefined

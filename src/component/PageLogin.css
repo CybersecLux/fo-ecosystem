@@ -15,3 +15,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.PageLogin .breadcrumb {
+    background-color: #CCC !important;
+}

@@ -64,7 +64,7 @@ export default class PrivateSpaceRequest extends React.Component {
 			<div className="PrivateSpaceRequest">
 				<div className={"row row-spaced"}>
 					<div className="col-md-12">
-						<h2>Your current requests</h2>
+						<h1>Your current requests</h1>
 						<div className="top-right-buttons">
 							<button
 								onClick={this.refresh}>
@@ -101,7 +101,7 @@ export default class PrivateSpaceRequest extends React.Component {
 				</div>
 				<div className={"row row-spaced"}>
 					<div className="col-md-12">
-						<h2>Issue a new request</h2>
+						<h1>Issue a new request</h1>
 					</div>
 
 					<div className="col-md-12">

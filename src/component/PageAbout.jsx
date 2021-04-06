@@ -3,6 +3,7 @@ import "./PageAbout.css";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { Link } from "react-router-dom";
 import Collapsible from "react-collapsible";
+import ButtonRegister from "./form/ButtonRegister.jsx";
 
 export default class PageAbout extends React.Component {
 	constructor(props) {
@@ -31,45 +32,32 @@ export default class PageAbout extends React.Component {
 					<div className="col-md-12">
 						<h1>A FOREWORD FROM MR FRANZ FAYOT, MINISTER OF THE ECONOMY</h1>
 					</div>
+				</div>
 
-					<div className="col-md-6">
-						<img src="/img/franz-fayot-500.jpg" viewBox="0 0 20 20"/>
-					</div>
-
-					<div className="col-md-6">
+				<div className="row">
+					<div className="col-md-12">
 						<div className="PageAbout-quote">
 							{// eslint-disable-next-line
 							}<p>In order to achieve an inclusive, flourishing and trusted digital economy, the Ministry of the Economy especially promotes best practices among businesses and the implementation of informed governance via a collaborative risk management approach.</p>
 							<p>- Mr Franz Fayot, Minister of the Economy</p>
 						</div>
-					</div>
-				</div>
-
-				<div className="row">
-					<div className="col-md-2"/>
-					<div className="col-md-8">
-						<Collapsible trigger={<p>Read more</p>}>
-							<div className="row">
-								<div className="col-md-12">
-									{// eslint-disable-next-line
-									}<p>We are on the eve of creating ultra-connected human societies, based increasingly on mobile technologies, the growing use of cloud computing solutions and the continued development of the Internet of Things. While welcoming new opportunities, we also expose ourselves to multiple new risks, with an augmented dependency on the availability and reliability of data.</p>
-									{// eslint-disable-next-line
-									}<p>This phenomenon highlights the increasingly transversal responsibility of policy and decision-makers and the growing importance of businesses and citizens called to take part in shaping tomorrows society. The digital transition requests each of us to grow into a more accountable and informed user of technology.</p>
-									{// eslint-disable-next-line
-									}<p>Europe calls for the creation of sovereign products and services that guarantee these values. Luxembourg, with its IT and cybersecurity ecosystem, is answering this call in multiple ways.</p>
-									{// eslint-disable-next-line
-									}<p>New challenges, requesting innovative cybersecurity services and products lie ahead of us, while we continue to consolidate security in existing networks and systems. Cooperation, national and international, will play an ever-important role.</p>
-									{// eslint-disable-next-line
-									}<p>In order to achieve an inclusive, flourishing and trusted digital economy, the Ministry of the Economy especially promotes best practices among businesses and the implementation of informed governance via a collaborative risk management approach.</p>
-									{// eslint-disable-next-line
-									}<p>I am pleased to endorse the mapping 2020 of the national cybersecurity ecosystem. It is another proof of the success of continuous cooperation taking place at the level of our partners in education and research, the public & private partnerships, the authorities and regulators, and of our local companies & start-ups.</p>
-									{// eslint-disable-next-line
-									}<p>It is their expertise and their commitment, embedded in the national cybersecurity strategy coordinated by the Interministerial coordination committee for cyber prevention and cybersecurity, that creates the fabric of the trusted cybersecurity ecosystem we proud ourselves with in Luxembourg.</p>
-									<p><b>Mr Franz Fayot</b></p>
-									<p><b>Minister of the Economy</b></p>
-								</div>
-							</div>
-						</Collapsible>
+						<img className="PageAbout-pm-picture" src="/img/franz-fayot-500.jpg" align="left"/>
+						{// eslint-disable-next-line
+						}<p>We are on the eve of creating ultra-connected human societies, based increasingly on mobile technologies, the growing use of cloud computing solutions and the continued development of the Internet of Things. While welcoming new opportunities, we also expose ourselves to multiple new risks, with an augmented dependency on the availability and reliability of data.</p>
+						{// eslint-disable-next-line
+						}<p>This phenomenon highlights the increasingly transversal responsibility of policy and decision-makers and the growing importance of businesses and citizens called to take part in shaping tomorrows society. The digital transition requests each of us to grow into a more accountable and informed user of technology.</p>
+						{// eslint-disable-next-line
+						}<p>Europe calls for the creation of sovereign products and services that guarantee these values. Luxembourg, with its IT and cybersecurity ecosystem, is answering this call in multiple ways.</p>
+						{// eslint-disable-next-line
+						}<p>New challenges, requesting innovative cybersecurity services and products lie ahead of us, while we continue to consolidate security in existing networks and systems. Cooperation, national and international, will play an ever-important role.</p>
+						{// eslint-disable-next-line
+						}<p>In order to achieve an inclusive, flourishing and trusted digital economy, the Ministry of the Economy especially promotes best practices among businesses and the implementation of informed governance via a collaborative risk management approach.</p>
+						{// eslint-disable-next-line
+						}<p>I am pleased to endorse the mapping 2020 of the national cybersecurity ecosystem. It is another proof of the success of continuous cooperation taking place at the level of our partners in education and research, the public & private partnerships, the authorities and regulators, and of our local companies & start-ups.</p>
+						{// eslint-disable-next-line
+						}<p>It is their expertise and their commitment, embedded in the national cybersecurity strategy coordinated by the Interministerial coordination committee for cyber prevention and cybersecurity, that creates the fabric of the trusted cybersecurity ecosystem we proud ourselves with in Luxembourg.</p>
+						<p><b>Mr Franz Fayot</b></p>
+						<p><b>Minister of the Economy</b></p>
 					</div>
 				</div>
 
@@ -118,8 +106,7 @@ export default class PageAbout extends React.Component {
 						}<p><b>Are you a Luxembourg-based company with cybersecurity services?</b></p>
 						{// eslint-disable-next-line
 						}<p>Feel free to join the CYBERSECURITY Luxembourg ecosystem and benefit from business and visibility opportunities throughout the country, and abroad!</p>
-						{// eslint-disable-next-line
-						}<p>Register HERE</p>
+						<ButtonRegister/>
 					</div>
 					<div className="col-md-2"/>
 					<div className="col-md-8">

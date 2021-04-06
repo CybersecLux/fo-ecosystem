@@ -75,11 +75,11 @@ export default class PrivateSpaceRegisterACompany extends React.Component {
 			<div className="PrivateSpaceRegisterACompany">
 				<div className={"row row-spaced"}>
 					<div className="col-md-12">
-						<h2>Register a company</h2>
+						<h1>Register a company</h1>
 					</div>
 
 					<div className="col-md-12">
-						<h3>Global information</h3>
+						<h2>Global information</h2>
 					</div>
 
 					<div className="col-md-12">
@@ -138,7 +138,7 @@ export default class PrivateSpaceRegisterACompany extends React.Component {
 					</div>
 
 					<div className="col-md-12">
-						<h3>Address</h3>
+						<h2>Address</h2>
 					</div>
 
 					<div className="col-md-12">

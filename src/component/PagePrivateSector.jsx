@@ -14,6 +14,7 @@ import BarWorkforceRange from "./chart/BarWorkforceRange.jsx";
 import BarActorAge from "./chart/BarActorAge.jsx";
 import { getUrlParameter, dictToURI } from "../utils/url.jsx";
 import VennActorDistribution from "./chart/VennActorDistribution.jsx";
+import ButtonRegister from "./form/ButtonRegister.jsx";
 
 export default class PagePrivateSector extends React.Component {
 	constructor(props) {
@@ -104,6 +105,12 @@ export default class PagePrivateSector extends React.Component {
 							<Breadcrumb.Item><Link to="/">CYBERSECURITY LUXEMBOURG</Link></Breadcrumb.Item>
 							<Breadcrumb.Item><Link to="/privatesector">PRIVATE SECTOR</Link></Breadcrumb.Item>
 						</Breadcrumb>
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="col-md-12 right-buttons">
+						<ButtonRegister/>
 					</div>
 				</div>
 

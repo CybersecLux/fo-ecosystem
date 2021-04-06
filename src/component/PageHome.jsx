@@ -6,7 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import Analytic from "./box/Analytic.jsx";
 import { getRequest } from "../utils/request.jsx";
-import Radar from "./chart/Radar.jsx";
+import RadarClickableTaxonomy from "./chart/RadarClickableTaxonomy.jsx";
 
 export default class PageHome extends React.Component {
 	constructor(props) {
@@ -274,7 +274,7 @@ export default class PageHome extends React.Component {
 								<div className="col-md-1"/>
 								<div className="col-md-11">
 									{this.getValueChainDistribution() !== null
-										&& <Radar
+										&& <RadarClickableTaxonomy
 											data={this.getValueChainDistribution()}
 										/>}
 								</div>

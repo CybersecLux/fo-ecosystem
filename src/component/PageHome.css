@@ -57,7 +57,7 @@
 	min-width: 1800px;
 	min-height: 1300px;
 	max-height: 1300px;
-	background-image: url("../img/polygon-red.svg");
+	background-image: url("../img/polygon-red-reversed.svg");
 	background-position: left 0px top 0px;
 	background-size: cover;
 }
@@ -115,7 +115,11 @@
 }
 
 .PageHome .Analytic:hover {
+	border-radius: 0;
 	background-color: white;
+    background: linear-gradient(45deg, transparent 10px, #ffffff 0) left /50.5% 100%, 
+    	linear-gradient(225deg, transparent 10px, #ffffff 0) right/50.5% 100%;
+    background-repeat: no-repeat;
 }
 
 .PageHome .Analytic-value {

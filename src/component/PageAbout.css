@@ -23,7 +23,7 @@
 
 .PageAbout .PageAbout-quote {
 	position: relative;
-	margin: 30px 20px;
+	margin: 30px 20px 40px 20px;
 	padding: 30px 20px;
 	font-style: italic;
 	border-top: solid 1px;
@@ -43,4 +43,9 @@
 .PageAbout h1 {
 	white-space: initial;
 	overflow: initial;
+}
+
+.PageAbout-pm-picture {
+	margin: 10px 20px !important;
+	max-height: 500px;
 }

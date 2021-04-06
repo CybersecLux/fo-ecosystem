@@ -11,8 +11,19 @@
 
 .navbar a:hover {
     background: #000;
-    color: #fff !important;
     text-decoration: none;
+}
+
+.navbar a:hover .Menu-title {
+    color: #fff !important;
+}
+
+.navbar a:hover .Menu-description {
+    color: #fff !important;
+}
+
+.navbar a:hover i {
+    color: #fff !important;
 }
 
 .navbar i {
