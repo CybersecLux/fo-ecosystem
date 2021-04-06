@@ -42,7 +42,7 @@ export default class PagePrivateSector extends React.Component {
 	}
 
 	getCompanies() {
-		getRequest.call(this, "public/get_public_companies?ecosystem_role=ACTOR&"
+		getRequest.call(this, "public/get_public_companies?ecosystem_role=ACTOR&entity_type=PRIVATE SECTOR"
 			+ dictToURI(this.state.filters), (data) => {
 			this.setState({
 				actors: data,

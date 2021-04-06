@@ -25,7 +25,6 @@ export default class GlobalMap extends React.Component {
 			companies: null,
 			companyGeolocations: null,
 			filters: {
-				ecosystem_role: {},
 				entity_type: {},
 			},
 		};
@@ -45,10 +44,6 @@ export default class GlobalMap extends React.Component {
 		getRequest.call(this, "public/get_public_taxonomy_values", (data) => {
 			const filters = _.cloneDeep(this.state.filters);
 
-			data.filter((v) => v.category === "ECOSYSTEM ROLE").forEach((v) => {
-				filters.ecosystem_role[v.name] = true;
-			});
-
 			data.filter((v) => v.category === "ENTITY TYPE").forEach((v) => {
 				filters.entity_type[v.name] = true;
 			});
@@ -63,15 +58,9 @@ export default class GlobalMap extends React.Component {
 
 	getCompanies() {
 		const filters = {
-			ecosystem_role: Object.keys(this.state.filters.ecosystem_role)
-				.filter((r) => this.state.filters.ecosystem_role[r]),
 			entity_type: Object.keys(this.state.filters.entity_type)
 				.filter((r) => this.state.filters.entity_type[r]),
 		};
-
-		if (Object.keys(this.state.filters.ecosystem_role).length === filters.ecosystem_role.length) {
-			delete filters.ecosystem_role;
-		}
 
 		if (Object.keys(this.state.filters.entity_type).length === filters.entity_type.length) {
 			delete filters.entity_type;
@@ -147,24 +136,6 @@ export default class GlobalMap extends React.Component {
 				</MapContainer>
 
 				<div className="GlobalMap-filters-top-right">
-					{this.state.filters !== undefined && this.state.filters.ecosystem_role !== undefined
-						&& <div>
-							{Object.keys(this.state.filters.ecosystem_role).map((r) => (
-								<div
-									key={r}
-									title="Show/Hide actors">
-									<CheckBox
-										label={r}
-										value={this.state.filters.ecosystem_role[r]}
-										onClick={(v) => this.changeFilter("ecosystem_role", r, v)}
-									/>
-								</div>
-							))}
-						</div>
-					}
-				</div>
-
-				<div className="GlobalMap-filters-bottom-right">
 					{this.state.filters !== undefined && this.state.filters.entity_type !== undefined
 						&& <div>
 							{Object.keys(this.state.filters.entity_type).map((r) => (

@@ -28,7 +28,7 @@ export default class Footer extends React.Component {
 									rel="noreferrer"
 									target="_blank"
 									title="HCPN">
-									Haut-Commissariat à la Protection Nationale
+									High Commission for National Protection
 								</a>
 							</div>
 							<br/>
@@ -68,7 +68,7 @@ export default class Footer extends React.Component {
 								</a>
 							</div>
 							<br/>
-							<div><b>Directory</b></div>
+							<div><b>Ecosystem</b></div>
 							<div className="Footer-alinea">
 								<a
 									href="https://www.circl.lu/"
@@ -121,13 +121,13 @@ export default class Footer extends React.Component {
 						<div className="col-md-4 Footer-contact">
 							<div className="Footer-title">CONTACT</div>
 
-							<div>SECURITY MADE IN LËTZEBUERG g.i.e.</div>
+							<div>SECURITYMADEIN.LU g.i.e.</div>
 							<div>16, boulevard d&#39;Avranches</div>
 							<div>L-1160 Luxembourg</div>
 							<br/>
 							<div>(+352) 274 00 98 601</div>
 							<div>
-								<a href="mailto:cyberlux@securitymadein.lu">cyberlux@securitymadein.lu</a>
+								<a href="mailto:info@cybersecurity-luxembourg.com">info@cybersecurity-luxembourg.com</a>
 							</div>
 							<br/>
 							<br/>

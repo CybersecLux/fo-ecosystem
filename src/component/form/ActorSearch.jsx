@@ -32,7 +32,7 @@ export default class ActorSearch extends React.Component {
 
 				<div className={"col-md-12"}>
 					<FormLine
-						label={"Taxonomy"}
+						label={"Classification"}
 						type={"multiselect"}
 						value={this.props.filters.taxonomy_values === undefined || this.props.taxonomy === null
 							? [] : this.props.filters.taxonomy_values}
