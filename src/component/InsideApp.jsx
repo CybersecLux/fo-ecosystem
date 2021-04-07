@@ -15,6 +15,7 @@ import PagePublic from "./PagePublic.jsx";
 import PageCivilSociety from "./PageCivilSociety.jsx";
 import PageLogin from "./PageLogin.jsx";
 import PagePrivateSpace from "./PagePrivateSpace.jsx";
+import PageSearch from "./PageSearch.jsx";
 import { getRequest } from "../utils/request.jsx";
 
 export default class InsideApp extends React.Component {
@@ -122,6 +123,10 @@ export default class InsideApp extends React.Component {
 						<Route
 							path="/map"
 							render={(props) => <PageMap {...props} taxonomy={this.state.taxonomy}/>}
+						/>
+						<Route
+							path="/search"
+							render={(props) => <PageSearch {...props} taxonomy={this.state.taxonomy}/>}
 						/>
 						<Route path="/login" render={(props) => <PageLogin
 							login={this.login}

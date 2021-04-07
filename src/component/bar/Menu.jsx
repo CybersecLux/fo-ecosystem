@@ -3,6 +3,7 @@ import "./Menu.css";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
+import SearchField from "../form/SearchField.jsx";
 
 export default class Menu extends React.Component {
 	constructor(props) {
@@ -96,13 +97,16 @@ export default class Menu extends React.Component {
 						</Nav>
 					</Navbar.Collapse>}
 					<Navbar.Collapse id="basic-navbar-nav">
-						<Nav className="Menu-top-right mr-sm-2 ml-auto">
+						<Nav className="Menu-top-right-about mr-sm-2 ml-auto">
 							<Nav.Link eventKey="4.1">
 								<Link to="/about">
 									<div className="Menu-title">About</div>
 									<div className="Menu-description">What is CYBERLUX</div>
 								</Link>
 							</Nav.Link>
+						</Nav>
+						<Nav className="Menu-top-right mr-sm-2 ml-auto">
+							<SearchField/>
 						</Nav>
 					</Navbar.Collapse>
 				</Navbar>

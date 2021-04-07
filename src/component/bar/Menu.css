@@ -125,6 +125,19 @@
     }
 }
 
+@media (min-width: 0px) {
+    .Menu-top-right-about {
+    }
+}
+
+@media (min-width: 992px) {
+    .Menu-top-right-about {
+        position: absolute;
+        top: 60px;
+        right: 5px;
+    }
+}
+
 .Menu-left {
     margin-left: 0px !important;
     margin-right: auto !important;
