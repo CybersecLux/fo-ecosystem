@@ -618,78 +618,84 @@ export default class PageDashboard extends React.Component {
 						<div className={"col-md-6"}>
 							<h2>Education & Research</h2>
 
-							<div className={"row red-bordered"}>
-								{this.getEducation() !== null && this.getEducation().length > 0
-								&& this.getEducation().map((c) => <div className={"col-md-4 col-lg-3 col-xl-2"} key={c.id}>
-									<img
-										src={getApiURL() + "public/get_image/" + c.image}
-										alt={c.name}
-									/>
-								</div>)}
+							<div className={"red-bordered"}>
+								<div className={"row"}>
+									{this.getEducation() !== null && this.getEducation().length > 0
+									&& this.getEducation().map((c) => <div className={"col-md-4 col-lg-3 col-xl-2"} key={c.id}>
+										<img
+											src={getApiURL() + "public/get_image/" + c.image}
+											alt={c.name}
+										/>
+									</div>)}
 
-								{this.getEducation() !== null && this.getEducation() === 0
-								&& <div className={"col-md-12"}>
-									<Message
-										text={"No item found"}
-										height={200}
-									/>
-								</div>}
+									{this.getEducation() !== null && this.getEducation() === 0
+									&& <div className={"col-md-12"}>
+										<Message
+											text={"No item found"}
+											height={200}
+										/>
+									</div>}
 
-								{this.getEducation() === null
-								&& <div className={"col-md-12"}>
-									<Loading
-										height={200}
-									/>
-								</div>}
+									{this.getEducation() === null
+									&& <div className={"col-md-12"}>
+										<Loading
+											height={200}
+										/>
+									</div>}
+								</div>
 							</div>
 						</div>
 
 						<div className={"col-md-6"}>
 							<h2>Sectoral PPPs</h2>
 
-							<div className={"row red-bordered"}>
-								{this.getSectoralPPPs() !== null
-									? this.getSectoralPPPs().map((m) => <div
-										className={"col-sm-6 col-md-3 col-lg-2"}
-										key={m.id}>
-										<img
-											src={getApiURL() + "public/get_image/" + m.image}
-											alt={m.name}
+							<div className={"red-bordered"}>
+								<div className={"row"}>
+									{this.getSectoralPPPs() !== null
+										? this.getSectoralPPPs().map((m) => <div
+											className={"col-sm-6 col-md-3 col-lg-2"}
+											key={m.id}>
+											<img
+												src={getApiURL() + "public/get_image/" + m.image}
+												alt={m.name}
+											/>
+										</div>)
+										: <Loading
+											height={100}
 										/>
-									</div>)
-									: <Loading
-										height={100}
-									/>
-								}
+									}
+								</div>
 							</div>
 						</div>
 
 						<div className={"col-md-6"}>
 							<h2>Authorities and regulators</h2>
 
-							<div className={"row red-bordered"}>
-								{this.getAuthorities() !== null && this.getAuthorities().length > 0
-								&& this.getAuthorities().map((c) => <div className={"col-md-4 col-lg-3 col-xl-2"} key={c.id}>
-									<img
-										src={getApiURL() + "public/get_image/" + c.image}
-										alt={c.name}
-									/>
-								</div>)}
+							<div className={"red-bordered"}>
+								<div className={"row"}>
+									{this.getAuthorities() !== null && this.getAuthorities().length > 0
+									&& this.getAuthorities().map((c) => <div className={"col-md-4 col-lg-3 col-xl-2"} key={c.id}>
+										<img
+											src={getApiURL() + "public/get_image/" + c.image}
+											alt={c.name}
+										/>
+									</div>)}
 
-								{this.getAuthorities() !== null && this.getAuthorities().length === 0
-								&& <div className={"col-md-12"}>
-									<Message
-										text={"No item found"}
-										height={200}
-									/>
-								</div>}
+									{this.getAuthorities() !== null && this.getAuthorities().length === 0
+									&& <div className={"col-md-12"}>
+										<Message
+											text={"No item found"}
+											height={200}
+										/>
+									</div>}
 
-								{this.getAuthorities() === null
-								&& <div className={"col-md-12"}>
-									<Loading
-										height={200}
-									/>
-								</div>}
+									{this.getAuthorities() === null
+									&& <div className={"col-md-12"}>
+										<Loading
+											height={200}
+										/>
+									</div>}
+								</div>
 							</div>
 						</div>
 
