@@ -236,6 +236,32 @@ export default class PageDashboard extends React.Component {
 			].indexOf(p.name) >= 0);
 	}
 
+	getServingThePublicSector() {
+		if (this.state.publicSector === null) {
+			return null;
+		}
+
+		return this.state.publicSector
+			.filter((p) => [
+				"ANSSI.lu",
+				"GOVCERT.lu",
+			].indexOf(p.name) >= 0);
+	}
+
+	getSectoralPPPs() {
+		if (this.state.publicSector === null) {
+			return null;
+		}
+
+		return this.state.publicSector
+			.filter((p) => [
+				"InCert GIE",
+				"Infrachain a.s.b.l",
+				"LU-CIX",
+				"LUXITH",
+			].indexOf(p.name) >= 0);
+	}
+
 	getTopSolutions() {
 		if (this.state.analytics === null
 			|| this.state.analytics.taxonomy_categories === undefined
@@ -372,15 +398,227 @@ export default class PageDashboard extends React.Component {
 		return (
 			<div id={"PageDashboard-wrapper"}>
 				<div id={"PageDashboard"}>
+					<div className={"row PageDashboard-companies"}>
+						<div className={"col-md-12"}>
+							<h1><i className="fas fa-city"/> Companies</h1>
+						</div>
+
+						<div className={"col-md-3 col-xl-3"}>
+							<h2>{this.getCybersecurityCoreCount()} companies with cybersecurity as a core business
+							</h2>
+
+							<div className={"blue-bordered"}>
+								{this.getCybersecurityCoreEmployeeCount() !== null
+									? <Analytic
+										value={this.getCybersecurityCoreEmployeeCount()}
+										desc={"Total employees"}
+									/>
+									: <Loading
+										height={80}
+									/>
+								}
+
+								{this.getLessThanFiveYearsCoreBusinessCompanyCount() !== null
+									? <Analytic
+										value={this.getLessThanFiveYearsCoreBusinessCompanyCount()}
+										desc={"Created during the last 5 years"}
+									/>
+									: <Loading
+										height={80}
+									/>
+								}
+
+								{this.getStartupWithCoreBusinessCompanyCount() !== null
+									? <Analytic
+										value={this.getStartupWithCoreBusinessCompanyCount()}
+										desc={"Start-ups"}
+									/>
+									: <Loading
+										height={80}
+									/>
+								}
+							</div>
+						</div>
+
+						<div className={"col-md-6 col-xl-6"}>
+							<div className={"PageDashboard-actor-distribution"}>
+								<VennActorDistribution
+									actors={this.state.actors !== null ? this.state.actors : []}
+								/>
+							</div>
+						</div>
+
+						<div className={"col-md-3 col-xl-3"}>
+							<h2>Diversified solutions</h2>
+
+							<div className={"blue-bordered"}>
+								{this.getValueChainDistribution() !== null
+									? <BarVertical
+										data={this.getValueChainDistribution()}
+									/>
+									: <Loading
+										height={200}
+									/>
+								}
+							</div>
+						</div>
+
+						<div className={"col-md-4"}>
+							<h2>Top solutions</h2>
+
+							<div className={"blue-bordered"}>
+								{this.getTopSolutions() !== null
+									? <BarVertical
+										data={this.getTopSolutions()}
+										fontSize={13}
+										minHeight={750}
+									/>
+									: <Loading
+										height={200}
+									/>
+								}
+							</div>
+						</div>
+
+						<div className={"col-md-8"}>
+							<h2>{this.getStartupCount()} Start-ups</h2>
+
+							<div className={"blue-bordered"}>
+								<div className="row">
+									<div className={"col-md-12"}>
+										<h3 className={"blue-font"}>START-UPS REPRESENT MORE THAN
+											20% OF THE NATIONAL CYBERSECURITY ECOSYSTEM</h3>
+									</div>
+
+									<div className={"col-md-8"}>
+										<div className="row">
+											<div className={"col-md-12"}>
+												<h3>Core business</h3>
+
+												{this.getCoreBusinessPercentForStartup() !== null
+													? <DoughnutSimple
+														data={this.getCoreBusinessPercentForStartup()}
+													/>
+													: <Loading
+														height={200}
+													/>
+												}
+
+												{this.getCoreBusinessPercentForStartup() !== null
+													? <h4 className="centered">{this.getCoreBusinessPercentForStartup()}% of the Start-ups
+													have cybersecurity as a core business</h4>
+													: ""
+												}
+											</div>
+										</div>
+									</div>
+
+									<div className={"col-md-4"}>
+										<h3>Top offered solutions</h3>
+
+										{this.getTopSolutionsForStartup() !== null
+											? <BarVertical
+												data={this.getTopSolutionsForStartup()}
+												fontSize={13}
+											/>
+											: <Loading
+												height={200}
+											/>
+										}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div className={"row PageDashboard-national-strategy"}>
+						<div className={"col-md-6 col-lg-4 PageDashboard-national-strategy-serving"}>
+							<h2>Serving the public sector</h2>
+
+							{this.getServingThePublicSector() !== null
+								? this.getServingThePublicSector().map((m) => <div
+									className={"col-sm-6 col-md-3 col-lg-2 PageDashboard-national-strategy-actor"}
+									key={m.id}>
+									<img
+										src={getApiURL() + "public/get_image/" + m.image}
+										alt={m.name}
+									/>
+								</div>)
+								: <Loading
+									height={100}
+								/>
+							}
+						</div>
+
+						<div className={"col-md-12"}>
+							<h1>National strategy & governance</h1>
+
+							<div className={"row"}>
+								{this.getInterMinisterialCommitee() !== null
+									? this.getInterMinisterialCommitee().map((m) => <div
+										className={"col-sm-6 col-md-3 col-lg-2"}
+										key={m.id}>
+										<div className="PageDashboard-national-strategy-actor">
+											<h3>{m.name}</h3>
+										</div>
+									</div>)
+									: <Loading
+										height={200}
+									/>
+								}
+							</div>
+						</div>
+
+						<div className={"col-md-6 col-lg-8"}/>
+						<div className={"col-md-6 col-lg-4 PageDashboard-national-strategy-serving"}>
+							<h2>Serving the private sector</h2>
+
+							<div className={"row"}>
+								<div className={"col-12 col-md-3 col-lg-3"}/>
+								<div className={"col-12 col-md-6 col-lg-6"}>
+									<img
+										src={"img/secin-logo.png"}
+										alt={"SECURITYMADEIN.LU"}
+									/>
+								</div>
+								<div className={"col-12 col-md-3 col-lg-3"}/>
+							</div>
+							<div className={"row"}>
+								<div className={"col-12 col-md-1 col-lg-1"}/>
+								<div className={"col-12 col-md-2 col-lg-2"}>
+									<img
+										src={"img/c3-logo.png"}
+										alt={"C3"}
+									/>
+								</div>
+								<div className={"col-12 col-md-2 col-lg-2"}/>
+								<div className={"col-12 col-md-2 col-lg-2"}>
+									<img
+										src={"img/cases-logo.png"}
+										alt={"CASES"}
+									/>
+								</div>
+								<div className={"col-12 col-md-2 col-lg-2"}/>
+								<div className={"col-12 col-md-2 col-lg-2"}>
+									<img
+										src={"img/circl-logo.png"}
+										alt={"CIRCL"}
+									/>
+								</div>
+								<div className={"col-12 col-md-1 col-lg-1"}/>
+							</div>
+						</div>
+					</div>
+
 					<div className={"row PageDashboard-national-actors"}>
 						<div className={"col-md-12"}>
-							<h1><i className="fas fa-landmark"/> National actors</h1>
+							<h1>National actors <i className="fas fa-landmark"/></h1>
 						</div>
 
 						<div className={"col-md-6"}>
 							<h2>Education & Research</h2>
 
-							<div className={"row blue-bordered"}>
+							<div className={"row red-bordered"}>
 								{this.getEducation() !== null && this.getEducation().length > 0
 								&& this.getEducation().map((c) => <div className={"col-md-4 col-lg-3 col-xl-2"} key={c.id}>
 									<img
@@ -409,17 +647,27 @@ export default class PageDashboard extends React.Component {
 						<div className={"col-md-6"}>
 							<h2>Sectoral PPPs</h2>
 
-							<div className={"row blue-bordered"}>
-								<Loading
-									height={200}
-								/>
+							<div className={"row red-bordered"}>
+								{this.getSectoralPPPs() !== null
+									? this.getSectoralPPPs().map((m) => <div
+										className={"col-sm-6 col-md-3 col-lg-2"}
+										key={m.id}>
+										<img
+											src={getApiURL() + "public/get_image/" + m.image}
+											alt={m.name}
+										/>
+									</div>)
+									: <Loading
+										height={100}
+									/>
+								}
 							</div>
 						</div>
 
 						<div className={"col-md-6"}>
 							<h2>Authorities and regulators</h2>
 
-							<div className={"row blue-bordered"}>
+							<div className={"row red-bordered"}>
 								{this.getAuthorities() !== null && this.getAuthorities().length > 0
 								&& this.getAuthorities().map((c) => <div className={"col-md-4 col-lg-3 col-xl-2"} key={c.id}>
 									<img
@@ -474,198 +722,6 @@ export default class PageDashboard extends React.Component {
 										height={200}
 									/>
 								</div>}
-							</div>
-						</div>
-					</div>
-
-					<div className={"row PageDashboard-national-strategy"}>
-						<div className={"col-md-6 col-lg-4 PageDashboard-national-strategy-serving"}>
-							<h2>Serving the public sector</h2>
-
-							<Loading
-								height={100}
-							/>
-						</div>
-
-						<div className={"col-md-12"}>
-							<h1>National strategy & governance</h1>
-
-							<div className={"row"}>
-								{this.getInterMinisterialCommitee() !== null
-									? this.getInterMinisterialCommitee().map((m) => <div
-										className={"col-sm-6 col-md-3 col-lg-2 PageDashboard-national-strategy-actor"}
-										key={m.id}>
-										<h3>{m.name}</h3>
-									</div>)
-									: <Loading
-										height={200}
-									/>
-								}
-							</div>
-						</div>
-
-						<div className={"col-md-6 col-lg-8"}/>
-						<div className={"col-md-6 col-lg-4 PageDashboard-national-strategy-serving"}>
-							<h2>Serving the private sector</h2>
-
-							<div className={"row"}>
-								<div className={"col-6 col-md-6 col-lg-3"}>
-									<img
-										src={"img/cases-logo.png"}
-										alt={"SECURITYMADEIN.LU"}
-									/>
-								</div>
-								<div className={"col-6 col-md-6 col-lg-3"}>
-									<img
-										src={"img/c3-logo.png"}
-										alt={"C3"}
-									/>
-								</div>
-								<div className={"col-6 col-md-6 col-lg-3"}>
-									<img
-										src={"img/cases-logo.png"}
-										alt={"CASES"}
-									/>
-								</div>
-								<div className={"col-6 col-md-6 col-lg-3"}>
-									<img
-										src={"img/circl-logo.png"}
-										alt={"CIRCL"}
-									/>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div className={"row PageDashboard-companies"}>
-						<div className={"col-md-12"}>
-							<h1>Companies <i className="fas fa-city"/></h1>
-						</div>
-
-						<div className={"col-md-3 col-xl-3"}>
-							<h2>{this.getCybersecurityCoreCount()} companies with cybersecurity as a core business
-							</h2>
-
-							<div className={"red-bordered"}>
-								{this.getCybersecurityCoreEmployeeCount() !== null
-									? <Analytic
-										value={this.getCybersecurityCoreEmployeeCount()}
-										desc={"Total employees"}
-									/>
-									: <Loading
-										height={80}
-									/>
-								}
-
-								{this.getLessThanFiveYearsCoreBusinessCompanyCount() !== null
-									? <Analytic
-										value={this.getLessThanFiveYearsCoreBusinessCompanyCount()}
-										desc={"Created during the last 5 years"}
-									/>
-									: <Loading
-										height={80}
-									/>
-								}
-
-								{this.getStartupWithCoreBusinessCompanyCount() !== null
-									? <Analytic
-										value={this.getStartupWithCoreBusinessCompanyCount()}
-										desc={"Start-ups"}
-									/>
-									: <Loading
-										height={80}
-									/>
-								}
-							</div>
-						</div>
-
-						<div className={"col-md-6 col-xl-6"}>
-							<div className={"PageDashboard-actor-distribution"}>
-								<VennActorDistribution
-									actors={this.state.actors !== null ? this.state.actors : []}
-								/>
-							</div>
-						</div>
-
-						<div className={"col-md-3 col-xl-3"}>
-							<h2>Diversified solutions</h2>
-
-							<div className={"red-bordered"}>
-								{this.getValueChainDistribution() !== null
-									? <BarVertical
-										data={this.getValueChainDistribution()}
-									/>
-									: <Loading
-										height={200}
-									/>
-								}
-							</div>
-						</div>
-
-						<div className={"col-md-4"}>
-							<h2>Top solutions</h2>
-
-							<div className={"red-bordered"}>
-								{this.getTopSolutions() !== null
-									? <BarVertical
-										data={this.getTopSolutions()}
-										fontSize={13}
-										minHeight={750}
-									/>
-									: <Loading
-										height={200}
-									/>
-								}
-							</div>
-						</div>
-
-						<div className={"col-md-8"}>
-							<h2>{this.getStartupCount()} Start-ups</h2>
-
-							<div className={"red-bordered"}>
-								<div className="row">
-									<div className={"col-md-12"}>
-										<h3 className={"red-font"}>START-UPS REPRESENT MORE THAN
-											20% OF THE NATIONAL CYBERSECURITY ECOSYSTEM</h3>
-									</div>
-
-									<div className={"col-md-8"}>
-										<div className="row">
-											<div className={"col-md-12"}>
-												<h3>Core business</h3>
-
-												{this.getCoreBusinessPercentForStartup() !== null
-													? <DoughnutSimple
-														data={this.getCoreBusinessPercentForStartup()}
-													/>
-													: <Loading
-														height={200}
-													/>
-												}
-
-												{this.getCoreBusinessPercentForStartup() !== null
-													? <h4 className="centered">{this.getCoreBusinessPercentForStartup()}% of the Start-ups
-													have cybersecurity as a core business</h4>
-													: ""
-												}
-											</div>
-										</div>
-									</div>
-
-									<div className={"col-md-4"}>
-										<h3>Top offered solutions</h3>
-
-										{this.getTopSolutionsForStartup() !== null
-											? <BarVertical
-												data={this.getTopSolutionsForStartup()}
-												fontSize={13}
-											/>
-											: <Loading
-												height={200}
-											/>
-										}
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>

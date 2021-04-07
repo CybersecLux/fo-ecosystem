@@ -24,8 +24,8 @@ export default class DoughnutSimple extends React.Component {
 						datasets: [{
 							data: [this.props.data, 100 - this.props.data],
 							borderWidth: 1,
-							borderColor: ["#e40613", "lightgrey"],
-							backgroundColor: ["#fed7da", "transparent"],
+							borderColor: ["#009fe3", "lightgrey"],
+							backgroundColor: ["#bcebff", "transparent"],
 						}],
 					}}
 					options={{
@@ -33,7 +33,7 @@ export default class DoughnutSimple extends React.Component {
 						legend: {
 							display: false,
 						},
-						fillColor: "#F5DEB3",
+						fillColor: "#009fe3",
 						opacity: 1,
 					}}
 				/>

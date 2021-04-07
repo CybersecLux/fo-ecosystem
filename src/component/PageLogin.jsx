@@ -19,11 +19,21 @@ export default class PageLogin extends React.Component {
 		this.onKeyDown = this.onKeyDown.bind(this);
 		this.createAccount = this.createAccount.bind(this);
 
+		let v = "login";
+
+		if (["login", "create", "reset", "forgot"].indexOf(getUrlParameter("view")) >= 0) {
+			v = getUrlParameter("view");
+		}
+
+		if (getUrlParameter("action") === "reset_password") {
+			v = "reset";
+		}
+
 		this.state = {
 			email: null,
 			password: null,
 			passwordConfirmation: null,
-			view: getUrlParameter("action") === "reset_password" ? "reset" : "login",
+			view: v,
 		};
 	}
 

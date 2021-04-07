@@ -10,12 +10,13 @@ class ButtonRegister extends Component {
 	}
 
 	onClick() {
-		this.props.history.push("/login");
+		this.props.history.push("/login?view=create");
 	}
 
 	render() {
 		return (
 			<button
+				className="ButtonRegister"
 				onClick={this.onClick}>
 				<i className="fas fa-file-signature"/> Register your entity here
 			</button>

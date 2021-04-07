@@ -73,7 +73,7 @@ export default class ActorSearch extends React.Component {
 						className={"Popup-full-size"}
 						trigger={
 							<a className={"ActorSearch-taxonomy-link"}>
-								Learn more about the taxonomy
+								Learn more about the classification
 							</a>
 						}
 						modal

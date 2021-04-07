@@ -34,28 +34,28 @@
 }
 
 #PageDashboard h1 {
-	border: none !important;
+	background: none !important;
 	white-space: initial;
 	overflow: initial;
 	font-size: 3.5vw;
 }
 
 #PageDashboard h2 {
-	border: none;
+	background: none;
 	white-space: initial;
 	overflow: initial;
 	font-size: 1.8vw;
 }
 
 #PageDashboard h3 {
-	border: none;
+	background: none;
 	white-space: initial;
 	overflow: initial;
 	font-size: 1.5vw;
 }
 
 #PageDashboard h4 {
-	border: none;
+	background: none;
 	white-space: initial;
 	overflow: initial;
 	font-size: 1vw;
@@ -95,12 +95,14 @@
 
 .PageDashboard-national-actors {
 	background-image: -webkit-linear-gradient(-90deg, transparent 0%, transparent 50%, white 50%, white 100%),
-                  -webkit-linear-gradient(0deg, rgba(0,159,227,.2) 0%, rgba(0,159,227,.2) 50%, white 50%, white 100%);
+                  -webkit-linear-gradient(0deg, rgba(228,6,9,.2) 0%, rgba(228,6,9,.2) 50%, white 50%, white 100%);
 	background-size:.25em .25em;
+	padding-bottom: 120px !important;
 }
 
 .PageDashboard-national-actors h1 {
-	color: #009fe3;
+	color: #e40613 !important;
+	text-align: right;
 }
 
 .PageDashboard-national-actors .PageDashboard-national-actors-legal {
@@ -125,7 +127,7 @@
         linear-gradient( 45deg,transparent 10px,#fff 0) left /50.5% 100%,
         linear-gradient( 225deg,transparent 10px,#fff 0) right/50.5% 100%;
     background-repeat:no-repeat;
-    margin: 15px 5px;
+    margin: 15px 0px;
     padding: 5px;
     min-height: 70px;
     font-size: 1.5vw;
@@ -138,22 +140,35 @@
     background-repeat:no-repeat;
 }
 
+.PageDashboard-national-strategy-serving .row {
+ 	text-align: center;
+}
+
+.PageDashboard-national-strategy-serving .row div {
+ 	text-align: center;
+}
+
+.PageDashboard-national-strategy-serving .row img {
+	display:block;
+	padding: 10px 0px;
+ 	max-width: 300px;
+ 	margin:auto;
+}
+
 /* PageDashboard-companies */
 
 .PageDashboard-companies {
 	background-image: -webkit-linear-gradient(-90deg, transparent 0%, transparent 50%, white 50%, white 100%),
-                  -webkit-linear-gradient(0deg, rgba(228,6,9,.2) 0%, rgba(228,6,9,.2) 50%, white 50%, white 100%);
-	background-size:.25em .25em;
-	padding-bottom: 120px !important;
+                  -webkit-linear-gradient(0deg, rgba(0,159,227,.2) 0%, rgba(0,159,227,.2) 50%, white 50%, white 100%);
+	background-size:.25em .25em;	
 }
 
 .PageDashboard-companies h1 {
-	color: #e40613 !important;
-	text-align: right;
+	color: #009fe3;
 }
 
 .PageDashboard-companies .Analytic-value {
-	color: #e40613 !important;
+	color: #009fe3 !important;
 }
 
 .PageDashboard-companies .PageDashboard-actor-distribution {

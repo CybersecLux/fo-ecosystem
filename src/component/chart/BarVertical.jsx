@@ -26,8 +26,8 @@ export default class BarVertical extends React.Component {
 						datasets: [{
 							data: Object.values(this.props.data),
 							borderWidth: 1,
-							borderColor: "#e40613",
-							backgroundColor: "#fed7da",
+							borderColor: "#009fe3",
+							backgroundColor: "#bcebff",
 						}],
 					}}
 					options={{

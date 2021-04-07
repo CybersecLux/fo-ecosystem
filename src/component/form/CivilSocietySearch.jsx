@@ -52,7 +52,7 @@ export default class CivilSocietySearch extends React.Component {
 						className={"Popup-full-size"}
 						trigger={
 							<a className={"CivilSocietySearch-taxonomy-link"}>
-								Learn more about the taxonomy
+								Learn more about the classification
 							</a>
 						}
 						modal
