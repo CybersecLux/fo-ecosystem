@@ -24,7 +24,7 @@ export default class Menu extends React.Component {
 						<Link to="/">
 							<img
 								className={"Menu-logo"}
-								src="/img/ecosystem-logo.jpg"
+								src="/img/ecosystem-logo-subtitle.jpg"
 								alt="CYBERSECURITY LUXEMBOURG Logo"
 							/>
 						</Link>
