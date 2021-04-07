@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Analytic from "./box/Analytic.jsx";
 import { getRequest } from "../utils/request.jsx";
 import RadarClickableTaxonomy from "./chart/RadarClickableTaxonomy.jsx";
+import SearchField from "./form/SearchField.jsx";
 
 export default class PageHome extends React.Component {
 	constructor(props) {
@@ -279,6 +280,13 @@ export default class PageHome extends React.Component {
 										/>}
 								</div>
 							</div>
+						</div>
+
+						<div className="col-md-12"/>
+						<div className="col-md-3"/>
+						<div className="col-md-6 PageHome-search">
+							<h3>Search on the website</h3>
+							<SearchField/>
 						</div>
 					</div>
 				</div>

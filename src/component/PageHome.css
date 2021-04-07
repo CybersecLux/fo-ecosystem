@@ -151,3 +151,15 @@
 	max-width: 100%;
 }
 
+.PageHome-search {
+	margin-top: 150px;
+	padding: 30px 30px 50px;
+	background: 
+        linear-gradient( 45deg,transparent 10px,#000 0) left /50.5% 100%,
+        linear-gradient( 225deg,transparent 10px,#000 0) right/50.5% 100%;
+    background-repeat:no-repeat;
+}
+
+.PageHome-search h3 {
+	color: white;
+}
