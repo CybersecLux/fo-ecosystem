@@ -62,6 +62,14 @@ export default class GlobalMap extends React.Component {
 				.filter((r) => this.state.filters.entity_type[r]),
 		};
 
+		if (filters.entity_type.length === 0) {
+			this.setState({
+				companies: [],
+				companyGeolocations: [],
+			});
+			return;
+		}
+
 		if (Object.keys(this.state.filters.entity_type).length === filters.entity_type.length) {
 			delete filters.entity_type;
 		}
@@ -137,19 +145,21 @@ export default class GlobalMap extends React.Component {
 
 				<div className="GlobalMap-filters-top-right">
 					{this.state.filters !== undefined && this.state.filters.entity_type !== undefined
-						&& <div>
-							{Object.keys(this.state.filters.entity_type).map((r) => (
+						&& Object.keys(this.state.filters.entity_type).map((r) => (
+							<div className="row" key={r}>
+								<div className="col-md-8">
+									<h3>SHOW {r}</h3>
+								</div>
 								<div
-									key={r}
+									className="col-md-4"
 									title="Show/Hide actors">
 									<CheckBox
-										label={r}
 										value={this.state.filters.entity_type[r]}
 										onClick={(v) => this.changeFilter("entity_type", r, v)}
 									/>
 								</div>
-							))}
-						</div>
+							</div>
+						))
 					}
 				</div>
 			</div>
