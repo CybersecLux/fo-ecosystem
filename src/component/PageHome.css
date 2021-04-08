@@ -95,6 +95,16 @@
 	background-repeat:no-repeat;
 }
 
+.PageHome-menu-login {
+	width: 220px;
+	margin-bottom: 10px;
+	padding: 10px 20px;
+	background-color: white;
+	background: linear-gradient(45deg, transparent 10px, #ffffff 0) left /50.5% 100%, 
+		linear-gradient(225deg, transparent 10px, #ffffff 0) right/50.5% 100%;
+	background-repeat:no-repeat;
+}
+
 .PageHome-menu .nav-link {
 	height: 64px;
 }

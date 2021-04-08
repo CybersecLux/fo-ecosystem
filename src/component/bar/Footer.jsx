@@ -75,7 +75,7 @@ export default class Footer extends React.Component {
 									rel="noreferrer"
 									target="_blank"
 									title="About">
-									<Link to="/companies">Companies</Link>
+									<Link to="/privatesector">Private sector</Link>
 								</a>
 							</div>
 							<div className="Footer-alinea">
@@ -104,7 +104,7 @@ export default class Footer extends React.Component {
 									target="_blank"
 									title="Legal"
 									className="text-capitalize">
-									<Link to="/ecosystem">Ecosystem view</Link>
+									<Link to="/dashboard">Dashboard</Link>
 								</a>
 							</div>
 							<div className="Footer-alinea">
@@ -114,7 +114,7 @@ export default class Footer extends React.Component {
 									target="_blank"
 									title="Legal"
 									className="text-capitalize">
-									<Link to="/map">Map view</Link>
+									<Link to="/map">Map</Link>
 								</a>
 							</div>
 						</div>
