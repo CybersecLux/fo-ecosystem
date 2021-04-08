@@ -10,6 +10,7 @@ import Analytic from "./box/Analytic.jsx";
 import BarVertical from "./chart/BarVertical.jsx";
 import DoughnutSimple from "./chart/DoughnutSimple.jsx";
 import { getPastDate } from "../utils/date.jsx";
+import DashboardBreadcrumbs from "./bar/DashboardBreadcrumbs.jsx";
 
 export default class PageDashboard extends React.Component {
 	constructor(props) {
@@ -397,8 +398,11 @@ export default class PageDashboard extends React.Component {
 	render() {
 		return (
 			<div id={"PageDashboard-wrapper"}>
+
+				<DashboardBreadcrumbs/>
+
 				<div id={"PageDashboard"}>
-					<div className={"row PageDashboard-companies"}>
+					<div id="PageDashboard-companies" className={"row PageDashboard-companies"}>
 						<div className={"col-md-12"}>
 							<h1><i className="fas fa-city"/> Companies</h1>
 						</div>
@@ -531,7 +535,7 @@ export default class PageDashboard extends React.Component {
 						</div>
 					</div>
 
-					<div className={"row PageDashboard-national-strategy"}>
+					<div id="PageDashboard-national-strategy" className={"row PageDashboard-national-strategy"}>
 						<div className={"col-md-6 col-lg-4 PageDashboard-national-strategy-serving"}>
 							<h2>Serving the public sector</h2>
 
@@ -551,7 +555,7 @@ export default class PageDashboard extends React.Component {
 						</div>
 
 						<div className={"col-md-12"}>
-							<h1>National strategy & governance</h1>
+							<h1><i className="fas fa-chess"/> National strategy & governance</h1>
 
 							<div className={"row"}>
 								{this.getInterMinisterialCommitee() !== null
@@ -610,7 +614,7 @@ export default class PageDashboard extends React.Component {
 						</div>
 					</div>
 
-					<div className={"row PageDashboard-national-actors"}>
+					<div id="PageDashboard-national-actors" className={"row PageDashboard-national-actors"}>
 						<div className={"col-md-12"}>
 							<h1>National actors <i className="fas fa-landmark"/></h1>
 						</div>
