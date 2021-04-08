@@ -5,15 +5,16 @@ import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { Link } from "react-router-dom";
 import { getRequest } from "../utils/request.jsx";
 import Loading from "./box/Loading.jsx";
-import Company from "./item/Company.jsx";
-import FormLine from "./form/FormLine.jsx";
 import TreeTaxonomy from "./chart/TreeTaxonomy.jsx";
+import NoImage from "./box/NoImage.jsx";
+import { getApiURL } from "../utils/env.jsx";
 
 export default class PageCompany extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.getCompanyContent = this.getCompanyContent.bind(this);
+		this.getIndustryVertical = this.getIndustryVertical.bind(this);
 
 		this.state = {
 			company: null,
@@ -34,6 +35,32 @@ export default class PageCompany extends React.Component {
 		}, (error) => {
 			nm.error(error.message);
 		});
+	}
+
+	getIndustryVertical() {
+		if (this.props.taxonomy === null
+			|| this.props.taxonomy.values === undefined
+			|| this.state.company === null
+			|| this.state.company.taxonomy_assignment === undefined) {
+			return [];
+		}
+
+		return this.props.taxonomy.values
+			.filter((v) => v.category === "INDUSTRY VERTICAL")
+			.filter((v) => this.state.company.taxonomy_assignment.indexOf(v.id) >= 0);
+	}
+
+	getEntityType() {
+		if (this.props.taxonomy === null
+			|| this.props.taxonomy.values === undefined
+			|| this.state.company === null
+			|| this.state.company.taxonomy_assignment === undefined) {
+			return [];
+		}
+
+		return this.props.taxonomy.values
+			.filter((v) => v.category === "ENTITY TYPE")
+			.filter((v) => this.state.company.taxonomy_assignment.indexOf(v.id) >= 0);
 	}
 
 	changeState(field, value) {
@@ -57,99 +84,136 @@ export default class PageCompany extends React.Component {
 					</div>
 				</div>
 
-				<div className="row">
-					<div className="col-md-12">
-						<h1>Global information</h1>
-					</div>
-				</div>
-
 				{this.state.company !== null
 					? <div className="row row-spaced">
 						<div className="col-md-12">
-							<Company
-								info={this.state.company}
-							/>
+							<div className="row">
+								<div className="col-md-12">
+									<h1>Global information</h1>
+								</div>
+							</div>
+							<div className="row row-spaced">
+								<div className="col-md-3 PageCompany-logo">
+									{this.state.company.image !== null && this.state.company.image !== undefined
+										? <img
+											src={getApiURL() + "public/get_image/" + this.state.company.image}
+											alt="Card image cap"
+										/>
+										: <NoImage/>
+									}
+								</div>
+								<div className="col-md-9">
+									<h3>{this.state.company.name}</h3>
+								</div>
+							</div>
+
+							<div className="row">
+								<div className="col-md-12">
+									{this.state.company.description}
+								</div>
+							</div>
+
+							<div className="row">
+								{this.state.company.website !== undefined
+									&& this.state.company.website !== null
+									? <div className="col-md-12 right-buttons">
+										<button
+											className={"blue-background"}
+											onClick={() => window.open(this.state.company.website, "_blank")}
+										>
+											<i className="fas fa-globe-europe"/> Visit website
+										</button>
+									</div>
+									: ""
+								}
+							</div>
+
+							<div className="row">
+								{this.getIndustryVertical().map((v) => <div
+									key={v.id}
+									className="col-md-12 PageCompany-stamp">
+									<i className="fas fa-briefcase"/> {v.name}
+								</div>)
+								}
+
+								{this.state.company.is_cybersecurity_core_business !== undefined
+									&& this.state.company.is_cybersecurity_core_business
+									? <div className="col-md-12 PageCompany-stamp">
+										<i className="fas fa-check-circle"/> Cybersecurity as a core business
+									</div>
+									: ""
+								}
+
+								{this.state.company.is_startup !== undefined
+									&& this.state.company.is_startup !== null
+									? <div className="col-md-12 PageCompany-stamp">
+										<i className="fas fa-check-circle"/> Start-up
+									</div>
+									: ""
+								}
+							</div>
+
+							<div className="row">
+								{this.state.company.rscl_number !== undefined
+									&& this.state.company.rscl_number !== null
+									? <div className="col-md-12">
+										<b>Business register number:</b> {this.state.company.rscl_number}
+									</div>
+									: ""
+								}
+
+								{this.state.company.creation_date !== undefined
+									&& this.state.company.creation_date !== null
+									? <div className="col-md-12">
+										<b>Creation date:</b> {this.state.company.creation_date}
+									</div>
+									: ""
+								}
+							</div>
+						</div>
+					</div>
+					: <Loading
+						height={400}
+					/>
+				}
+
+				{this.state.company !== null
+					&& this.props.taxonomy !== null
+					&& this.props.taxonomy.values !== undefined
+					&& this.getEntityType().filter((t) => t.name === "PRIVATE SECTOR").length > 0
+					? <div className="row row-spaced">
+						<div className="col-md-12">
+							<h1>Classification within the private actors of the ecosystem</h1>
 						</div>
 						<div className="col-md-12">
-							<FormLine
-								label={"Name"}
-								value={this.state.company.name}
-								disabled={true}
-								onBlur={(v) => this.saveCompanyValue("name", v)}
-							/>
-							<FormLine
-								label={"Description"}
-								type={"textarea"}
-								value={this.state.company.description}
-								disabled={true}
-							/>
-							<FormLine
-								label={"RCSL number"}
-								value={this.state.company.rscl_number}
-								disabled={true}
-							/>
-							<FormLine
-								label={"Website"}
-								value={this.state.company.website}
-								disabled={true}
-							/>
-							<FormLine
-								label={"Creation date"}
-								type={"date"}
-								value={this.state.company.creation_date}
-								disabled={true}
-							/>
-							<FormLine
-								label={"Is cybersecurity core business"}
-								type={"checkbox"}
-								value={this.state.company.is_cybersecurity_core_business}
-								disabled={true}
-							/>
-							<FormLine
-								label={"Is startup"}
-								type={"checkbox"}
-								value={this.state.company.is_startup}
-								disabled={true}
+							<TreeTaxonomy
+								companyAssignment={this.state.company.taxonomy_assignment}
+								taxonomy={this.props.taxonomy}
+								category={"SERVICE GROUP"}
 							/>
 						</div>
 					</div>
-					: <Loading
-						height={400}
-					/>
+					: ""
 				}
 
-				<div className="row">
-					<div className="col-md-12">
-						<h1>Taxonomy</h1>
-					</div>
-				</div>
-
-				{this.state.company !== null && this.props.taxonomy !== null
-					&& this.props.taxonomy.categories !== undefined
+				{this.state.company !== null
+					&& this.props.taxonomy !== null
+					&& this.props.taxonomy.values !== undefined
+					&& this.getEntityType().filter((t) => t.name === "PUBLIC SECTOR").length > 0
 					? <div className="row row-spaced">
-						{this.props.taxonomy.categories
-							.filter((c) => this.props.taxonomy.category_hierarchy.map((h) => h.parent_category)
-								.indexOf(c.name) < 0)
-							.map((c) => (
-								<div
-									key={c.name}
-									className="col-md-12">
-									<h2>{c.name}</h2>
-
-									<TreeTaxonomy
-										companyAssignment={this.state.company.taxonomy_assignment}
-										taxonomy={this.props.taxonomy}
-										category={c.name}
-									/>
-								</div>
-							))
-						}
+						<div className="col-md-12">
+							<h1>Classification within the public actors of the ecosystem</h1>
+						</div>
+						<div className="col-md-12">
+							<TreeTaxonomy
+								companyAssignment={this.state.company.taxonomy_assignment}
+								taxonomy={this.props.taxonomy}
+								category={"LEGAL FRAMEWORK"}
+							/>
+						</div>
 					</div>
-					: <Loading
-						height={400}
-					/>
+					: ""
 				}
-
 			</div>
 		);
 	}

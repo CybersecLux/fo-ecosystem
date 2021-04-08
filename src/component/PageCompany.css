@@ -1,1 +1,13 @@
 
+.PageCompany-logo {
+	min-height: 130px;
+}
+
+.PageCompany-stamp {
+	font-size: 24px;
+}
+
+.PageCompany-stamp i {
+	color: #8fddff;
+	margin-right: 5px;
+}

@@ -72,7 +72,7 @@ export default class Menu extends React.Component {
 							<Nav.Link eventKey="4.1">
 								<Link to="/map">
 									<div className={"Menu-image"}>
-										<img src="/img/luxembourg.png" viewBox="0 0 20 20"/>
+										<img src="/img/luxembourg.png"/>
 									</div>
 									<div className={"Menu-image-text"}>
 										<div className="Menu-title">Map</div>
