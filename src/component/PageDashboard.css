@@ -38,6 +38,7 @@
 	white-space: initial;
 	overflow: initial;
 	font-size: 3.5vw;
+	padding: 0px 5px !important;
 }
 
 #PageDashboard h2 {
@@ -45,6 +46,7 @@
 	white-space: initial;
 	overflow: initial;
 	font-size: 1.8vw;
+	padding: 0px 5px !important;
 }
 
 #PageDashboard h3 {

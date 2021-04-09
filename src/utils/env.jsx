@@ -8,6 +8,16 @@ export function getApiURL() {
 	return "https://api.db.cy.lu/";
 }
 
+export function getCookieOptions() {
+	if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.hostname === "") {
+		return {};
+	}
+	if (window.location.hostname.includes("test")) {
+		return { secure: true, domain: ".cy.lu" };
+	}
+	return { secure: true, domain: ".cy.lu" };
+}
+
 export function isInternetExplorer() {
 	const ua = window.navigator.userAgent;
 	const msie = ua.indexOf("MSIE ");

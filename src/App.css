@@ -40,22 +40,24 @@ h1 {
     text-transform: uppercase;
     font-family: "Fjalla One", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: normal;
-    padding: 2px 10px 0px 15px;
+    padding: 0px 10px 0px 85px;
     margin: 25px 0px 15px 0px;
-    background-image: url("img/polygon-red.svg");
-	background-size: contain;
+    background-image: url("img/polygon-red-bold.svg");
+	background-size: 75px 75px;
 	background-repeat: no-repeat;
+	min-height: 75px;
 }
 
 h2 {
 	color: #010101;
     font-family: "Fjalla One", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: normal;
-    padding: 0px 10px;
-    margin: 25px 0px;
-    background-image: url("img/polygon-blue.svg");
-	background-size: contain;
+    padding: 0px 10px 0px 73px;
+    margin: 25px 0px 15px 0px;
+    background-image: url("img/polygon-blue-bold.svg");
+	background-size: 60px 60px;
 	background-repeat: no-repeat;
+	min-height: 60px;
 }
 
 h3 {

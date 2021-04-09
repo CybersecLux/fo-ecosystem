@@ -244,8 +244,8 @@ export default class PageDashboard extends React.Component {
 
 		return this.state.publicSector
 			.filter((p) => [
-				"ANSSI.lu",
-				"GOVCERT.lu",
+				"Agence Nationale de la Sécurité des systèmes d'Information",
+				"Governmental Computer Emergency Response Team",
 			].indexOf(p.name) >= 0);
 	}
 

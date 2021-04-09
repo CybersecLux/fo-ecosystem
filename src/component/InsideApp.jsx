@@ -17,6 +17,7 @@ import PageLogin from "./PageLogin.jsx";
 import PagePrivateSpace from "./PagePrivateSpace.jsx";
 import PageSearch from "./PageSearch.jsx";
 import { getRequest } from "../utils/request.jsx";
+// import { getCookieOptions } from "../utils/env.jsx"
 
 export default class InsideApp extends React.Component {
 	constructor(props) {
@@ -59,7 +60,7 @@ export default class InsideApp extends React.Component {
 	login(token, email) {
 		// import { withCookies } from "react-cookie";
 		// TODO
-		// this.props.cookies.set('access_token_cookie', token/*, { httpOnly: true }*/);
+		// this.props.cookies.set("access_token_cookie", token, getCookieOptions());
 		window.token = token;
 
 		this.setState({

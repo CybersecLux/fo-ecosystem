@@ -3,6 +3,7 @@ import "./App.css";
 import { NotificationContainer } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import { BrowserRouter } from "react-router-dom";
+import { withCookies } from "react-cookie";
 import InsideApp from "./component/InsideApp.jsx";
 
 class App extends React.Component {
@@ -25,4 +26,4 @@ class App extends React.Component {
 	}
 }
 
-export default App;
+export default withCookies(App);
