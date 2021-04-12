@@ -26,8 +26,8 @@ export default class PagePrivateSpace extends React.Component {
 			if (data !== null && data.is_logged !== true) {
 				this.props.history.push("/login");
 			}
-		}, (response) => {
-			nm.warning(response.statusText);
+		}, () => {
+			nm.info("Your session has expired. please log in again");
 			this.props.history.push("/login");
 		}, (error) => {
 			nm.error(error.message);
@@ -59,7 +59,7 @@ export default class PagePrivateSpace extends React.Component {
 				</div>
 
 				<Tab
-					menu={["My account", "My companies", null, "Register a company", "Request", null, "Password"]}
+					menu={["My account", "My entities", null, "Register an entity", "Request", null, "Password"]}
 					content={[
 						<PrivateSpaceAccount
 							key={1}

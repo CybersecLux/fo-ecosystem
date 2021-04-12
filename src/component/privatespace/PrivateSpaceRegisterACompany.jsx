@@ -38,7 +38,7 @@ export default class PrivateSpaceRegisterACompany extends React.Component {
 
 		const params = {
 			request: "[COMPANY INSERTION]\n\n"
-				+ "The user requests the insertion of this company: \n\n"
+				+ "The user requests the insertion of this entity: \n\n"
 				+ JSON.stringify(info, null, 4),
 		};
 
@@ -75,7 +75,7 @@ export default class PrivateSpaceRegisterACompany extends React.Component {
 			<div className="PrivateSpaceRegisterACompany">
 				<div className={"row row-spaced"}>
 					<div className="col-md-12">
-						<h1>Register a company</h1>
+						<h1>Register an entity</h1>
 					</div>
 
 					<div className="col-md-12">

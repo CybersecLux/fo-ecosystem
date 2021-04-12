@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Request.css";
 import { NotificationManager as nm } from "react-notifications";
+import _ from "lodash";
 import dompurify from "dompurify";
 import { postRequest } from "../../utils/request.jsx";
 
@@ -9,6 +10,7 @@ export default class Request extends Component {
 		super(props);
 
 		this.delete = this.delete.bind(this);
+		this.getPrettyRequestContent = this.getPrettyRequestContent.bind(this);
 
 		this.state = {
 		};
@@ -32,6 +34,43 @@ export default class Request extends Component {
 		});
 	}
 
+	getPrettyRequestContent() {
+		if (this.props.info === undefined
+			|| this.props.info === null
+			|| this.props.info.request === undefined
+			|| this.props.info.request === null) {
+			return "No content";
+		}
+
+		let request = _.cloneDeep(this.props.info.request);
+
+		const matches = request.match(/\{([^]+)\}/g);
+		console.log(matches);
+		if (matches !== null) {
+			request = matches.reduce((json, match) => {
+				console.log();
+				return json.replace(
+					match,
+					match
+						.replaceAll("\"", "")
+						.replaceAll("[", "")
+						.replaceAll("]", "")
+						.replaceAll(/{\n/g, "\n")
+						.replaceAll(/}(,)?(\n)?/g, "\n")
+						.replaceAll(",\n", "\n"),
+				);
+			}, request);
+		}
+
+		console.log(request);
+
+		return dompurify.sanitize(
+			request
+				.replaceAll("\n\n", "\n", "g")
+				.replaceAll("\n", "<br />", "g"),
+		);
+	}
+
 	render() {
 		return (
 			<div className="Request card">
@@ -43,7 +82,7 @@ export default class Request extends Component {
 							<div dangerouslySetInnerHTML={
 								{
 									__html:
-									dompurify.sanitize(this.props.info.request.replaceAll("\n", "<br />", "g")),
+									this.getPrettyRequestContent(),
 								}
 							}/>
 						</p>

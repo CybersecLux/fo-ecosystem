@@ -186,6 +186,10 @@ a:hover {
 	float: right;
 }
 
+.block-buttons {
+	height: 50px;
+}
+
 button {
 	display:inline-block;
 	padding:0.3em 1.2em;

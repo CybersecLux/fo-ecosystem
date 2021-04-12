@@ -1,6 +1,7 @@
 import React from "react";
 import "./PrivateSpaceMyCompanies.css";
 import { NotificationManager as nm } from "react-notifications";
+import Dropzone from "react-dropzone";
 import _ from "lodash";
 import Collapsible from "react-collapsible";
 import FormLine from "../form/FormLine.jsx";
@@ -19,6 +20,7 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 		this.refresh = this.refresh.bind(this);
 		this.submitModificationRequests = this.submitModificationRequests.bind(this);
 		this.submitCompanyRequest = this.submitCompanyRequest.bind(this);
+		this.submitCompanyLogo = this.submitCompanyLogo.bind(this);
 		this.updateCompanies = this.updateCompanies.bind(this);
 
 		this.state = {
@@ -26,6 +28,10 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 			originalCompanies: null,
 			addresses: null,
 			originalAddresses: null,
+
+			imageName: null,
+			imageSize: null,
+			imageContent: null,
 
 			entity: null,
 
@@ -75,7 +81,7 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 		const params = {
 			request:
 				"[COMPANY MODIFICATION]\n\n"
-				+ "The user requests modifications on the following company: " + company.name
+				+ "The user requests modifications on the following entity: " + company.name
 				+ "\n\n"
 				+ JSON.stringify(info, null, 4),
 		};
@@ -92,7 +98,7 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 	submitCompanyRequest() {
 		const params = {
 			request: "[COMPANY ACCESS]\n\n"
-				+ "The user requests the access to this company: "
+				+ "The user requests the access to this entity: "
 				+ this.state.entity,
 		};
 
@@ -101,6 +107,22 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 				entity: null,
 			});
 			nm.info("The request has been sent and will be reviewed");
+		}, (response) => {
+			nm.warning(response.statusText);
+		}, (error) => {
+			nm.error(error.message);
+		});
+	}
+
+	submitCompanyLogo(companyId) {
+		const params = {
+			company: companyId,
+			logo: null,
+		};
+
+		postRequest.call(this, "privatespace/update_my_company_logo", params, () => {
+			this.refresh();
+			nm.info("The logo has been changed");
 		}, (response) => {
 			nm.warning(response.statusText);
 		}, (error) => {
@@ -151,6 +173,33 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 		this.setState({ addresses: c });
 	}
 
+	onDrop(files) {
+		if (files.length === 0) {
+			nm.warning("No file has been detected. Please re-check the file extension.");
+			this.setState({
+				imageName: null,
+				imageSize: null,
+				imageContent: null,
+			});
+		} else {
+			const reader = new FileReader();
+
+			reader.onabort = () => console.log("file reading was aborted");
+			reader.onerror = () => console.log("An error happened while reading the file");
+			reader.onload = () => {
+				const blob = new Blob([reader.result], { type: files[0].type });
+				const imageUrl = URL.createObjectURL(blob);
+				this.setState({
+					imageName: files[0].name,
+					imageSize: files[0].size,
+					imageContent: imageUrl,
+				});
+			};
+
+			reader.readAsArrayBuffer(files[0]);
+		}
+	}
+
 	static isFieldCompleted(v) {
 		return v !== undefined && v.length > 0;
 	}
@@ -160,7 +209,7 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 			<div className="PrivateSpaceMyCompanies">
 				<div className={"row row-spaced"}>
 					<div className="col-md-12">
-						<h1>My companies</h1>
+						<h1>My entities</h1>
 					</div>
 
 					{this.state.companies !== null && this.state.companies.length > 0
@@ -172,16 +221,55 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 								<Collapsible
 									trigger={<div className={"PrivateSpaceMyCompanies-show-detail"}>Show details</div>}
 								>
+									<h2>Logo</h2>
+									<Dropzone
+										accept=".png,.jpg,.jpeg"
+										disabled={false}
+										onDrop={this.onDrop}
+									>
+										{({ getRootProps, getInputProps }) => (
+											<div
+												className={"PrivateSpaceMyCompanies-dragdrop"}
+												{...getRootProps()}>
+												<input {...getInputProps()} />
+												<div className="PrivateSpaceMyCompanies-dragdrop-textContent">
+													<i className="far fa-image"/>
+													<div>Drag and drop the file here</div>
+													<div>(must be .jpg, .jpeg or .png)</div>
+												</div>
+											</div>
+										)}
+									</Dropzone>
+									<div className={"right-buttons block-buttons"}>
+										<button
+											className={"blue-background"}
+											disabled={_.isEqual(c, this.state.originalCompanies[i])
+												&& _.isEqual(
+													this.state.addresses.filter((a) => a.company_id === c.id),
+													this.state.originalAddresses.filter((a) => a.company_id === c.id),
+												)
+											}
+										>
+											<i className="fas fa-upload"/> Remove the selection
+										</button>
+										<button
+											className={"blue-background"}
+											disabled={_.isEqual(c, this.state.originalCompanies[i])
+												&& _.isEqual(
+													this.state.addresses.filter((a) => a.company_id === c.id),
+													this.state.originalAddresses.filter((a) => a.company_id === c.id),
+												)
+											}
+										>
+											<i className="fas fa-upload"/> Upload logo
+										</button>
+									</div>
+
 									<h2>Global information</h2>
 									<FormLine
 										label={this.state.fields.name}
 										value={c.name}
 										onChange={(v) => this.updateCompanies(i, "name", v)}
-									/>
-									<FormLine
-										label={this.state.fields.type}
-										value={c.type}
-										disabled={true}
 									/>
 									<FormLine
 										label={this.state.fields.description}
@@ -290,7 +378,7 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 
 				<div className={"row row-spaced"}>
 					<div className="col-md-12">
-						<h1>Claim access to a company already in our database</h1>
+						<h1>Claim access to an entity already in our database</h1>
 					</div>
 
 					<div className="col-md-12">
