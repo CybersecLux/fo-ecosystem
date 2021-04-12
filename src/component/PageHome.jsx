@@ -265,7 +265,7 @@ export default class PageHome extends React.Component {
 									<Link to="/privatesector">
 										<Analytic
 											value={this.getEcosystemRoleCount("ECOSYSTEM ROLE", "ACTOR")}
-											desc={"Private companies"}
+											desc={"Private<br/>companies"}
 										/>
 									</Link>
 								</div>
@@ -273,7 +273,7 @@ export default class PageHome extends React.Component {
 									<Link to="/publicsector">
 										<Analytic
 											value={this.getEcosystemRoleCount("ENTITY TYPE", "PUBLIC SECTOR")}
-											desc={"Public entities"}
+											desc={"Public<br/>entities"}
 										/>
 									</Link>
 								</div>
@@ -281,7 +281,7 @@ export default class PageHome extends React.Component {
 									<Link to="/civilsociety">
 										<Analytic
 											value={this.getEcosystemRoleCount("ENTITY TYPE", "CIVIL SOCIETY")}
-											desc={"Civil society organisations"}
+											desc={"Civil society<br/>organisations"}
 										/>
 									</Link>
 								</div>
@@ -301,7 +301,7 @@ export default class PageHome extends React.Component {
 						<div className="col-md-12"/>
 						<div className="col-md-3"/>
 						<div className="col-md-6 PageHome-search">
-							<h3>Search on the website</h3>
+							<h3>Search on the ecosystem</h3>
 							<SearchField/>
 						</div>
 					</div>

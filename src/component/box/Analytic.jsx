@@ -1,6 +1,7 @@
 import React from "react";
 import "./Analytic.css";
 import CountUp from "react-countup";
+import dompurify from "dompurify";
 
 export default class Analytic extends React.Component {
 	render() {
@@ -15,7 +16,9 @@ export default class Analytic extends React.Component {
 					/>
 				</div>
 				<div className="Analytic-desc">
-					{this.props.desc}
+					<div dangerouslySetInnerHTML={{
+						__html: dompurify.sanitize(this.props.desc),
+					}}/>
 				</div>
 			</div>
 		);
