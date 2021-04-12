@@ -19,7 +19,7 @@ export default class Footer extends React.Component {
 						<div className="col-md-3">
 
 							<div className="Footer-patronage">
-								Under the High Patronage of the <b>Ministry of Economy</b>
+								Under the High Patronage of the <br/><b>Ministry of the Economy</b>
 							</div>
 							<div className="Footer-title">KEY PARTNERS</div>
 							<div className="Footer-alinea">

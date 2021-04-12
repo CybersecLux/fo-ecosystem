@@ -120,8 +120,6 @@ export default class PageDashboard extends React.Component {
 			.filter((a) => frameworksID.indexOf(a.taxonomy_value) >= 0)
 			.map((a) => this.state.frameworksColors[frameworksID.indexOf(a.taxonomy_value)]);
 
-		console.log(regulatorId, assignFrameworkColors);
-
 		return assignFrameworkColors;
 	}
 
@@ -558,24 +556,6 @@ export default class PageDashboard extends React.Component {
 					</div>
 
 					<div id="PageDashboard-national-strategy" className={"row PageDashboard-national-strategy"}>
-						<div className={"col-md-6 col-lg-4 PageDashboard-national-strategy-serving"}>
-							<h2>Serving the public sector</h2>
-
-							{this.getServingThePublicSector() !== null
-								? this.getServingThePublicSector().map((m) => <div
-									className={"col-sm-6 col-md-6 col-lg-6 PageDashboard-national-strategy-actor"}
-									key={m.id}>
-									<img
-										src={getApiURL() + "public/get_image/" + m.image}
-										alt={m.name}
-									/>
-								</div>)
-								: <Loading
-									height={100}
-								/>
-							}
-						</div>
-
 						<div className={"col-md-12"}>
 							<h1><i className="fas fa-chess"/> National strategy & governance</h1>
 
@@ -595,7 +575,26 @@ export default class PageDashboard extends React.Component {
 							</div>
 						</div>
 
-						<div className={"col-md-6 col-lg-8"}/>
+						<div className={"col-md-6 col-lg-4 PageDashboard-national-strategy-serving"}>
+							<h2>Serving the public sector</h2>
+
+							{this.getServingThePublicSector() !== null
+								? this.getServingThePublicSector().map((m) => <div
+									className={"col-sm-6 col-md-6 col-lg-6 PageDashboard-national-strategy-actor"}
+									key={m.id}>
+									<img
+										src={getApiURL() + "public/get_image/" + m.image}
+										alt={m.name}
+									/>
+								</div>)
+								: <Loading
+									height={100}
+								/>
+							}
+						</div>
+
+						<div className={"col-md-12 col-lg-4"}/>
+
 						<div className={"col-md-6 col-lg-4 PageDashboard-national-strategy-serving"}>
 							<h2>Serving the private sector</h2>
 
@@ -642,60 +641,7 @@ export default class PageDashboard extends React.Component {
 						</div>
 
 						<div className={"col-md-6"}>
-							<h2>Education & Research</h2>
-
-							<div className={"red-bordered"}>
-								<div className={"row"}>
-									{this.getEducation() !== null && this.getEducation().length > 0
-									&& this.getEducation().map((c) => <div className={"col-md-4 col-lg-3 col-xl-2"} key={c.id}>
-										<img
-											src={getApiURL() + "public/get_image/" + c.image}
-											alt={c.name}
-										/>
-									</div>)}
-
-									{this.getEducation() !== null && this.getEducation() === 0
-									&& <div className={"col-md-12"}>
-										<Message
-											text={"No item found"}
-											height={200}
-										/>
-									</div>}
-
-									{this.getEducation() === null
-									&& <div className={"col-md-12"}>
-										<Loading
-											height={200}
-										/>
-									</div>}
-								</div>
-							</div>
-						</div>
-
-						<div className={"col-md-6"}>
-							<h2>Sectoral PPPs</h2>
-
-							<div className={"red-bordered"}>
-								<div className={"row"}>
-									{this.getSectoralPPPs() !== null
-										? this.getSectoralPPPs().map((m) => <div
-											className={"col-sm-6 col-md-3 col-lg-2"}
-											key={m.id}>
-											<img
-												src={getApiURL() + "public/get_image/" + m.image}
-												alt={m.name}
-											/>
-										</div>)
-										: <Loading
-											height={100}
-										/>
-									}
-								</div>
-							</div>
-						</div>
-
-						<div className={"col-md-6"}>
-							<h2>Authorities and regulators</h2>
+							<h2>Authorities & Regulators</h2>
 
 							<div className={"red-bordered PageDashboard-authorities-and-regulators"}>
 								<div className={"row"}>
@@ -762,6 +708,59 @@ export default class PageDashboard extends React.Component {
 										height={200}
 									/>
 								</div>}
+							</div>
+						</div>
+
+						<div className={"col-md-6"}>
+							<h2>Education & Research</h2>
+
+							<div className={"red-bordered"}>
+								<div className={"row"}>
+									{this.getEducation() !== null && this.getEducation().length > 0
+									&& this.getEducation().map((c) => <div className={"col-md-4 col-lg-3 col-xl-2"} key={c.id}>
+										<img
+											src={getApiURL() + "public/get_image/" + c.image}
+											alt={c.name}
+										/>
+									</div>)}
+
+									{this.getEducation() !== null && this.getEducation() === 0
+									&& <div className={"col-md-12"}>
+										<Message
+											text={"No item found"}
+											height={200}
+										/>
+									</div>}
+
+									{this.getEducation() === null
+									&& <div className={"col-md-12"}>
+										<Loading
+											height={200}
+										/>
+									</div>}
+								</div>
+							</div>
+						</div>
+
+						<div className={"col-md-6"}>
+							<h2>Sectoral PPPs</h2>
+
+							<div className={"red-bordered"}>
+								<div className={"row"}>
+									{this.getSectoralPPPs() !== null
+										? this.getSectoralPPPs().map((m) => <div
+											className={"col-sm-6 col-md-3 col-lg-2"}
+											key={m.id}>
+											<img
+												src={getApiURL() + "public/get_image/" + m.image}
+												alt={m.name}
+											/>
+										</div>)
+										: <Loading
+											height={100}
+										/>
+									}
+								</div>
 							</div>
 						</div>
 					</div>

@@ -12,6 +12,7 @@ export default class ActorSearch extends React.Component {
 
 		this.state = {
 			isTaxonomyDetailOpen: false,
+			valueChainOrder: ["IDENTIFY", "PROTECT", "DETECT", "RESPOND", "RECOVER"],
 		};
 	}
 
@@ -19,6 +20,9 @@ export default class ActorSearch extends React.Component {
 		const options = [];
 		const solutionCategories = this.props.analytics.taxonomy_values
 			.filter((v) => v.category === "VALUE CHAIN");
+
+		solutionCategories.sort((a, b) => this.state.valueChainOrder.indexOf(a.name)
+			- this.state.valueChainOrder.indexOf(b.name));
 
 		for (let i = 0; i < solutionCategories.length; i++) {
 			options.push({
@@ -29,7 +33,7 @@ export default class ActorSearch extends React.Component {
 
 			getLeavesOfNode(this.props.analytics, [solutionCategories[i]]).forEach((l) => {
 				options.push({
-					label: l.category + " - " + l.name,
+					label: solutionCategories[i].name + " - " + l.name,
 					value: l.id,
 					color: "#AAAAAA",
 				});
