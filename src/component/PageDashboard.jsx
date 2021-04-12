@@ -21,13 +21,15 @@ export default class PageDashboard extends React.Component {
 		this.fetchPublicSector = this.fetchPublicSector.bind(this);
 		this.getLegalFrameworks = this.getLegalFrameworks.bind(this);
 		this.getTopSolutions = this.getTopSolutions.bind(this);
+		this.getFrameworkColorsOfRegulator = this.getFrameworkColorsOfRegulator.bind(this);
 
 		this.state = {
 			analytics: null,
 			actors: null,
 			publicSector: null,
 
-			frameworksColors: ["#009fe3", "#e40613", "black", "grey", "#8fddff", "#ffa8b0"],
+			frameworksColors: ["#009fe3", "#e40613", "black", "grey", "#8fddff", "#ffa8b0",
+				"#bcebff", "#fed7da", "black", "black", "black", "black", "black", "black"],
 		};
 	}
 
@@ -101,6 +103,26 @@ export default class PageDashboard extends React.Component {
 
 		return this.state.publicSector
 			.filter((p) => assignedCompanies.indexOf(p.id) >= 0);
+	}
+
+	getFrameworkColorsOfRegulator(regulatorId) {
+		if (this.getLegalFrameworks() === null
+			|| this.state.analytics === null
+			|| this.state.analytics.taxonomy_assignments === undefined) {
+			return null;
+		}
+
+		const frameworksID = this.getLegalFrameworks()
+			.map((v) => v.id);
+
+		const assignFrameworkColors = this.state.analytics.taxonomy_assignments
+			.filter((a) => a.company === regulatorId)
+			.filter((a) => frameworksID.indexOf(a.taxonomy_value) >= 0)
+			.map((a) => this.state.frameworksColors[frameworksID.indexOf(a.taxonomy_value)]);
+
+		console.log(regulatorId, assignFrameworkColors);
+
+		return assignFrameworkColors;
 	}
 
 	getEducation() {
@@ -541,7 +563,7 @@ export default class PageDashboard extends React.Component {
 
 							{this.getServingThePublicSector() !== null
 								? this.getServingThePublicSector().map((m) => <div
-									className={"col-sm-6 col-md-3 col-lg-2 PageDashboard-national-strategy-actor"}
+									className={"col-sm-6 col-md-6 col-lg-6 PageDashboard-national-strategy-actor"}
 									key={m.id}>
 									<img
 										src={getApiURL() + "public/get_image/" + m.image}
@@ -675,10 +697,18 @@ export default class PageDashboard extends React.Component {
 						<div className={"col-md-6"}>
 							<h2>Authorities and regulators</h2>
 
-							<div className={"red-bordered"}>
+							<div className={"red-bordered PageDashboard-authorities-and-regulators"}>
 								<div className={"row"}>
 									{this.getAuthorities() !== null && this.getAuthorities().length > 0
 									&& this.getAuthorities().map((c) => <div className={"col-md-4 col-lg-3 col-xl-2"} key={c.id}>
+										<div className={"PageDashboard-authorities-and-regulators-bookmarks"}>
+											{this.getFrameworkColorsOfRegulator(c.id).map((f) => <i
+												key={f}
+												className="fas fa-bookmark"
+												style={{ color: f }}
+											/>)}
+										</div>
+
 										<img
 											src={getApiURL() + "public/get_image/" + c.image}
 											alt={c.name}
@@ -704,7 +734,7 @@ export default class PageDashboard extends React.Component {
 						</div>
 
 						<div className={"col-md-6"}>
-							<h2><i className="fas fa-balance-scale"/> Specific legal framworks</h2>
+							<h2><i className="fas fa-balance-scale"/> Specific legal frameworks</h2>
 
 							<div className={"row PageDashboard-national-actors-legal"}>
 								{this.getLegalFrameworks() !== null && this.getLegalFrameworks().length > 0

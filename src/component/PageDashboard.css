@@ -189,3 +189,13 @@
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
 }
+
+.PageDashboard-authorities-and-regulators-bookmarks {
+	position: absolute;
+	top: -10px;
+	right: 10px;
+}
+
+.PageDashboard-authorities-and-regulators-bookmarks i {
+	margin: 0px 2px;
+}
