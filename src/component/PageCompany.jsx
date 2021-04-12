@@ -145,7 +145,7 @@ export default class PageCompany extends React.Component {
 								}
 
 								{this.state.company.is_startup !== undefined
-									&& this.state.company.is_startup !== null
+									&& this.state.company.is_startup
 									? <div className="col-md-12 PageCompany-stamp">
 										<i className="fas fa-check-circle"/> Start-up
 									</div>
