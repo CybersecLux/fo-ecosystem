@@ -9,7 +9,7 @@ import Loading from "./box/Loading.jsx";
 import Message from "./box/Message.jsx";
 import Company from "./item/Company.jsx";
 import SimpleTable from "./table/SimpleTable.jsx";
-import ActorSearch from "./form/ActorSearch.jsx";
+import PrivateSectorSearch from "./form/PrivateSectorSearch.jsx";
 import BarWorkforceRange from "./chart/BarWorkforceRange.jsx";
 import BarActorAge from "./chart/BarActorAge.jsx";
 import { getUrlParameter, dictToURI } from "../utils/url.jsx";
@@ -114,7 +114,7 @@ export default class PagePrivateSector extends React.Component {
 					</div>
 				</div>
 
-				<ActorSearch
+				<PrivateSectorSearch
 					analytics={this.state.analytics}
 					filters={this.state.filters}
 					onChange={this.modifyFilters}

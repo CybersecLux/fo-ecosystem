@@ -1,12 +1,12 @@
 import React from "react";
-import "./ActorSearch.css";
+import "./PrivateSectorSearch.css";
 import Popup from "reactjs-popup";
 import FormLine from "./FormLine.jsx";
 import Loading from "../box/Loading.jsx";
 import TreeTaxonomy from "../chart/TreeTaxonomy.jsx";
 import getLeavesOfNode from "../../utils/taxonomy.jsx";
 
-export default class ActorSearch extends React.Component {
+export default class PrivateSectorSearch extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -45,7 +45,7 @@ export default class ActorSearch extends React.Component {
 
 	render() {
 		return (
-			<div className={"ActorSearch row"}>
+			<div className={"PrivateSectorSearch row"}>
 				<div className={"col-md-12"}>
 					<FormLine
 						label={"Company name"}
@@ -72,11 +72,11 @@ export default class ActorSearch extends React.Component {
 				<div className={"col-md-6"}>
 				</div>
 
-				<div className={"col-md-6 ActorSearch-taxonomy-link-container"}>
+				<div className={"col-md-6 PrivateSectorSearch-taxonomy-link-container"}>
 					<Popup
 						className={"Popup-full-size"}
 						trigger={
-							<a className={"ActorSearch-taxonomy-link"}>
+							<a className={"PrivateSectorSearch-taxonomy-link"}>
 								Learn more about the classification
 							</a>
 						}
@@ -101,7 +101,7 @@ export default class ActorSearch extends React.Component {
 									}The taxonomy is used to classify the cybersecurity actors of the ecosystem.
 								</div>
 
-								<div className={"col-md-12 ActorSearch-tree-taxonomy"}>
+								<div className={"col-md-12 PrivateSectorSearch-tree-taxonomy"}>
 									{this.props.taxonomy !== null && this.props.taxonomy !== undefined
 										&& this.props.taxonomy.categories !== undefined
 										? <TreeTaxonomy

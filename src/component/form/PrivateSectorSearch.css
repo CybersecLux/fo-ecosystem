@@ -1,20 +1,20 @@
 
-.ActorSearch div .FormLine .row {
+.PrivateSectorSearch div .FormLine .row {
 	padding: 3px 0px !important;
 }
 
-.ActorSearch-taxonomy-link-container {
+.PrivateSectorSearch-taxonomy-link-container {
 	padding: 3px 0px 0px 0px;
 	text-align: center;
 }
 
-.ActorSearch-taxonomy-link {
+.PrivateSectorSearch-taxonomy-link {
 	cursor: pointer;
 	color: #009fe3 !important;
 	width: 100%;
 	text-align: center;
 }
 
-.ActorSearch-tree-taxonomy {
+.PrivateSectorSearch-tree-taxonomy {
 	margin: 10px 0px;
 }
