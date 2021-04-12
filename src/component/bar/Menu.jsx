@@ -98,15 +98,13 @@ export default class Menu extends React.Component {
 					</Navbar.Collapse>}
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="Menu-top-right-about mr-sm-2 ml-auto">
+							<SearchField/>
 							<Nav.Link eventKey="4.1">
 								<Link to="/about">
 									<div className="Menu-title">About</div>
-									<div className="Menu-description">What is CYBERLUX</div>
+									<div className="Menu-description">What is CYBERLUX?</div>
 								</Link>
 							</Nav.Link>
-						</Nav>
-						<Nav className="Menu-top-right mr-sm-2 ml-auto">
-							<SearchField/>
 						</Nav>
 					</Navbar.Collapse>
 				</Navbar>
