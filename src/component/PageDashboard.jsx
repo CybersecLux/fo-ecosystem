@@ -22,6 +22,7 @@ export default class PageDashboard extends React.Component {
 		this.getLegalFrameworks = this.getLegalFrameworks.bind(this);
 		this.getTopSolutions = this.getTopSolutions.bind(this);
 		this.getFrameworkColorsOfRegulator = this.getFrameworkColorsOfRegulator.bind(this);
+		this.getSecinDepartments = this.getSecinDepartments.bind(this);
 
 		this.state = {
 			analytics: null,
@@ -29,7 +30,17 @@ export default class PageDashboard extends React.Component {
 			publicSector: null,
 
 			frameworksColors: ["#009fe3", "#e40613", "black", "grey", "#8fddff", "#ffa8b0",
-				"#bcebff", "#fed7da", "black", "black", "black", "black", "black", "black"],
+				"#9fe383", "#9f83d4", "#FFD700", "black", "black", "black", "black", "black"],
+
+			secinDepartments: [
+				"Computer Incident Response Center Luxembourg",
+				"Cybersecurity Competence Center",
+				"Cyberworld Awareness and Security Enhancement Services",
+			],
+			servingPublicSector: [
+				"Agence Nationale de la Sécurité des systèmes d'Information",
+				"Governmental Computer Emergency Response Team",
+			],
 		};
 	}
 
@@ -102,14 +113,16 @@ export default class PageDashboard extends React.Component {
 			.map((a) => a.company);
 
 		return this.state.publicSector
-			.filter((p) => assignedCompanies.indexOf(p.id) >= 0);
+			.filter((p) => assignedCompanies.indexOf(p.id) >= 0)
+			.filter((p) => this.state.secinDepartments.indexOf(p.name) < 0)
+			.filter((p) => this.state.servingPublicSector.indexOf(p.name) < 0);
 	}
 
 	getFrameworkColorsOfRegulator(regulatorId) {
 		if (this.getLegalFrameworks() === null
 			|| this.state.analytics === null
 			|| this.state.analytics.taxonomy_assignments === undefined) {
-			return null;
+			return [];
 		}
 
 		const frameworksID = this.getLegalFrameworks()
@@ -263,10 +276,7 @@ export default class PageDashboard extends React.Component {
 		}
 
 		return this.state.publicSector
-			.filter((p) => [
-				"Agence Nationale de la Sécurité des systèmes d'Information",
-				"Governmental Computer Emergency Response Team",
-			].indexOf(p.name) >= 0);
+			.filter((p) => this.state.servingPublicSector.indexOf(p.name) >= 0);
 	}
 
 	getSectoralPPPs() {
@@ -413,6 +423,15 @@ export default class PageDashboard extends React.Component {
 			.filter((a) => a.is_cybersecurity_core_business === 1)
 			.filter((a) => a.is_startup === 1)
 			.length;
+	}
+
+	getSecinDepartments() {
+		if (this.state.publicSector === null) {
+			return [];
+		}
+
+		return this.state.publicSector
+			.filter((a) => this.state.secinDepartments.indexOf(a.name) >= 0);
 	}
 
 	render() {
@@ -562,7 +581,7 @@ export default class PageDashboard extends React.Component {
 							<div className={"row"}>
 								{this.getInterMinisterialCommitee() !== null
 									? this.getInterMinisterialCommitee().map((m) => <div
-										className={"col-sm-6 col-md-3 col-lg-2"}
+										className={"col-sm-6 col-lg-3 col-xl-2"}
 										key={m.id}>
 										<div className="PageDashboard-national-strategy-actor">
 											<h3>{m.name}</h3>
@@ -579,13 +598,22 @@ export default class PageDashboard extends React.Component {
 							<h2>Serving the public sector</h2>
 
 							{this.getServingThePublicSector() !== null
-								? this.getServingThePublicSector().map((m) => <div
-									className={"col-sm-6 col-md-6 col-lg-6 PageDashboard-national-strategy-actor"}
-									key={m.id}>
-									<img
-										src={getApiURL() + "public/get_image/" + m.image}
-										alt={m.name}
-									/>
+								? this.getServingThePublicSector().map((m) => <div className={"row"} key={m.id}>
+									<div className={"col-12 col-md-2 col-lg-2"}/>
+									<div className={"col-12 col-md-8 col-lg-8 PageDashboard-national-strategy-actor"}>
+										<div className={"PageDashboard-authorities-and-regulators-bookmarks"}>
+											{this.getFrameworkColorsOfRegulator(m.id).map((f) => <i
+												key={f}
+												className="fas fa-bookmark"
+												style={{ color: f }}
+											/>)}
+										</div>
+
+										<img
+											src={getApiURL() + "public/get_image/" + m.image}
+											alt={m.name}
+										/>
+									</div>
 								</div>)
 								: <Loading
 									height={100}
@@ -609,28 +637,23 @@ export default class PageDashboard extends React.Component {
 								<div className={"col-12 col-md-3 col-lg-3"}/>
 							</div>
 							<div className={"row"}>
-								<div className={"col-12 col-md-1 col-lg-1"}/>
-								<div className={"col-12 col-md-2 col-lg-2"}>
+								{this.getSecinDepartments().map((d) => <div
+									key={d.id}
+									className={"col-12 col-md-4 col-lg-4"}>
+									<div className={"PageDashboard-authorities-and-regulators-bookmarks"}>
+										{this.getFrameworkColorsOfRegulator(d.id).map((f) => <i
+											key={f}
+											className="fas fa-bookmark"
+											style={{ color: f }}
+										/>)}
+									</div>
+
 									<img
-										src={"img/c3-logo.png"}
-										alt={"C3"}
+										src={getApiURL() + "public/get_image/" + d.image}
+										alt={d.name}
 									/>
-								</div>
-								<div className={"col-12 col-md-2 col-lg-2"}/>
-								<div className={"col-12 col-md-2 col-lg-2"}>
-									<img
-										src={"img/cases-logo.png"}
-										alt={"CASES"}
-									/>
-								</div>
-								<div className={"col-12 col-md-2 col-lg-2"}/>
-								<div className={"col-12 col-md-2 col-lg-2"}>
-									<img
-										src={"img/circl-logo.png"}
-										alt={"CIRCL"}
-									/>
-								</div>
-								<div className={"col-12 col-md-1 col-lg-1"}/>
+								</div>)
+								}
 							</div>
 						</div>
 					</div>
