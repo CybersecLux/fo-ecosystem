@@ -669,7 +669,7 @@ export default class PageDashboard extends React.Component {
 							<div className={"red-bordered PageDashboard-authorities-and-regulators"}>
 								<div className={"row"}>
 									{this.getAuthorities() !== null && this.getAuthorities().length > 0
-									&& this.getAuthorities().map((c) => <div className={"col-md-4 col-lg-3 col-xl-2"} key={c.id}>
+									&& this.getAuthorities().map((c) => <div className={"col-md-6 col-lg-6 col-xl-4"} key={c.id}>
 										<div className={"PageDashboard-authorities-and-regulators-bookmarks"}>
 											{this.getFrameworkColorsOfRegulator(c.id).map((f) => <i
 												key={f}
@@ -740,7 +740,7 @@ export default class PageDashboard extends React.Component {
 							<div className={"red-bordered"}>
 								<div className={"row"}>
 									{this.getEducation() !== null && this.getEducation().length > 0
-									&& this.getEducation().map((c) => <div className={"col-md-4 col-lg-3 col-xl-2"} key={c.id}>
+									&& this.getEducation().map((c) => <div className={"col-md-6 col-lg-6 col-xl-4"} key={c.id}>
 										<img
 											src={getApiURL() + "public/get_image/" + c.image}
 											alt={c.name}
@@ -772,7 +772,7 @@ export default class PageDashboard extends React.Component {
 								<div className={"row"}>
 									{this.getSectoralPPPs() !== null
 										? this.getSectoralPPPs().map((m) => <div
-											className={"col-sm-6 col-md-3 col-lg-2"}
+											className={"col-md-6 col-lg-6 col-xl-4"}
 											key={m.id}>
 											<img
 												src={getApiURL() + "public/get_image/" + m.image}
