@@ -261,7 +261,7 @@ export default class PageDashboard extends React.Component {
 			.filter((p) => [
 				"Haut-Commissariat à la Protection Nationale",
 				"Directorate of Defence",
-				"State Intelligence Service",
+				"Service de Renseignement de l'Etat",
 				"Ministry of the Economy",
 				"Institut Luxembourgeois de Régulation",
 				"Centre des Technologies de l'Information de l'Etat",
