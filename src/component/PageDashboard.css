@@ -75,6 +75,10 @@
 	width: 100%;
 }
 
+.PageDashboard-image-wrapper {
+	margin: 0px 0px 25px 0px;
+}
+
 #PageDashboard .blue-bordered {
 	background:
         linear-gradient(to right, #8fddff 2px, transparent 3px) 0 0,
