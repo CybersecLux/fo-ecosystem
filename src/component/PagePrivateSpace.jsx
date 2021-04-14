@@ -69,7 +69,7 @@ export default class PagePrivateSpace extends React.Component {
 							key={2}
 							id={this.props.id}
 						/>,
-						null,
+						<br key="br1"/>,
 						<PrivateSpaceRegisterACompany
 							key={3}
 							id={this.props.id}
@@ -78,7 +78,7 @@ export default class PagePrivateSpace extends React.Component {
 							key={4}
 							id={this.props.id}
 						/>,
-						null,
+						<br key="br2"/>,
 						<PrivateSpacePassword
 							key={5}
 							id={this.props.id}
