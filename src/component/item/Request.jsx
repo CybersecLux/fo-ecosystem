@@ -45,24 +45,19 @@ export default class Request extends Component {
 		let request = _.cloneDeep(this.props.info.request);
 
 		const matches = request.match(/\{([^]+)\}/g);
-		console.log(matches);
-		if (matches !== null) {
-			request = matches.reduce((json, match) => {
-				console.log();
-				return json.replace(
-					match,
-					match
-						.replaceAll("\"", "")
-						.replaceAll("[", "")
-						.replaceAll("]", "")
-						.replaceAll(/{\n/g, "\n")
-						.replaceAll(/}(,)?(\n)?/g, "\n")
-						.replaceAll(",\n", "\n"),
-				);
-			}, request);
-		}
 
-		console.log(request);
+		if (matches !== null) {
+			request = matches.reduce((json, match) => json.replace(
+				match,
+				match
+					.replaceAll("\"", "")
+					.replaceAll("[", "")
+					.replaceAll("]", "")
+					.replaceAll(/{\n/g, "\n")
+					.replaceAll(/}(,)?(\n)?/g, "\n")
+					.replaceAll(",\n", "\n"),
+			), request);
+		}
 
 		return dompurify.sanitize(
 			request
