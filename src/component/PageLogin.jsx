@@ -8,6 +8,7 @@ import { postRequest } from "../utils/request.jsx";
 import { validatePassword, validateEmail } from "../utils/re.jsx";
 import Info from "./box/Info.jsx";
 import { getUrlParameter } from "../utils/url.jsx";
+import { getCookieOptions } from "../utils/env.jsx";
 
 export default class PageLogin extends React.Component {
 	constructor(props) {
