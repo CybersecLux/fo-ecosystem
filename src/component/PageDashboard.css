@@ -37,7 +37,6 @@
 	background: none !important;
 	white-space: initial;
 	overflow: initial;
-	font-size: 3.5vw;
 	padding: 0px 5px !important;
 	min-height: 0px;
 
@@ -47,7 +46,6 @@
 	background: none;
 	white-space: initial;
 	overflow: initial;
-	font-size: 1.8vw;
 	padding: 0px 5px !important;
 	min-height: 0px;
 	text-transform: capitalize;
@@ -57,14 +55,12 @@
 	background: none;
 	white-space: initial;
 	overflow: initial;
-	font-size: 1.5vw;
 }
 
 #PageDashboard h4 {
 	background: none;
 	white-space: initial;
 	overflow: initial;
-	font-size: 1vw;
 }
 
 #PageDashboard h4 i {
