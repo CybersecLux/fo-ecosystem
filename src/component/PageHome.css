@@ -33,12 +33,17 @@
 }
 
 .PageHome-polygon-blue-content {
+
 	animation-delay: 3s;
 	animation: fadeIn ease 3s;
 	-webkit-animation: fadeIn ease 3s;
 	-moz-animation: fadeIn ease 3s;
 	-o-animation: fadeIn ease 3s;
 	-ms-animation: fadeIn ease 3s;
+}
+
+.PageHome-polygon-blue-content .row {
+	background-color: #009fe3;
 }
 
 @keyframes polygon-red-move {
@@ -68,6 +73,10 @@
 	-moz-animation: fadeIn ease 4s;
 	-o-animation: fadeIn ease 4s;
 	-ms-animation: fadeIn ease 4s;
+}
+
+.PageHome-polygon-red-content .row {
+	background-color: #e40613;
 }
 
 .PageHome-polygon-wrapper-blue .row {
@@ -163,6 +172,7 @@
 
 .PageHome-search {
 	margin-top: 150px;
+	margin-bottom: 50px;
 	padding: 30px 30px 50px;
 	background: 
         linear-gradient( 45deg,transparent 10px,#000 0) left /50.5% 100%,
