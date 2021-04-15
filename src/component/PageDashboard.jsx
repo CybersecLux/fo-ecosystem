@@ -45,8 +45,9 @@ export default class PageDashboard extends React.Component {
 			sectoralPPPs: [
 				"InCert GIE",
 				"Infrachain a.s.b.l",
-				"LU-CIX",
+				"LU-CIX (Luxembourg Commercial Internet Exchange)",
 				"LUXITH",
+				"Agence eSanté G.I.E.",
 			],
 		};
 	}
