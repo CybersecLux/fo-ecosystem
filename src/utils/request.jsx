@@ -4,11 +4,13 @@ export async function getRequest(url, callback, catchBadResponse, catchError) {
 	fetch(getApiURL() + url, {
 		method: "GET",
 		headers: new Headers({
-			Authorization: "Bearer " + window.token,
+			Authorization: "Bearer " + (document.cookie ? document.cookie.split("=")[1] : ""),
 			Accept: "application/json, text/html",
 			pragma: "no-cache",
 			"cache-control": "no-cache",
+			// "set-cookie": document.cookie,
 		}),
+		// credentials: "include",
 	}).then((response) => {
 		if (response.status === 200) {
 			return response.json();
@@ -34,11 +36,13 @@ export async function getBlobRequest(url, callback, catchBadResponse, catchError
 	fetch(getApiURL() + url, {
 		method: "GET",
 		headers: new Headers({
-			Authorization: "Bearer " + window.token,
+			Authorization: "Bearer " + (document.cookie ? document.cookie.split("=")[1] : ""),
 			Accept: "application/json, text/html",
 			pragma: "no-cache",
 			"cache-control": "no-cache",
+			// "set-cookie": document.cookie,
 		}),
+		// credentials: "include",
 	}).then((response) => {
 		if (response.status === 200) {
 			return response.blob();
@@ -65,11 +69,12 @@ export async function postRequest(url, params, callback, catchBadResponse, catch
 		method: "POST",
 		body: JSON.stringify(params),
 		headers: new Headers({
-			Authorization: "Bearer " + window.token,
+			Authorization: "Bearer " + (document.cookie ? document.cookie.split("=")[1] : ""),
 			Accept: "application/json, text/html",
 			"Content-Type": "application/json",
-			credentials: "include",
+			// "set-cookie": document.cookie,
 		}),
+		// credentials: "include",
 	}).then((response) => {
 		if (response.status === 200) {
 			return response.json();

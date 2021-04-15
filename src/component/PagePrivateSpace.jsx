@@ -29,6 +29,7 @@ export default class PagePrivateSpace extends React.Component {
 		}, () => {
 			nm.info("Your session has expired. please log in again");
 			this.props.history.push("/login");
+			this.props.cookies.remove("access_token_cookie");
 		}, (error) => {
 			nm.error(error.message);
 		});

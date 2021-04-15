@@ -10,12 +10,15 @@ export function getApiURL() {
 
 export function getCookieOptions() {
 	if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.hostname === "") {
-		return {};
+		// return { domain: ".localhost" };
+		return { domain: "localhost" };
 	}
 	if (window.location.hostname.includes("test")) {
+		// return { secure: true, domain: ".cy.lu", httpOnly: true };
 		return { secure: true, domain: ".cy.lu" };
 	}
-	return { secure: true, domain: ".cy.lu" };
+	// return { secure: true, domain: ".cy.lu", httpOnly: true };
+	return { secure: true, domain: ".cybersecurity-luxembourg.com" };
 }
 
 export function isInternetExplorer() {
