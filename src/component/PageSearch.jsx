@@ -124,7 +124,7 @@ export default class PageSearch extends React.Component {
 				{this.state.entities !== null && this.state.entities.length > 0
 					&& <div className="row">
 						<div className="col-md-12">
-							<h1>{this.state.entities !== null ? this.state.entities.length + " " : ""}entities</h1>
+							<h1>{this.state.entities !== null ? this.state.entities.length + " " : ""}entit{this.state.entities !== null && this.state.entities.length > 1 ? "ies" : "y"}</h1>
 						</div>
 						<div className="col-md-12">
 							<SimpleTable
