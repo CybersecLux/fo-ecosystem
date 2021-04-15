@@ -2,8 +2,6 @@ import React from "react";
 import "./PrivateSectorSearch.css";
 import Popup from "reactjs-popup";
 import FormLine from "./FormLine.jsx";
-import Loading from "../box/Loading.jsx";
-import TreeTaxonomy from "../chart/TreeTaxonomy.jsx";
 import getLeavesOfNode from "../../utils/taxonomy.jsx";
 
 export default class PrivateSectorSearch extends React.Component {
@@ -86,7 +84,7 @@ export default class PrivateSectorSearch extends React.Component {
 						{(close) => (
 							<div className={"row"}>
 								<div className={"col-md-12"}>
-									<h2>Learn more about the taxonomy</h2>
+									<h2>Learn more about the classification</h2>
 									<div className="top-right-buttons">
 										<button
 											className={"red-background"}
@@ -98,36 +96,24 @@ export default class PrivateSectorSearch extends React.Component {
 
 								<div className={"col-md-12"}>
 									{// eslint-disable-next-line
-									}The taxonomy is used to classify the cybersecurity actors of the ecosystem.
-								</div>
-
-								<div className={"col-md-12 PrivateSectorSearch-tree-taxonomy"}>
-									{this.props.taxonomy !== null && this.props.taxonomy !== undefined
-										&& this.props.taxonomy.categories !== undefined
-										? <TreeTaxonomy
-											companyAssignment={[]}
-											taxonomy={this.props.taxonomy}
-											category={"SERVICE GROUP"}
-										/>
-										: <Loading
-											height={400}
-										/>
-									}
-								</div>
-
-								<div className={"col-md-12"}>
+									}<p>Private companies are classified according to the <a target="_blank" rel="noreferrer" href="http://www.ecs-org.eu/documents/uploads/ecso-cybersecurity-market-radar-brochure.pdf">ECSO Cybersecurity Market Radar</a>, which is based on the <a target="_blank" rel="noreferrer" href="https://www.nist.gov/cyberframework">NIST Cybersecurity Framework.</a></p>
 									{// eslint-disable-next-line
-									}You can consult the ECSO market radar, source of CYBERSECURITY LUXEMBOURG taxonomy with the following link.
-								</div>
-
-								<div className={"col-md-12"}>
-									<a
-										href={"http://www.ecs-org.eu/newsroom/the-latest-edition-of-the-ecso-cybersecurity-market-radar-is-out-now"}
-										target={"_blank"}
-										rel="noreferrer"
-									>
-										Visit here
-									</a>
+									}<p>The ECSO Cybersecurity Market Radar serves as a comprehensive visualisation tool of the European cybersecurity market.</p>
+									{// eslint-disable-next-line
+									}<p>The ECSO Radar indicates 5 capabilities that make the cybersecurity value chain:</p>
+									<ul>
+										<li>identify,</li>
+										<li>protect,</li>
+										<li>detect,</li>
+										<li>respond,</li>
+										<li>recover.</li>
+									</ul>
+									{// eslint-disable-next-line
+									}<p>Each link in the value chain is then divided into groups of services and products that are respectively offered by the member companies of the ecosystem.</p>
+									<img
+										className="PrivateSectorSearch-img"
+										src="img/cybersecurity-ecso-taxonomy.png"
+									/>
 								</div>
 							</div>
 						)}

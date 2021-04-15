@@ -143,7 +143,7 @@ export default class PageHome extends React.Component {
 											<div className={"row PageHome-how-to-use-content"}>
 												<div className={"col-md-12"}>
 													{// eslint-disable-next-line
-													}<h2>HOW TO NAVIGATE THROUGH THE LUXEMBOURG CYBERSECURITY ECOSYSTEM APP</h2>
+													}<h2>HOW TO NAVIGATE THROUGH THE LUXEMBOURG CYBERSECURITY ECOSYSTEM PLATFORM</h2>
 													<div className="top-right-buttons">
 														<button
 															className={"red-background"}
@@ -155,27 +155,70 @@ export default class PageHome extends React.Component {
 
 												<div className={"col-md-12"}>
 													{// eslint-disable-next-line
-													}<p>The Luxembourg cybersecurity ecosystem mapping has been divided into 3 categories of players:</p>
+													}<p>The Luxembourg cybersecurity ecosystem has been divided into 3 categories of players:</p>
 													<ul>
 														{// eslint-disable-next-line
-														}<li><b>Private companies</b> that offer services & solutions in the field of cybersecurity,</li>
+														}<li><b>Private Sector: private companies</b> that offer services & solutions in the field of cybersecurity,</li>
 														{// eslint-disable-next-line
-														}<li><b>Public entities</b> (authorities and regulators) that are in charge or involved in the application of the regulations applying to the sector,</li>
+														}<li><b>Public Sector: public entities</b> that include the authorities and regulators in charge or involved in the application of the regulations applying to the sector, the organisations involved in education and research, and the sectoral public-private partnerships.</li>
 														{// eslint-disable-next-line
-														}<li><b>Civil society organisations</b> that bring together collective strengths to address cybersecurity topics.</li>
+														}<li><b>Civil society: organisations</b> that bring together collective strengths to address cybersecurity topics.</li>
+													</ul>
+
+													<h3>Private sector</h3>
+													{// eslint-disable-next-line
+													}<p>Private companies are classified according to the <a target="_blank" rel="noreferrer" href="http://www.ecs-org.eu/documents/uploads/ecso-cybersecurity-market-radar-brochure.pdf">ECSO Cybersecurity Market Radar</a>, which is based on the <a target="_blank" rel="noreferrer" href="https://www.nist.gov/cyberframework">NIST Cybersecurity Framework.</a></p>
+													{// eslint-disable-next-line
+													}<p>The ECSO Cybersecurity Market Radar serves as a comprehensive visualisation tool of the European cybersecurity market.</p>
+													{// eslint-disable-next-line
+													}<p>The ECSO Radar indicates 5 capabilities that make the cybersecurity value chain:</p>
+													<ul>
+														<li>identify,</li>
+														<li>protect,</li>
+														<li>detect,</li>
+														<li>respond,</li>
+														<li>recover.</li>
 													</ul>
 													{// eslint-disable-next-line
-													}<p>The companies’ directory has been categorised upon the <a target="_blank" rel="noreferrer" href="http://www.ecs-org.eu/documents/uploads/ecso-cybersecurity-market-radar-brochure.pdf">ECSO Cybersecurity Market Radar</a>.</p>
-													{// eslint-disable-next-line
-													}<p>The ECSO Cybersecurity Market Radar serves as a comprehensive visualisation tool, marking a significant step forward in ensuring the transparency of the European cybersecurity market and boosting the visibility of its deployment-ready cybersecurity solutions and capabilities.</p>
-													{// eslint-disable-next-line
-													}<p>The Radar presents a market-oriented taxonomy of cybersecurity capabilities, developed by the ECSO working groups, dealing with market analysis, investments, cybersecurity companies and regions. The ECSO Radar indicates 5 capabilities: identify, protect, detect, respond, recover.</p>		
-												</div>
-
-												<div className={"col-md-12"}>
+													}<p>Each link in the value chain is then divided into groups of services and products that are respectively offered by the member companies of the ecosystem.</p>
 													<img
 														src="img/cybersecurity-ecso-taxonomy.png"
 													/>
+
+													<h3>Public sector</h3>
+													{// eslint-disable-next-line
+													}<p>Public entities have been classified according to the nature of their missions:</p>
+													<ul>
+														<li>Authorities & Regulators,</li>
+														<li>Education & Research,</li>
+														<li>Sectoral Public-Private Partnerships,</li>
+													</ul>
+													{// eslint-disable-next-line
+													}<p>while identifying the legal framework that frames their activities:</p>
+													<ul>
+														{// eslint-disable-next-line
+														}<li>Critical Infrastructure Protection (CIP),</li>
+														{// eslint-disable-next-line
+														}<li><a target="_blank" rel="noreferrer" href="https://eur-lex.europa.eu/eli/reg/2016/679/oj">General Data Protection Regulation</a> (GDPR),</li>
+														{// eslint-disable-next-line
+														}<li><a target="_blank" rel="noreferrer" href="https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32016L1148">Network and Information Security</a> (NIS),</li>
+														{// eslint-disable-next-line
+														}<li><a target="_blank" rel="noreferrer" href="https://portail-qualite.public.lu/fr/confiance-numerique/archivage-electronique.html">Prestataires de Services de Dématérialisation ou de Conservation</a> (PSDC),</li>
+														{// eslint-disable-next-line
+														}<li><a target="_blank" rel="noreferrer" href="https://www.cssf.lu/fr/psf-support/">Professionnels du Secteur Financier de Support</a> (PSF),</li>
+														{// eslint-disable-next-line
+														}<li><a target="_blank" rel="noreferrer" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32015L2366">Payment services</a> (PSD2),</li>
+														{// eslint-disable-next-line
+														}<li><a target="_blank" rel="noreferrer" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv:OJ.L_.2014.257.01.0073.01.ENG">Electronic Identification, Authentification and Trust Services</a> (eIDAS),</li>
+														{// eslint-disable-next-line
+														}<li><a target="_blank" rel="noreferrer" href="https://eur-lex.europa.eu/eli/reg/2019/881/oj">Cybersecurity Act</a> (CSA),</li>
+														{// eslint-disable-next-line
+														}<li><a target="_blank" rel="noreferrer" href="https://digital-strategy.ec.europa.eu/en/policies/european-cybersecurity-competence-network-and-centre">European Cybersecurity Competence Network and Centre</a>.</li>
+													</ul>
+
+													<h3>Civil society</h3>
+													{// eslint-disable-next-line
+													}<p>Civil society organisations are classified according to the industry vertical they belong to.</p>
 												</div>
 											</div>
 										)}
