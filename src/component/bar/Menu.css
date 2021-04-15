@@ -64,8 +64,27 @@
     text-align: center;
     font-size: 30px;
     min-width: 0px;
-    margin-right: 15px;
     padding-top: 6px !important;
+}
+
+@media (min-width: 0px) {
+    .Menu-item-blue, .Menu-item-red, .Menu-item-black {
+        width: 100% !important;
+    }
+
+    .Menu-right a, .Menu-top-right-about a {
+        margin: 0px auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .Menu-item-home {
+        margin-right: 15px;
+    }
+
+    .Menu-item-blue, .Menu-item-red, .Menu-item-black {
+        width: 180px !important;
+    }
 }
 
 .Menu-item-blue {
