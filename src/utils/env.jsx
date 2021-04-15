@@ -9,6 +9,7 @@ export function getApiURL() {
 }
 
 export function getCookieOptions() {
+	// TODO use httponly cookies
 	if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.hostname === "") {
 		// return { domain: ".localhost" };
 		return { domain: "localhost" };

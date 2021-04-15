@@ -58,6 +58,7 @@ export default class InsideApp extends React.Component {
 	}
 
 	login(accessToken, email) {
+		// TODO use httponly cookies
 		this.props.cookies.set("access_token_cookie", accessToken, getCookieOptions());
 
 		this.setState({
@@ -67,6 +68,7 @@ export default class InsideApp extends React.Component {
 	}
 
 	logout() {
+		// TODO use httponly cookies
 		this.props.cookies.remove("access_token_cookie");
 
 		this.setState({

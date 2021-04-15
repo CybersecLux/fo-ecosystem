@@ -41,10 +41,8 @@ export default class PageLogin extends React.Component {
 		// Get the token if the user reaches the app though a password reset URL
 
 		if (getUrlParameter("action") === "reset_password") {
-			// TODO
-			// this.props.cookies.set("access_token_cookie",
-			// getUrlParameter("token"), getCookieOptions());
-			window.token = getUrlParameter("token");
+			// TODO use httponly cookies
+			this.props.cookies.set("access_token_cookie", getUrlParameter("token"), getCookieOptions());
 		}
 
 		// This function to notify if the password has been reset correctly
