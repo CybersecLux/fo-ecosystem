@@ -3,6 +3,7 @@ import "./GlobalMap.css";
 import {
 	MapContainer, TileLayer, Marker, Popup,
 } from "react-leaflet";
+import L from "leaflet";
 import _ from "lodash";
 import { NotificationManager as nm } from "react-notifications";
 import CheckBox from "../form/CheckBox.jsx";
@@ -106,6 +107,13 @@ export default class GlobalMap extends React.Component {
 	}
 
 	render() {
+		const thisIcon = new L.Icon({
+			iconUrl: "/img/marker-icon-2x.png",
+			iconSize: [24, 36],
+			iconAnchor: [12, 36],
+			popupAnchor: [0, -36],
+		});
+
 		return (
 			<div className={"GlobalMap " + (this.props.fullpage ? "GlobalMap-fullpage" : "")}>
 				<MapContainer
@@ -121,6 +129,7 @@ export default class GlobalMap extends React.Component {
 								<div key={a.company_id}>
 									<Marker
 										position={[a.latitude, a.longitude]}
+										icon={thisIcon}
 										eventHandlers={{ click: () => { this.handlePopupOpen(a.company_id); } }}>
 										<Popup
 											companyId={a.company_id}
