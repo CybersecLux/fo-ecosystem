@@ -301,7 +301,7 @@ export default class PageHome extends React.Component {
 						<div className="col-md-12"/>
 						<div className="col-md-3"/>
 						<div className="col-md-6 PageHome-search">
-							<h3>Search on the ecosystem</h3>
+							<h3>Search in the ecosystem</h3>
 							<SearchField/>
 						</div>
 					</div>

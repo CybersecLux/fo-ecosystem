@@ -24,7 +24,7 @@ export default class Footer extends React.Component {
 							<div className="Footer-title">KEY PARTNERS</div>
 							<div className="Footer-alinea">
 								<a
-									href="https://hcpn.gouvernement.lu/fr.html"
+									href="https://hcpn.gouvernement.lu/en.html"
 									rel="noreferrer"
 									target="_blank"
 									title="HCPN">
