@@ -29,8 +29,8 @@ export default class PageDashboard extends React.Component {
 			actors: null,
 			publicSector: null,
 
-			frameworksColors: ["#009fe3", "#e40613", "black", "grey", "#8fddff", "#ffa8b0",
-				"#9fe383", "#9f83d4", "#FFD700", "black", "black", "black", "black", "black"],
+			frameworksColors: ["#ff6633", "#FFCC33", "#33FF66", "#33FFCC", "#33CCFF", "#3366FF",
+				"#6633FF", "#CC33FF", "#EFEFEF", "black", "black", "black", "black", "black"],
 
 			secinDepartments: [
 				"Computer Incident Response Center Luxembourg",
@@ -40,6 +40,13 @@ export default class PageDashboard extends React.Component {
 			servingPublicSector: [
 				"Agence Nationale de la Sécurité des systèmes d'Information",
 				"Governmental Computer Emergency Response Team",
+				"Centre des Technologies de l'Information de l'Etat",
+			],
+			sectoralPPPs: [
+				"InCert GIE",
+				"Infrachain a.s.b.l",
+				"LU-CIX",
+				"LUXITH",
 			],
 		};
 	}
@@ -115,6 +122,7 @@ export default class PageDashboard extends React.Component {
 		return this.state.publicSector
 			.filter((p) => assignedCompanies.indexOf(p.id) >= 0)
 			.filter((p) => this.state.secinDepartments.indexOf(p.name) < 0)
+			.filter((p) => this.state.sectoralPPPs.indexOf(p.name) < 0)
 			.filter((p) => this.state.servingPublicSector.indexOf(p.name) < 0);
 	}
 
@@ -285,12 +293,7 @@ export default class PageDashboard extends React.Component {
 		}
 
 		return this.state.publicSector
-			.filter((p) => [
-				"InCert GIE",
-				"Infrachain a.s.b.l",
-				"LU-CIX",
-				"LUXITH",
-			].indexOf(p.name) >= 0);
+			.filter((p) => this.state.sectoralPPPs.indexOf(p.name) >= 0);
 	}
 
 	getTopSolutions() {
@@ -778,6 +781,14 @@ export default class PageDashboard extends React.Component {
 										? this.getSectoralPPPs().map((m) => <div
 											className={"col-md-6 col-lg-6 col-xl-4 PageDashboard-image-wrapper"}
 											key={m.id}>
+											<div className={"PageDashboard-authorities-and-regulators-bookmarks"}>
+												{this.getFrameworkColorsOfRegulator(m.id).map((f) => <i
+													key={f}
+													className="fas fa-bookmark"
+													style={{ color: f }}
+												/>)}
+											</div>
+
 											<img
 												src={getApiURL() + "public/get_image/" + m.image}
 												alt={m.name}
