@@ -3,7 +3,6 @@ import "./PagePrivateSector.css";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { Link } from "react-router-dom";
 import { NotificationManager as nm } from "react-notifications";
-import Analytic from "./box/Analytic.jsx";
 import { getRequest } from "../utils/request.jsx";
 import Loading from "./box/Loading.jsx";
 import Message from "./box/Message.jsx";
@@ -182,36 +181,6 @@ export default class PagePrivateSector extends React.Component {
 							height={300}
 						/>
 					}
-
-					<div className="col-md-6">
-						<h3>Total employees</h3>
-						<div>
-							{this.state.actors !== null && this.state.analytics !== null
-								? <Analytic
-									value={this.getTotalEmployees()}
-									desc={"Total employees"}
-								/>
-								: <Loading
-									height={300}
-								/>
-							}
-						</div>
-					</div>
-
-					<div className="col-md-6">
-						<h3>Employees per company size ranges</h3>
-						{this.state.actors !== null && this.state.analytics !== null
-							? <BarWorkforceRange
-								actors={this.state.actors}
-								workforces={this.state.analytics.workforces}
-								addRangeFilter={(v) => this.manageFilter("size_range", v, "true")}
-								selected={this.state.filters.size_range}
-							/>
-							:							<Loading
-								height={300}
-							/>
-						}
-					</div>
 
 					<div className="col-md-6">
 						<h3>Age of companies</h3>
