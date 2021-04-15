@@ -46,6 +46,8 @@ export default class BarVertical extends React.Component {
 										beginAtZero: true,
 										fontColor: "grey",
 										fontSize: this.props.fontSize === undefined ? 18 : this.props.fontSize,
+										maxRotation: 60,
+										minRotation: 60,
 									},
 								},
 							],

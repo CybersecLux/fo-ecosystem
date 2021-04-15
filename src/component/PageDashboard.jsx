@@ -603,8 +603,8 @@ export default class PageDashboard extends React.Component {
 
 							{this.getServingThePublicSector() !== null
 								? this.getServingThePublicSector().map((m) => <div className={"row"} key={m.id}>
-									<div className={"col-12 col-md-2 col-lg-2"}/>
-									<div className={"col-12 col-md-8 col-lg-8 PageDashboard-national-strategy-actor"}>
+									<div className={"col-12 col-md-3 col-lg-3"}/>
+									<div className={"col-12 col-md-6 col-lg-6 PageDashboard-national-strategy-actor"}>
 										<div className={"PageDashboard-authorities-and-regulators-bookmarks"}>
 											{this.getFrameworkColorsOfRegulator(m.id).map((f) => <i
 												key={f}
