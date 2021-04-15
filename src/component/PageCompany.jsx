@@ -88,11 +88,6 @@ export default class PageCompany extends React.Component {
 					? <div className="row row-spaced">
 						<div className="col-md-12">
 							<div className="row">
-								<div className="col-md-12">
-									<h1>Global information</h1>
-								</div>
-							</div>
-							<div className="row row-spaced">
 								<div className="col-md-3 PageCompany-logo">
 									{this.state.company.image !== null && this.state.company.image !== undefined
 										? <img
@@ -183,7 +178,7 @@ export default class PageCompany extends React.Component {
 					&& this.getEntityType().filter((t) => t.name === "PRIVATE SECTOR").length > 0
 					? <div className="row row-spaced">
 						<div className="col-md-12">
-							<h1>Classification within the private actors of the ecosystem</h1>
+							<h3>Classification within the private actors of the ecosystem</h3>
 						</div>
 						<div className="col-md-12">
 							<TreeTaxonomy
@@ -202,7 +197,7 @@ export default class PageCompany extends React.Component {
 					&& this.getEntityType().filter((t) => t.name === "PUBLIC SECTOR").length > 0
 					? <div className="row row-spaced">
 						<div className="col-md-12">
-							<h1>Classification within the public actors of the ecosystem</h1>
+							<h3>Classification within the public actors of the ecosystem</h3>
 						</div>
 						<div className="col-md-12">
 							<TreeTaxonomy
