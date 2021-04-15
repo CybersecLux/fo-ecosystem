@@ -1,9 +1,6 @@
 import React from "react";
 import "./CivilSocietySearch.css";
-import Popup from "reactjs-popup";
 import FormLine from "./FormLine.jsx";
-import Loading from "../box/Loading.jsx";
-import TreeTaxonomy from "../chart/TreeTaxonomy.jsx";
 
 export default class CivilSocietySearch extends React.Component {
 	constructor(props) {
@@ -42,71 +39,6 @@ export default class CivilSocietySearch extends React.Component {
 						onChange={(v) => this.props.onChange("taxonomy_values", v)}
 						disabled={this.state.tags === null}
 					/>
-				</div>
-
-				<div className={"col-md-6"}>
-				</div>
-
-				<div className={"col-md-6 CivilSocietySearch-taxonomy-link-container"}>
-					<Popup
-						className={"Popup-full-size"}
-						trigger={
-							<a className={"CivilSocietySearch-taxonomy-link"}>
-								Learn more about the classification
-							</a>
-						}
-						modal
-						open={this.state.isTaxonomyDetailOpen}
-					>
-						{(close) => (
-							<div className={"row"}>
-								<div className={"col-md-12"}>
-									<h2>Learn more about the taxonomy</h2>
-									<div className="top-right-buttons">
-										<button
-											className={"red-background"}
-											onClick={close}>
-											<i className="fas fa-times"/>
-										</button>
-									</div>
-								</div>
-
-								<div className={"col-md-12"}>
-									{// eslint-disable-next-line
-									}The taxonomy is used to classify the cybersecurity actors of the ecosystem.
-								</div>
-
-								<div className={"col-md-12 CivilSocietySearch-tree-taxonomy"}>
-									{this.props.taxonomy !== null && this.props.taxonomy !== undefined
-										&& this.props.taxonomy.categories !== undefined
-										? <TreeTaxonomy
-											companyAssignment={[]}
-											taxonomy={this.props.taxonomy}
-											category={"SERVICE GROUP"}
-										/>
-										: <Loading
-											height={400}
-										/>
-									}
-								</div>
-
-								<div className={"col-md-12"}>
-									{// eslint-disable-next-line
-									}You can consult the ECSO market radar, source of CYBERSECURITY LUXEMBOURG taxonomy with the following link.
-								</div>
-
-								<div className={"col-md-12"}>
-									<a
-										href={"http://www.ecs-org.eu/newsroom/the-latest-edition-of-the-ecso-cybersecurity-market-radar-is-out-now"}
-										target={"_blank"}
-										rel="noreferrer"
-									>
-										Visit here
-									</a>
-								</div>
-							</div>
-						)}
-					</Popup>
 				</div>
 
 				<div className={"col-md-12"}>
