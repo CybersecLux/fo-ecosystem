@@ -19,18 +19,21 @@ export default class PageDashboard extends React.Component {
 		this.fetchAnalytics = this.fetchAnalytics.bind(this);
 		this.fetchActors = this.fetchActors.bind(this);
 		this.fetchPublicSector = this.fetchPublicSector.bind(this);
+		this.fetchAllEntities = this.fetchAllEntities.bind(this);
 		this.getLegalFrameworks = this.getLegalFrameworks.bind(this);
 		this.getTopSolutions = this.getTopSolutions.bind(this);
 		this.getFrameworkColorsOfRegulator = this.getFrameworkColorsOfRegulator.bind(this);
 		this.getSecinDepartments = this.getSecinDepartments.bind(this);
+		this.getSecinId = this.getSecinId.bind(this);
 
 		this.state = {
 			analytics: null,
 			actors: null,
 			publicSector: null,
+			allEntities: null,
 
 			frameworksColors: ["#ff6633", "#FFCC33", "#33FF66", "#33FFCC", "#33CCFF", "#3366FF",
-				"#6633FF", "#CC33FF", "#EFEFEF", "black", "black", "black", "black", "black"],
+				"#6633FF", "#CC33FF", "grey", "black", "black", "black", "black", "black"],
 
 			secinDepartments: [
 				"Computer Incident Response Center Luxembourg",
@@ -49,6 +52,9 @@ export default class PageDashboard extends React.Component {
 				"LUXITH",
 				"Agence eSanté G.I.E.",
 			],
+			additionalAuthorities: [
+				"Commissariat Aux Assurances",
+			],
 		};
 	}
 
@@ -57,6 +63,7 @@ export default class PageDashboard extends React.Component {
 			this.fetchAnalytics();
 			this.fetchActors();
 			this.fetchPublicSector();
+			this.fetchAllEntities();
 		}
 	}
 
@@ -65,6 +72,7 @@ export default class PageDashboard extends React.Component {
 			this.fetchAnalytics();
 			this.fetchActors();
 			this.fetchPublicSector();
+			this.fetchAllEntities();
 		}
 	}
 
@@ -105,10 +113,37 @@ export default class PageDashboard extends React.Component {
 		});
 	}
 
+	fetchAllEntities() {
+		getRequest.call(this, "public/get_public_companies", (data) => {
+			this.setState({
+				allEntities: data,
+			});
+		}, (response) => {
+			nm.warning(response.statusText);
+		}, (error) => {
+			nm.error(error.message);
+		});
+	}
+
+	getSecinId() {
+		if (this.state.allEntities === null) {
+			return null;
+		}
+
+		const entities = this.state.allEntities
+			.filter((p) => p.name === "SECURITYMADEIN.LU");
+
+		if (entities.length > 0) {
+			return entities[0].id;
+		}
+		return null;
+	}
+
 	getAuthorities() {
 		if (this.getLegalFrameworks() === null
 			|| this.state.analytics === null
-			|| this.state.analytics.taxonomy_assignments === undefined) {
+			|| this.state.analytics.taxonomy_assignments === undefined
+			|| this.state.publicSector === null) {
 			return null;
 		}
 
@@ -123,12 +158,18 @@ export default class PageDashboard extends React.Component {
 		return this.state.publicSector
 			.filter((p) => assignedCompanies.indexOf(p.id) >= 0)
 			.filter((p) => this.state.secinDepartments.indexOf(p.name) < 0)
+			.filter((p) => p.id !== this.getSecinId())
 			.filter((p) => this.state.sectoralPPPs.indexOf(p.name) < 0)
-			.filter((p) => this.state.servingPublicSector.indexOf(p.name) < 0);
+			.filter((p) => this.state.servingPublicSector.indexOf(p.name) < 0)
+			.concat(
+				this.state.publicSector
+					.filter((p) => this.state.additionalAuthorities.indexOf(p.name) >= 0),
+			);
 	}
 
 	getFrameworkColorsOfRegulator(regulatorId) {
-		if (this.getLegalFrameworks() === null
+		if (regulatorId === null
+			|| this.getLegalFrameworks() === null
 			|| this.state.analytics === null
 			|| this.state.analytics.taxonomy_assignments === undefined) {
 			return [];
@@ -149,7 +190,8 @@ export default class PageDashboard extends React.Component {
 		if (this.state.actors === null
 			|| this.state.analytics === null
 			|| this.state.analytics.taxonomy_assignments === undefined
-			|| this.state.analytics.taxonomy_values === undefined) {
+			|| this.state.analytics.taxonomy_values === undefined
+			|| this.state.publicSector === null) {
 			return null;
 		}
 
@@ -273,7 +315,6 @@ export default class PageDashboard extends React.Component {
 				"Service de Renseignement de l'Etat",
 				"Ministry of the Economy",
 				"Institut Luxembourgeois de Régulation",
-				"Centre des Technologies de l'Information de l'Etat",
 				"Departement of Media, Telecommunications and Digital Policy",
 				"Ministry of Foreign and European Affairs",
 			].indexOf(p.name) >= 0);
@@ -289,11 +330,11 @@ export default class PageDashboard extends React.Component {
 	}
 
 	getSectoralPPPs() {
-		if (this.state.publicSector === null) {
+		if (this.state.allEntities === null) {
 			return null;
 		}
 
-		return this.state.publicSector
+		return this.state.allEntities
 			.filter((p) => this.state.sectoralPPPs.indexOf(p.name) >= 0);
 	}
 
@@ -633,6 +674,14 @@ export default class PageDashboard extends React.Component {
 							<div className={"row"}>
 								<div className={"col-12 col-md-3 col-lg-3"}/>
 								<div className={"col-12 col-md-6 col-lg-6"}>
+									<div className={"PageDashboard-authorities-and-regulators-bookmarks"}>
+										{this.getFrameworkColorsOfRegulator(this.getSecinId()).map((f) => <i
+											key={f}
+											className="fas fa-bookmark"
+											style={{ color: f }}
+										/>)}
+									</div>
+
 									<img
 										src={"img/secin-logo.png"}
 										alt={"SECURITYMADEIN.LU"}
