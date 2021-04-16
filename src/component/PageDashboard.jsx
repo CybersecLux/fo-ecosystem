@@ -653,6 +653,7 @@ export default class PageDashboard extends React.Component {
 									</div>
 
 									<img
+										className="PageDashboard-secin-department-logo"
 										src={getApiURL() + "public/get_image/" + d.image}
 										alt={d.name}
 									/>
