@@ -158,11 +158,11 @@ export default class PageHome extends React.Component {
 													}<p>The Luxembourg cybersecurity ecosystem has been divided into 3 categories of players:</p>
 													<ul>
 														{// eslint-disable-next-line
-														}<li><b>Private Sector: private companies</b> that offer services & solutions in the field of cybersecurity,</li>
+														}<li><b>Private Sector:</b> private companies that offer services & solutions in the field of cybersecurity,</li>
 														{// eslint-disable-next-line
-														}<li><b>Public Sector: public entities</b> that include the authorities and regulators in charge or involved in the application of the regulations applying to the sector, the organisations involved in education and research, and the sectoral public-private partnerships.</li>
+														}<li><b>Public Sector:</b> authorities and regulators in charge or involved in the application of the regulations applying to the sector, organisations involved in education and research, and sectoral public-private partnerships.</li>
 														{// eslint-disable-next-line
-														}<li><b>Civil society: organisations</b> that bring together collective strengths to address cybersecurity topics.</li>
+														}<li><b>Civil society:</b> organisations that bring together collective strengths to address cybersecurity topics.</li>
 													</ul>
 
 													<h3>Private sector</h3>
