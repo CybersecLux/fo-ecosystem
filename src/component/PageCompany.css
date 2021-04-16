@@ -15,6 +15,10 @@
     height: auto;
 }
 
+.PageCompany-no-logo {
+    min-height: 130px;
+}
+
 .PageCompany-stamp {
 	font-size: 24px;
 }

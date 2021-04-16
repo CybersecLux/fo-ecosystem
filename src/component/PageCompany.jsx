@@ -88,7 +88,10 @@ export default class PageCompany extends React.Component {
 					? <div className="row row-spaced">
 						<div className="col-md-12">
 							<div className="row">
-								<div className="col-md-3 PageCompany-logo">
+								<div className={"col-md-3 "
+									+ (this.state.company.image !== null
+										&& this.state.company.image !== undefined
+										? "PageCompany-logo" : "PageCompany-no-logo")}>
 									{this.state.company.image !== null && this.state.company.image !== undefined
 										? <img
 											src={getApiURL() + "public/get_image/" + this.state.company.image}
