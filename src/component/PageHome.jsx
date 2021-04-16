@@ -118,7 +118,7 @@ export default class PageHome extends React.Component {
 					<div className={"row PageHome-polygon-blue-content"}>
 						<div className="col-md-3 col-lg-5"/>
 
-						<div className="col-md-9 col-lg-7">
+						<div className="col-md-9 col-lg-7 PageHome-polygon-blue-content-col">
 							<div className={"row"}>
 								<div className="col-md-12 PageHome-title1">
 									Looking for a company or entity in the field of cybersecurity in Luxembourg?
@@ -298,7 +298,7 @@ export default class PageHome extends React.Component {
 					<div className={"PageHome-polygon-red"}/>
 
 					<div className={"row PageHome-polygon-red-content"}>
-						<div className="col-md-9 col-lg-7">
+						<div className="col-md-9 col-lg-8 PageHome-polygon-red-content-col">
 							<div className={"row"}>
 								<div className="col-md-12 PageHome-title1">
 									An almost exhaustive range of cybersecurity solutions covering

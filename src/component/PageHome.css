@@ -5,6 +5,7 @@
 .PageHome-polygon-wrapper-blue, .PageHome-polygon-wrapper-red {
 	position: relative;
 	padding: 10px 20px 0px 20px;
+	padding: 0px !important;
 }
 
 .PageHome-polygon-wrapper-red {
@@ -33,7 +34,7 @@
 }
 
 .PageHome-polygon-blue-content {
-
+	padding: 0px !important;
 	animation-delay: 3s;
 	animation: fadeIn ease 3s;
 	-webkit-animation: fadeIn ease 3s;
@@ -42,8 +43,27 @@
 	-ms-animation: fadeIn ease 3s;
 }
 
+.PageHome-polygon-blue-content-col {
+	padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
 .PageHome-polygon-blue-content .row {
-	background-color: #009fe3;
+	padding: 30px 20px;
+	margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+@media (min-width: 0px) {
+    .PageHome-polygon-blue-content .row {
+		background-color: #009fe3;
+	}
+}
+
+@media (min-width: 768px) {
+    .PageHome-polygon-blue-content .row {
+		background-color: unset;
+	}
 }
 
 @keyframes polygon-red-move {
@@ -68,6 +88,7 @@
 }
 
 .PageHome-polygon-red-content {
+	padding: 0px !important;
 	animation: fadeIn ease 4s;
 	-webkit-animation: fadeIn ease 4s;
 	-moz-animation: fadeIn ease 4s;
@@ -75,8 +96,27 @@
 	-ms-animation: fadeIn ease 4s;
 }
 
+.PageHome-polygon-red-content-col {
+	padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
 .PageHome-polygon-red-content .row {
-	background-color: #e40613;
+	padding: 30px 20px;
+	margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+@media (min-width: 0px) {
+    .PageHome-polygon-red-content .row {
+		background-color: #e40613;
+	}
+}
+
+@media (min-width: 768px) {
+    .PageHome-polygon-red-content .row {
+		background-color: unset;
+	}
 }
 
 .PageHome-polygon-wrapper-blue .row {
