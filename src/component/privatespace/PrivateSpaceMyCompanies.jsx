@@ -22,6 +22,7 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 		this.submitCompanyRequest = this.submitCompanyRequest.bind(this);
 		this.submitCompanyLogo = this.submitCompanyLogo.bind(this);
 		this.updateCompanies = this.updateCompanies.bind(this);
+		this.onDrop = this.onDrop.bind(this);
 
 		this.state = {
 			companies: null,
@@ -29,8 +30,6 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 			addresses: null,
 			originalAddresses: null,
 
-			imageName: null,
-			imageSize: null,
 			imageContent: null,
 
 			entity: null,
@@ -56,6 +55,7 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 	refresh() {
 		this.setState({
 			companies: null,
+			imageContent: null,
 		});
 
 		getRequest.call(this, "privatespace/get_my_companies", (data) => {
@@ -80,7 +80,7 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 
 		const params = {
 			request:
-				"[COMPANY MODIFICATION]\n\n"
+				"[ENTITY MODIFICATION]\n\n"
 				+ "The user requests modifications on the following entity: " + company.name
 				+ "\n\n"
 				+ JSON.stringify(info, null, 4),
@@ -97,7 +97,7 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 
 	submitCompanyRequest() {
 		const params = {
-			request: "[COMPANY ACCESS]\n\n"
+			request: "[ENTITY ACCESS]\n\n"
 				+ "The user requests the access to this entity: "
 				+ this.state.entity,
 		};
@@ -114,15 +114,25 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 		});
 	}
 
-	submitCompanyLogo(companyId) {
-		const params = {
-			company: companyId,
-			logo: null,
+	submitCompanyLogo(company) {
+		const info = {
+			id: company.id,
 		};
 
-		postRequest.call(this, "privatespace/update_my_company_logo", params, () => {
-			this.refresh();
-			nm.info("The logo has been changed");
+		const params = {
+			request:
+				"[ENTITY LOGO MODIFICATION]\n\n"
+				+ "The user requests modifications of the logo on the following entity: " + company.name
+				+ "\n\n"
+				+ JSON.stringify(info, null, 4),
+			image: this.state.imageContent,
+		};
+
+		postRequest.call(this, "privatespace/add_request", params, () => {
+			this.setState({
+				imageContent: null,
+			});
+			nm.info("The request has been sent and will be reviewed");
 		}, (response) => {
 			nm.warning(response.statusText);
 		}, (error) => {
@@ -177,26 +187,19 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 		if (files.length === 0) {
 			nm.warning("No file has been detected. Please re-check the file extension.");
 			this.setState({
-				imageName: null,
-				imageSize: null,
 				imageContent: null,
 			});
 		} else {
 			const reader = new FileReader();
 
-			reader.onabort = () => console.log("file reading was aborted");
+			reader.onabort = () => console.log("File reading was aborted");
 			reader.onerror = () => console.log("An error happened while reading the file");
 			reader.onload = () => {
-				const blob = new Blob([reader.result], { type: files[0].type });
-				const imageUrl = URL.createObjectURL(blob);
-				this.setState({
-					imageName: files[0].name,
-					imageSize: files[0].size,
-					imageContent: imageUrl,
-				});
+				console.log(files);
+				this.setState({ imageContent: reader.result, importError: null });
 			};
 
-			reader.readAsArrayBuffer(files[0]);
+			reader.readAsDataURL(files[0]);
 		}
 	}
 
@@ -222,46 +225,45 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 									trigger={<div className={"PrivateSpaceMyCompanies-show-detail"}>Show details</div>}
 								>
 									<h2>Logo</h2>
-									<Dropzone
-										accept=".png,.jpg,.jpeg"
-										disabled={false}
-										onDrop={this.onDrop}
-									>
-										{({ getRootProps, getInputProps }) => (
-											<div
-												className={"PrivateSpaceMyCompanies-dragdrop"}
-												{...getRootProps()}>
-												<input {...getInputProps()} />
-												<div className="PrivateSpaceMyCompanies-dragdrop-textContent">
-													<i className="far fa-image"/>
-													<div>Drag and drop the file here</div>
-													<div>(must be .jpg, .jpeg or .png)</div>
+									{this.state.imageContent === null
+										? <Dropzone
+											accept=".png,.jpg,.jpeg"
+											disabled={false}
+											onDrop={this.onDrop}
+										>
+											{({ getRootProps, getInputProps }) => (
+												<div
+													className={"PrivateSpaceMyCompanies-dragdrop"}
+													{...getRootProps()}>
+													<input {...getInputProps()} />
+													<div className="PrivateSpaceMyCompanies-dragdrop-textContent">
+														<i className="far fa-image"/>
+														<div>Drag and drop the file here</div>
+														<div>must be .jpg, .jpeg or .png</div>
+														<div>maximum size of 500x500 size</div>
+													</div>
 												</div>
-											</div>
-										)}
-									</Dropzone>
+											)}
+										</Dropzone>
+										: <img
+											className="PrivateSpaceMyCompanies-logo-change"
+											src={this.state.imageContent}
+										/>
+									}
 									<div className={"right-buttons block-buttons"}>
 										<button
 											className={"blue-background"}
-											disabled={_.isEqual(c, this.state.originalCompanies[i])
-												&& _.isEqual(
-													this.state.addresses.filter((a) => a.company_id === c.id),
-													this.state.originalAddresses.filter((a) => a.company_id === c.id),
-												)
-											}
+											disabled={this.state.imageContent === null}
+											onClick={() => this.submitCompanyLogo(c)}
 										>
-											<i className="fas fa-upload"/> Remove the selection
+											<i className="fas fa-save"/> Request logo change
 										</button>
 										<button
 											className={"blue-background"}
-											disabled={_.isEqual(c, this.state.originalCompanies[i])
-												&& _.isEqual(
-													this.state.addresses.filter((a) => a.company_id === c.id),
-													this.state.originalAddresses.filter((a) => a.company_id === c.id),
-												)
-											}
+											disabled={this.state.imageContent === null}
+											onClick={() => this.setState({ imageContent: null })}
 										>
-											<i className="fas fa-upload"/> Upload logo
+											<i className="fas fa-times-circle"/> Remove the selection
 										</button>
 									</div>
 
@@ -361,7 +363,7 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 					{this.state.companies !== null && this.state.companies.length === 0
 						&& <div className="col-md-12">
 							<Message
-								text={"No company found"}
+								text={"No entity found"}
 								height={150}
 							/>
 						</div>

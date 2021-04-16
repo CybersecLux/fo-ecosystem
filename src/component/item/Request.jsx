@@ -81,6 +81,12 @@ export default class Request extends Component {
 								}
 							}/>
 						</p>
+						{this.props.info.image !== null
+							? <div>
+								<img src={"data:image/png;base64," + this.props.info.image} />
+							</div>
+							: ""
+						}
 						<button
 							className={"red-background"}
 							onClick={this.delete}
