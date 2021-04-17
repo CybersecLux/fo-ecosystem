@@ -1,9 +1,21 @@
 import { getApiURL } from "./env.jsx";
 
+function getCookie(name) {
+	const nameEQ = name + "=";
+	const ca = document.cookie.split(";");
+	for (let i = 0; i < ca.length; i++) {
+		let c = ca[i];
+		while (c.charAt(0) === " ") c = c.substring(1, c.length);
+		if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+	}
+	return null;
+}
+
 export async function getRequest(url, callback, catchBadResponse, catchError) {
 	fetch(getApiURL() + url, {
 		method: "GET",
 		headers: new Headers({
+			Authorization: "Bearer " + getCookie("access_token_cookie"),
 			Accept: "application/json, text/html",
 			pragma: "no-cache",
 			"cache-control": "no-cache",
@@ -34,6 +46,7 @@ export async function getBlobRequest(url, callback, catchBadResponse, catchError
 	fetch(getApiURL() + url, {
 		method: "GET",
 		headers: new Headers({
+			Authorization: "Bearer " + getCookie("access_token_cookie"),
 			Accept: "application/json, text/html",
 			pragma: "no-cache",
 			"cache-control": "no-cache",
@@ -65,6 +78,7 @@ export async function postRequest(url, params, callback, catchBadResponse, catch
 		method: "POST",
 		body: JSON.stringify(params),
 		headers: new Headers({
+			Authorization: "Bearer " + getCookie("access_token_cookie"),
 			Accept: "application/json, text/html",
 			"Content-Type": "application/json",
 		}),

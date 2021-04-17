@@ -2,6 +2,7 @@ import React from "react";
 import "./InsideApp.css";
 import { Route, Switch } from "react-router-dom";
 import { NotificationManager as nm } from "react-notifications";
+import Cookies from "universal-cookie";
 import GovBar from "./bar/GovBar.jsx";
 import Menu from "./bar/Menu.jsx";
 import Footer from "./bar/Footer.jsx";
@@ -31,6 +32,7 @@ export default class InsideApp extends React.Component {
 			taxonomy: null,
 			logged: false,
 			email: null,
+			cookies: new Cookies(),
 		};
 	}
 
@@ -59,7 +61,7 @@ export default class InsideApp extends React.Component {
 
 	login(accessToken, email) {
 		// TODO use httponly cookies
-		this.props.cookies.set("access_token_cookie", accessToken, getCookieOptions());
+		this.state.cookies.set("access_token_cookie", accessToken, getCookieOptions());
 
 		this.setState({
 			logged: true,
@@ -69,7 +71,7 @@ export default class InsideApp extends React.Component {
 
 	logout() {
 		// TODO use httponly cookies
-		this.props.cookies.remove("access_token_cookie");
+		this.state.cookies.remove("access_token_cookie");
 
 		this.setState({
 			logged: false,
@@ -128,11 +130,12 @@ export default class InsideApp extends React.Component {
 						/>
 						<Route path="/login" render={(props) => <PageLogin
 							login={this.login}
+							cookies={this.state.cookies}
 							{...props}
 						/>}
 						/>
 						<Route path="/privatespace" render={(props) => <PagePrivateSpace
-							cookies={this.props.cookies}
+							cookies={this.state.cookies}
 							logout={this.logout}
 							{...props}
 						/>}
