@@ -36,13 +36,13 @@ export default class PageDashboard extends React.Component {
 				"#6633FF", "#CC33FF", "grey", "black", "black", "black", "black", "black"],
 
 			secinDepartments: [
-				"Computer Incident Response Center Luxembourg CIRCL",
+				"Computer Incident Response Center Luxembourg (CIRCL)",
 				"Cybersecurity Competence Center C3",
 				"Cyberworld Awareness and Security Enhancement Services CASES",
 			],
 			servingPublicSector: [
 				"Agence Nationale de la Sécurité des systèmes d'Information ANSSI",
-				"Governmental Computer Emergency Response Team GOVCERT",
+				"CERT Gouvernemental du Luxembourg (GOVCERT.LU)",
 				"Centre des Technologies de l'Information de l'Etat - CTIE",
 			],
 			sectoralPPPs: [
