@@ -24,11 +24,11 @@ export default class CheckBox extends Component {
 				className={"CheckBox" + additionalClassName + disableClassName + statusClassName}
 				onClick={this.onClick}>
 				{this.props.label === undefined && this.props.value
-					? <i className="fas fa-check CheckBox-icon"/>
+					? "Yes"
 					: ""
 				}
 				{this.props.label === undefined && !this.props.value
-					? <i className="fas fa-times CheckBox-icon"/>
+					? "No"
 					: ""
 				}
 				{this.props.label !== undefined
