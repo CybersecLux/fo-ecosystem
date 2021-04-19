@@ -117,7 +117,10 @@ export default class PageCompany extends React.Component {
 									? <div className="col-md-12 right-buttons">
 										<button
 											className={"blue-background"}
-											onClick={() => window.open(this.state.company.website, "_blank")}
+											onClick={() => window.open(!/^(?:f|ht)tps?:\/\//.test(this.state.company.website)
+												? "https://" + this.state.company.website
+												: this.state.company.website,
+											"_blank")}
 										>
 											<i className="fas fa-globe-europe"/> Visit website
 										</button>
