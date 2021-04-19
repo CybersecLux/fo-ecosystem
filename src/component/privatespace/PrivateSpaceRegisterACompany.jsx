@@ -37,7 +37,7 @@ export default class PrivateSpaceRegisterACompany extends React.Component {
 		};
 
 		const params = {
-			request: "[COMPANY INSERTION]\n\n"
+			request: "[ENTITY INSERTION]\n\n"
 				+ "The user requests the insertion of this entity: \n\n"
 				+ JSON.stringify(info, null, 4),
 		};
