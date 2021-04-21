@@ -5,7 +5,7 @@ export function getApiURL() {
 	if (window.location.hostname.includes("test")) {
 		return "https://api.test-db.cy.lu/";
 	}
-	return "https://api.db.cy.lu/";
+	return "https://api.cybersecurity-luxembourg.com/";
 }
 
 export function getCookieOptions() {
