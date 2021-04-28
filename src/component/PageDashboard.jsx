@@ -48,6 +48,7 @@ export default class PageDashboard extends React.Component {
 				"LU-CIX (Luxembourg Internet Exchange)",
 				"LUXITH",
 				"Agence eSanté G.I.E.",
+				"L-DIH",
 			],
 			additionalAuthorities: [
 				"Commissariat Aux Assurances",
