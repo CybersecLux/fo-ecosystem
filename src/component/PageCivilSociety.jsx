@@ -38,7 +38,7 @@ export default class PageCivilSociety extends React.Component {
 		getRequest.call(this, "public/get_public_companies?entity_type=CIVIL SOCIETY&"
 			+ dictToURI(this.state.filters), (data) => {
 			this.setState({
-				civilSociety: data,
+				civilSociety: data.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1)),
 			});
 		}, (response) => {
 			nm.warning(response.statusText);
