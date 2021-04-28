@@ -16,7 +16,7 @@ export default class PublicSectorSearch extends React.Component {
 			<div className={"PublicSectorSearch row"}>
 				<div className={"col-md-12"}>
 					<FormLine
-						label={"Entity name"}
+						label={"Entity name (at least 3 characters)"}
 						value={this.props.filters.name === undefined
 							? [] : this.props.filters.name}
 						onChange={(v) => this.props.onChange("name", v)}
@@ -38,17 +38,6 @@ export default class PublicSectorSearch extends React.Component {
 						onChange={(v) => this.props.onChange("taxonomy_values", v)}
 						disabled={this.state.tags === null}
 					/>
-				</div>
-
-				<div className={"col-md-12"}>
-					<div className={"right-buttons"}>
-						<button
-							className={"blue-background"}
-							onClick={this.props.onSearch !== undefined ? this.props.onSearch : null}
-						>
-							<i className="fas fa-search"/> Filter
-						</button>
-					</div>
 				</div>
 			</div>
 		);

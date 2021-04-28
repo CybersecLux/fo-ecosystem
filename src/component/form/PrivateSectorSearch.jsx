@@ -46,7 +46,7 @@ export default class PrivateSectorSearch extends React.Component {
 			<div className={"PrivateSectorSearch row"}>
 				<div className={"col-md-12"}>
 					<FormLine
-						label={"Company name"}
+						label={"Company name (at least 3 characters)"}
 						value={this.props.filters.name === undefined
 							? [] : this.props.filters.name}
 						onChange={(v) => this.props.onChange("name", v)}
@@ -118,17 +118,6 @@ export default class PrivateSectorSearch extends React.Component {
 							</div>
 						)}
 					</Popup>
-				</div>
-
-				<div className={"col-md-12"}>
-					<div className={"right-buttons"}>
-						<button
-							className={"blue-background"}
-							onClick={this.props.onSearch !== undefined ? this.props.onSearch : null}
-						>
-							<i className="fas fa-search"/> Filter
-						</button>
-					</div>
 				</div>
 			</div>
 		);
