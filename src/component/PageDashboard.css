@@ -206,6 +206,12 @@
 	right: 10px;
 }
 
-.PageDashboard-authorities-and-regulators-bookmarks i {
-	margin: 0px 2px;
+.PageDashboard-legal-bookmark {
+	border-radius: 100%;
+    padding: 0px 6px;
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+    margin-right: 4px;
 }

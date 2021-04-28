@@ -22,7 +22,7 @@ export default class PageDashboard extends React.Component {
 		this.fetchAllEntities = this.fetchAllEntities.bind(this);
 		this.getLegalFrameworks = this.getLegalFrameworks.bind(this);
 		this.getTopSolutions = this.getTopSolutions.bind(this);
-		this.getFrameworkColorsOfRegulator = this.getFrameworkColorsOfRegulator.bind(this);
+		this.getFrameworkNumbersOfRegulator = this.getFrameworkNumbersOfRegulator.bind(this);
 		this.getSecinDepartments = this.getSecinDepartments.bind(this);
 		this.getSecinId = this.getSecinId.bind(this);
 
@@ -31,9 +31,6 @@ export default class PageDashboard extends React.Component {
 			actors: null,
 			publicSector: null,
 			allEntities: null,
-
-			frameworksColors: ["#ff6633", "#FFCC33", "#33FF66", "#33FFCC", "#33CCFF", "#3366FF",
-				"#6633FF", "#CC33FF", "grey", "black", "black", "black", "black", "black"],
 
 			secinDepartments: [
 				"Computer Incident Response Center Luxembourg (CIRCL)",
@@ -167,7 +164,7 @@ export default class PageDashboard extends React.Component {
 			);
 	}
 
-	getFrameworkColorsOfRegulator(regulatorId) {
+	getFrameworkNumbersOfRegulator(regulatorId) {
 		if (regulatorId === null
 			|| this.getLegalFrameworks() === null
 			|| this.state.analytics === null
@@ -178,12 +175,12 @@ export default class PageDashboard extends React.Component {
 		const frameworksID = this.getLegalFrameworks()
 			.map((v) => v.id);
 
-		const assignFrameworkColors = this.state.analytics.taxonomy_assignments
+		const assignFrameworkNumbers = this.state.analytics.taxonomy_assignments
 			.filter((a) => a.company === regulatorId)
 			.filter((a) => frameworksID.indexOf(a.taxonomy_value) >= 0)
-			.map((a) => this.state.frameworksColors[frameworksID.indexOf(a.taxonomy_value)]);
+			.map((a) => frameworksID.indexOf(a.taxonomy_value) + 1);
 
-		return assignFrameworkColors;
+		return assignFrameworkNumbers;
 	}
 
 	getEducation() {
@@ -647,11 +644,12 @@ export default class PageDashboard extends React.Component {
 									<div className={"col-12 col-md-3 col-lg-3"}/>
 									<div className={"col-12 col-md-6 col-lg-6 PageDashboard-national-strategy-actor"}>
 										<div className={"PageDashboard-authorities-and-regulators-bookmarks"}>
-											{this.getFrameworkColorsOfRegulator(m.id).map((f) => <i
+											{this.getFrameworkNumbersOfRegulator(m.id).map((f) => <span
 												key={f}
-												className="fas fa-bookmark"
-												style={{ color: f }}
-											/>)}
+												className="PageDashboard-legal-bookmark"
+											>
+												{f}
+											</span>)}
 										</div>
 
 										<img
@@ -675,11 +673,12 @@ export default class PageDashboard extends React.Component {
 								<div className={"col-12 col-md-3 col-lg-3"}/>
 								<div className={"col-12 col-md-6 col-lg-6"}>
 									<div className={"PageDashboard-authorities-and-regulators-bookmarks"}>
-										{this.getFrameworkColorsOfRegulator(this.getSecinId()).map((f) => <i
+										{this.getFrameworkNumbersOfRegulator(this.getSecinId()).map((f) => <span
 											key={f}
-											className="fas fa-bookmark"
-											style={{ color: f }}
-										/>)}
+											className="PageDashboard-legal-bookmark"
+										>
+											{f}
+										</span>)}
 									</div>
 
 									<img
@@ -694,11 +693,12 @@ export default class PageDashboard extends React.Component {
 									key={d.id}
 									className={"col-12 col-md-4 col-lg-4"}>
 									<div className={"PageDashboard-authorities-and-regulators-bookmarks"}>
-										{this.getFrameworkColorsOfRegulator(d.id).map((f) => <i
+										{this.getFrameworkNumbersOfRegulator(d.id).map((f) => <span
 											key={f}
-											className="fas fa-bookmark"
-											style={{ color: f }}
-										/>)}
+											className="PageDashboard-legal-bookmark"
+										>
+											{f}
+										</span>)}
 									</div>
 
 									<img
@@ -727,11 +727,12 @@ export default class PageDashboard extends React.Component {
 										className={"col-md-6 col-lg-6 col-xl-4 PageDashboard-image-wrapper"}
 										key={c.id}>
 										<div className={"PageDashboard-authorities-and-regulators-bookmarks"}>
-											{this.getFrameworkColorsOfRegulator(c.id).map((f) => <i
+											{this.getFrameworkNumbersOfRegulator(c.id).map((f) => <span
 												key={f}
-												className="fas fa-bookmark"
-												style={{ color: f }}
-											/>)}
+												className="PageDashboard-legal-bookmark"
+											>
+												{f}
+											</span>)}
 										</div>
 
 										<img
@@ -765,10 +766,12 @@ export default class PageDashboard extends React.Component {
 								{this.getLegalFrameworks() !== null && this.getLegalFrameworks().length > 0
 								&& this.getLegalFrameworks().map((f, i) => <div className={"col-md-12"} key={f.id}>
 									<h4>
-										<i
-											className="fas fa-bookmark"
-											style={{ color: this.state.frameworksColors[i] }}
-										/>
+										<span
+											key={i + 1}
+											className="PageDashboard-legal-bookmark"
+										>
+											{i + 1}
+										</span>
 										{f.name}
 									</h4>
 								</div>)}
@@ -833,11 +836,12 @@ export default class PageDashboard extends React.Component {
 											className={"col-md-6 col-lg-6 col-xl-4 PageDashboard-image-wrapper"}
 											key={m.id}>
 											<div className={"PageDashboard-authorities-and-regulators-bookmarks"}>
-												{this.getFrameworkColorsOfRegulator(m.id).map((f) => <i
+												{this.getFrameworkNumbersOfRegulator(m.id).map((f) => <span
 													key={f}
-													className="fas fa-bookmark"
-													style={{ color: f }}
-												/>)}
+													className="PageDashboard-legal-bookmark"
+												>
+													{f}
+												</span>)}
 											</div>
 
 											<img
