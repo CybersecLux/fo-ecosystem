@@ -35,7 +35,8 @@ export default class PageCivilSociety extends React.Component {
 	}
 
 	getPublicCompany() {
-		getRequest.call(this, "public/get_public_companies?entity_type=CIVIL SOCIETY", (data) => {
+		getRequest.call(this, "public/get_public_companies?entity_type=CIVIL SOCIETY&"
+			+ dictToURI(this.state.filters), (data) => {
 			this.setState({
 				civilSociety: data,
 			});
