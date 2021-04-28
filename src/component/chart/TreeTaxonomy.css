@@ -30,3 +30,8 @@
 	stroke: lightgrey !important;
 	stroke-width: 2;
 }
+
+.TreeTaxonomy-node-text {
+	font-weight: bold;
+	font-size: 18px;
+}
