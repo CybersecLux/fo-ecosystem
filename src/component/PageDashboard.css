@@ -100,9 +100,7 @@
 /* PageDashboard-national-actors */
 
 .PageDashboard-national-actors {
-	background-image: -webkit-linear-gradient(-90deg, transparent 0%, transparent 50%, white 50%, white 100%),
-                  -webkit-linear-gradient(0deg, rgba(228,6,9,.2) 0%, rgba(228,6,9,.2) 50%, white 50%, white 100%);
-	background-size:.25em .25em;
+	background-image: linear-gradient(to top right, white, rgba(228,6,9,.1));
 	padding-bottom: 120px !important;
 }
 
@@ -170,9 +168,7 @@
 /* PageDashboard-companies */
 
 .PageDashboard-companies {
-	background-image: -webkit-linear-gradient(-90deg, transparent 0%, transparent 50%, white 50%, white 100%),
-                  -webkit-linear-gradient(0deg, rgba(0,159,227,.2) 0%, rgba(0,159,227,.2) 50%, white 50%, white 100%);
-	background-size:.25em .25em;	
+	background-image: linear-gradient(to top left, white, rgba(0,159,227,.05));
 }
 
 .PageDashboard-companies h1 {

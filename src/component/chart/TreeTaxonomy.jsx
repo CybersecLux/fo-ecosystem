@@ -98,7 +98,6 @@ export default class TreeTaxonomy extends React.Component {
 	}
 
 	static renderRectSvgNode({ nodeDatum }) {
-		console.log(nodeDatum);
 		return (<g>
 			<circle
 				r="14"

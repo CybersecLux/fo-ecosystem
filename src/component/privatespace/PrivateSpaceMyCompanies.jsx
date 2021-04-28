@@ -195,7 +195,6 @@ export default class PrivateSpaceMyCompanies extends React.Component {
 			reader.onabort = () => console.log("File reading was aborted");
 			reader.onerror = () => console.log("An error happened while reading the file");
 			reader.onload = () => {
-				console.log(files);
 				this.setState({ imageContent: reader.result, importError: null });
 			};
 
