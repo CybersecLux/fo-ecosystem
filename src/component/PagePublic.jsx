@@ -42,7 +42,7 @@ export default class PagePublic extends React.Component {
 					|| this.state.filters.name.length === undefined
 					|| this.state.filters.name.length > 2
 					|| this.state.filters.name.length === 0))) {
-			this.getPublicCompany();
+			this.onSearch();
 		}
 	}
 
@@ -88,7 +88,6 @@ export default class PagePublic extends React.Component {
 					taxonomy={this.props.taxonomy}
 					filters={this.state.filters}
 					onChange={this.modifyFilters}
-					onSearch={this.onSearch}
 				/>
 
 				<div className="row">

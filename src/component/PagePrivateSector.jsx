@@ -48,7 +48,7 @@ export default class PagePrivateSector extends React.Component {
 					|| this.state.filters.name.length === undefined
 					|| this.state.filters.name.length > 2
 					|| this.state.filters.name.length === 0))) {
-			this.getCompanies();
+			this.onSearch();
 		}
 	}
 
@@ -86,7 +86,6 @@ export default class PagePrivateSector extends React.Component {
 		history.replaceState(null, null, "?" + dictToURI(this.state.filters));
 
 		this.getCompanies();
-		this.getAnalytics();
 	}
 
 	modifyFilters(field, value) {
@@ -132,7 +131,6 @@ export default class PagePrivateSector extends React.Component {
 					analytics={this.state.analytics}
 					filters={this.state.filters}
 					onChange={this.modifyFilters}
-					onSearch={this.onSearch}
 				/>
 
 				<div className="row">
