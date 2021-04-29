@@ -692,7 +692,7 @@ export default class PageDashboard extends React.Component {
 							<div className={"row"}>
 								{this.getSecinDepartments().map((d) => <div
 									key={d.id}
-									className={"col-12 col-md-4 col-lg-4"}>
+									className={"col-12 col-md-6 col-lg-6 PageDashboard-image-wrapper"}>
 									<div className={"PageDashboard-authorities-and-regulators-bookmarks"}>
 										{this.getFrameworkNumbersOfRegulator(d.id).map((f) => <span
 											key={f}
