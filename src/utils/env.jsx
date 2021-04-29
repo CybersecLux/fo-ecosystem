@@ -8,20 +8,14 @@ export function getApiURL() {
 	return "https://api.cybersecurity-luxembourg.com/";
 }
 
-export function getCookieOptions() {
-	// TODO use httponly cookies
+export function getPrivateSpaceURL() {
 	if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.hostname === "") {
-		// return { httpOnly: true };
-		return { domain: "localhost" };
+		return "http://localhost:3001/";
 	}
 	if (window.location.hostname.includes("test")) {
-		// return { secure: true, domain: ".cy.lu" httpOnly: true };
-		return { secure: true, domain: ".cy.lu" };
+		return "https://test-my.cy.lu/";
 	}
-	// return { secure: true, domain: ".cy.lu", httpOnly: true };
-	return {
-		secure: true,
-	};
+	return "https://my.cybersecurity-luxembourg.com/";
 }
 
 export function isInternetExplorer() {
