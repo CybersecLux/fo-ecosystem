@@ -32,6 +32,8 @@ export default class PagePrivateSector extends React.Component {
 				name: getUrlParameter("name"),
 				taxonomy_values: getUrlParameter("taxonomy_values") !== null
 					? getUrlParameter("taxonomy_values").split(",").map((v) => parseInt(v, 10)) : [],
+				corebusiness_only: getUrlParameter("corebusiness_only") === "true" ? true : null,
+				startup_only: getUrlParameter("startup_only") === "true" ? true : null,
 			},
 		};
 	}
@@ -43,6 +45,8 @@ export default class PagePrivateSector extends React.Component {
 
 	componentDidUpdate(_, prevState) {
 		if (prevState.filters.taxonomy_values !== this.state.filters.taxonomy_values
+			|| prevState.filters.startup_only !== this.state.filters.startup_only
+			|| prevState.filters.corebusiness_only !== this.state.filters.corebusiness_only
 			|| (prevState.filters.name !== this.state.filters.name
 				&& (this.state.filters.name.length === null
 					|| this.state.filters.name.length === undefined

@@ -55,6 +55,26 @@ export default class PrivateSectorSearch extends React.Component {
 
 				<div className={"col-md-12"}>
 					<FormLine
+						label={"Cybersecurity as a core business only"}
+						type={"checkbox"}
+						value={this.props.filters.corebusiness_only}
+						onChange={(v) => this.props.onChange("corebusiness_only", v)}
+						background={false}
+					/>
+				</div>
+
+				<div className={"col-md-12"}>
+					<FormLine
+						label={"Startup only"}
+						type={"checkbox"}
+						value={this.props.filters.startup_only}
+						onChange={(v) => this.props.onChange("startup_only", v)}
+						background={false}
+					/>
+				</div>
+
+				<div className={"col-md-12"}>
+					<FormLine
 						label={"Classification"}
 						type={"multiselect"}
 						value={this.props.filters.taxonomy_values === undefined || this.props.analytics === null
