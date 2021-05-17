@@ -42,6 +42,7 @@
 }
 
 .nav-link {
+    color: #000 !important;
 }
 
 .nav-item .dropdown-toggle {

@@ -21,25 +21,6 @@ export default class PagePrivateSpace extends React.Component {
 		};
 	}
 
-	componentDidMount() {
-		getRequest.call(this, "privatespace/is_logged", (data) => {
-			if (data !== null && data.is_logged !== true) {
-				this.props.history.push("/login");
-			}
-		}, () => {
-			nm.info("Your session has expired. please log in again");
-			this.props.history.push("/login");
-			this.props.cookies.remove("access_token_cookie");
-		}, (error) => {
-			nm.error(error.message);
-		});
-	}
-
-	logout() {
-		this.props.logout();
-		this.props.history.push("/");
-	}
-
 	render() {
 		return (
 			<div className={"PagePrivateSpace page max-sized-page"}>

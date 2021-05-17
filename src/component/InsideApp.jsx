@@ -2,7 +2,6 @@ import React from "react";
 import "./InsideApp.css";
 import { Route, Switch } from "react-router-dom";
 import { NotificationManager as nm } from "react-notifications";
-import Cookies from "universal-cookie";
 import GovBar from "./bar/GovBar.jsx";
 import Menu from "./bar/Menu.jsx";
 import Footer from "./bar/Footer.jsx";
@@ -14,40 +13,23 @@ import PageMap from "./PageMap.jsx";
 import PageCompany from "./PageCompany.jsx";
 import PagePublic from "./PagePublic.jsx";
 import PageCivilSociety from "./PageCivilSociety.jsx";
-import PageLogin from "./PageLogin.jsx";
-import PagePrivateSpace from "./PagePrivateSpace.jsx";
 import PageSearch from "./PageSearch.jsx";
 import { getRequest } from "../utils/request.jsx";
-import { getCookieOptions } from "../utils/env.jsx";
 
 export default class InsideApp extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.login = this.login.bind(this);
-		this.logout = this.logout.bind(this);
 		this.changeState = this.changeState.bind(this);
 
 		this.state = {
 			taxonomy: null,
 			logged: false,
 			email: null,
-			cookies: new Cookies(),
 		};
 	}
 
 	componentDidMount() {
-		getRequest.call(this, "privatespace/is_logged", (data) => {
-			if (data !== null) {
-				this.setState({
-					logged: data.is_logged,
-					email: data.email,
-				});
-			}
-		}, () => {
-		}, () => {
-		});
-
 		getRequest.call(this, "public/get_public_taxonomy", (data) => {
 			this.setState({
 				taxonomy: data,
@@ -56,26 +38,6 @@ export default class InsideApp extends React.Component {
 			nm.warning(response.statusText);
 		}, (error) => {
 			nm.error(error.message);
-		});
-	}
-
-	login(accessToken, email) {
-		// TODO use httponly cookies
-		this.state.cookies.set("access_token_cookie", accessToken, getCookieOptions());
-
-		this.setState({
-			logged: true,
-			email,
-		});
-	}
-
-	logout() {
-		// TODO use httponly cookies
-		this.state.cookies.remove("access_token_cookie");
-
-		this.setState({
-			logged: false,
-			email: null,
 		});
 	}
 
@@ -127,18 +89,6 @@ export default class InsideApp extends React.Component {
 						<Route
 							path="/search"
 							render={(props) => <PageSearch {...props} taxonomy={this.state.taxonomy}/>}
-						/>
-						<Route path="/login" render={(props) => <PageLogin
-							login={this.login}
-							cookies={this.state.cookies}
-							{...props}
-						/>}
-						/>
-						<Route path="/privatespace" render={(props) => <PagePrivateSpace
-							cookies={this.state.cookies}
-							logout={this.logout}
-							{...props}
-						/>}
 						/>
 
 						<Route path="/" render={(props) => <PageHome {...props} />}/>

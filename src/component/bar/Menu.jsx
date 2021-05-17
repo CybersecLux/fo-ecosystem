@@ -4,6 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import SearchField from "../form/SearchField.jsx";
+import { getPrivateSpaceURL } from "../../utils/env.jsx";
 
 export default class Menu extends React.Component {
 	constructor(props) {
@@ -80,20 +81,14 @@ export default class Menu extends React.Component {
 									</div>
 								</Link>
 							</Nav.Link>
-							{!this.props.logged || this.props.email === null
-								? <Nav.Link>
-									<Link to="/login">
-										<div className="Menu-title">Login</div>
-										<div className="Menu-description">Or register</div>
-									</Link>
-								</Nav.Link>
-								: <Nav.Link>
-									<Link to="/privatespace">
-										<div className="Menu-title">My space</div>
-										<div className="Menu-description">as {this.props.email.split("@")[0]}</div>
-									</Link>
-								</Nav.Link>
-							}
+							<a
+								className="nav-link"
+								href={getPrivateSpaceURL()}
+								rel="noreferrer"
+							>
+								<div className="Menu-title">Login</div>
+								<div className="Menu-description">Or register</div>
+							</a>
 						</Nav>
 					</Navbar.Collapse>}
 					<Navbar.Collapse id="basic-navbar-nav">

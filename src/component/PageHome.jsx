@@ -8,6 +8,7 @@ import Analytic from "./box/Analytic.jsx";
 import { getRequest } from "../utils/request.jsx";
 import RadarClickableTaxonomy from "./chart/RadarClickableTaxonomy.jsx";
 import SearchField from "./form/SearchField.jsx";
+import { getPrivateSpaceURL } from "../utils/env.jsx";
 
 export default class PageHome extends React.Component {
 	constructor(props) {
@@ -249,20 +250,14 @@ export default class PageHome extends React.Component {
 								</div>
 								<div className="col-md-6 navbar">
 									<div className="PageHome-menu-login">
-										{!this.props.logged || this.props.email === null
-											? <Nav.Link>
-												<Link to="/login">
-													<div className="Menu-title">Login</div>
-													<div className="Menu-description">Or register</div>
-												</Link>
-											</Nav.Link>
-											: <Nav.Link>
-												<Link to="/privatespace">
-													<div className="Menu-title">My space</div>
-													<div className="Menu-description">as {this.props.email.split("@")[0]}</div>
-												</Link>
-											</Nav.Link>
-										}
+										<a
+											className="nav-link"
+											href={getPrivateSpaceURL()}
+											rel="noreferrer"
+										>
+											<div className="Menu-title">Login</div>
+											<div className="Menu-description">Or register</div>
+										</a>
 									</div>
 									<div className="PageHome-menu">
 										<Nav.Link>
