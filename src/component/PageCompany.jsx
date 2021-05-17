@@ -106,7 +106,9 @@ export default class PageCompany extends React.Component {
 							</div>
 
 							<div className="row">
-								<div className="col-md-12">
+								<div
+									className="col-md-12"
+									style={{ whiteSpace: "pre-line" }}>
 									{this.state.company.description}
 								</div>
 							</div>
