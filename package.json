@@ -1,6 +1,6 @@
 {
   "name": "fo-ecosystem",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "dependencies": {
     "chart.js": "^2.9.4",
@@ -16,7 +16,8 @@
     "react-d3-tree": "^2.0.1",
     "react-dom": "^16.3.1",
     "react-dropzone": "^11.3.2",
-    "react-leaflet": "^3.1.0",
+    "react-leaflet": "3.1.0",
+    "@react-leaflet/core": "1.0.2",
     "react-notifications": "^1.6.0",
     "react-router-dom": "^5.2.0",
     "react-select": "^3.2.0",
