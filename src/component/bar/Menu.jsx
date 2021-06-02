@@ -86,8 +86,8 @@ export default class Menu extends React.Component {
 								href={getPrivateSpaceURL()}
 								rel="noreferrer"
 							>
-								<div className="Menu-title">Login</div>
-								<div className="Menu-description">Or register</div>
+								<div className="Menu-title">My CYBERLUX</div>
+								<div className="Menu-description">Login or subscribe</div>
 							</a>
 						</Nav>
 					</Navbar.Collapse>}

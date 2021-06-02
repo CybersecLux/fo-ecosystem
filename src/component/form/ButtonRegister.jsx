@@ -1,27 +1,21 @@
 import React, { Component } from "react";
 import "./ButtonRegister.css";
-import { withRouter } from "react-router-dom";
+import { getPrivateSpaceURL } from "../../utils/env.jsx";
 
-class ButtonRegister extends Component {
-	constructor(props) {
-		super(props);
-
-		this.onClick = this.onClick.bind(this);
-	}
-
-	onClick() {
-		this.props.history.push("/login?view=create");
-	}
-
+export default class ButtonRegister extends Component {
+	// eslint-disable-next-line class-methods-use-this
 	render() {
 		return (
-			<button
-				className="ButtonRegister"
-				onClick={this.onClick}>
-				<i className="fas fa-file-signature"/> Register your entity here
-			</button>
+			<a
+				className="nav-link"
+				href={getPrivateSpaceURL()}
+				rel="noreferrer"
+			>
+				<button
+					className="ButtonRegister">
+					<i className="fas fa-file-signature"/> Register your entity here
+				</button>
+			</a>
 		);
 	}
 }
-
-export default withRouter(ButtonRegister);
