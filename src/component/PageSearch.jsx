@@ -18,7 +18,9 @@ export default class PageSearch extends React.Component {
 		this.getEntities = this.getEntities.bind(this);
 
 		this.state = {
-			searchValue: getUrlParameter("r"),
+			searchValue: getUrlParameter("r") === undefined
+				|| getUrlParameter("r") === null
+				? null : decodeURI(getUrlParameter("r")),
 			entities: null,
 		};
 	}
@@ -28,8 +30,9 @@ export default class PageSearch extends React.Component {
 	}
 
 	componentDidUpdate() {
-		if (this.state.searchValue !== getUrlParameter("r")) {
-			this.setState({ searchValue: getUrlParameter("r") }, () => {
+		if (this.state.searchValue !== null
+			&& this.state.searchValue !== decodeURI(getUrlParameter("r"))) {
+			this.setState({ searchValue: decodeURI(getUrlParameter("r")) }, () => {
 				this.getEntities();
 			});
 		}
