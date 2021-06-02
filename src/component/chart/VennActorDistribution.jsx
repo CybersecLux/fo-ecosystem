@@ -11,8 +11,44 @@ export default class VennActorDistribution extends React.Component {
 		};
 	}
 
-	componentDidUpdate() {
-		const sets = [
+	componentDidMount() {
+		const sets = this.getData();
+
+		const div = d3.select("#venn");
+
+		let targetWidth = div.node().getBoundingClientRect().width;
+		targetWidth = targetWidth < 600 ? 600 : targetWidth;
+
+		div.datum(sets).call(venn.VennDiagram().styled(false).height(targetWidth).width(targetWidth));
+
+		const vennDiv = document.getElementById("venn");
+		const vennSvg = vennDiv.children[0];
+
+		vennDiv.setAttribute("class", "svg-container oneten-height");
+		vennSvg.removeAttribute("height");
+		vennSvg.removeAttribute("width");
+		vennSvg.setAttribute("viewBox", "0 0 " + targetWidth + " " + targetWidth);
+		vennSvg.setAttribute("preserveAspectRatio", "xMaxYMin meet");
+
+		div.selectAll("g");
+
+		d3.select(window)
+			.on("resize", () => {
+				let changedTargetWidth = div.node().getBoundingClientRect().width;
+				changedTargetWidth = changedTargetWidth < 600 ? 600 : changedTargetWidth;
+				vennSvg.setAttribute("viewBox", "0 0 " + changedTargetWidth + " " + changedTargetWidth);
+			});
+	}
+
+	componentDidUpdate(prevProps) {
+		if (this.props.actors !== prevProps.actors && prevProps.actors !== null) {
+			const div = d3.select("#venn");
+			div.datum(this.getData());
+		}
+	}
+
+	getData() {
+		return [
 			{
 				sets: ["Actors"],
 				size: this.props.actors.length,
@@ -45,31 +81,6 @@ export default class VennActorDistribution extends React.Component {
 					.filter((a) => a.is_cybersecurity_core_business && a.is_startup).length,
 			},
 		];
-
-		const div = d3.select("#venn");
-
-		let targetWidth = div.node().getBoundingClientRect().width;
-		targetWidth = targetWidth < 600 ? 600 : targetWidth;
-
-		div.datum(sets).call(venn.VennDiagram().styled(false).height(targetWidth).width(targetWidth));
-
-		const vennDiv = document.getElementById("venn");
-		const vennSvg = vennDiv.children[0];
-
-		vennDiv.setAttribute("class", "svg-container oneten-height");
-		vennSvg.removeAttribute("height");
-		vennSvg.removeAttribute("width");
-		vennSvg.setAttribute("viewBox", "0 0 " + targetWidth + " " + targetWidth);
-		vennSvg.setAttribute("preserveAspectRatio", "xMaxYMin meet");
-
-		div.selectAll("g");
-
-		d3.select(window)
-			.on("resize", () => {
-				let changedTargetWidth = div.node().getBoundingClientRect().width;
-				changedTargetWidth = changedTargetWidth < 600 ? 600 : changedTargetWidth;
-				vennSvg.setAttribute("viewBox", "0 0 " + changedTargetWidth + " " + changedTargetWidth);
-			});
 	}
 
 	// eslint-disable-next-line class-methods-use-this
