@@ -528,9 +528,14 @@ export default class PageDashboard extends React.Component {
 
 						<div className={"col-md-6 col-xl-6"}>
 							<div className={"PageDashboard-actor-distribution"}>
-								<VennActorDistribution
-									actors={this.state.actors !== null ? this.state.actors : []}
-								/>
+								{this.state.actors !== null
+									? <VennActorDistribution
+										actors={this.state.actors}
+									/>
+									: <Loading
+										height={200}
+									/>
+								}
 							</div>
 						</div>
 

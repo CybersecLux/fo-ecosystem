@@ -41,7 +41,7 @@ export default class VennActorDistribution extends React.Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		if (this.props.actors !== prevProps.actors && prevProps.actors !== null) {
+		if (JSON.stringify(this.props.actors) !== JSON.stringify(prevProps.actors)) {
 			const div = d3.select("#venn");
 			div.datum(this.getData());
 		}
