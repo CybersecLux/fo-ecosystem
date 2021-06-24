@@ -85,8 +85,6 @@ export default class Menu extends React.Component {
 
 	// eslint-disable-next-line class-methods-use-this
 	render() {
-		const currentLocation = window.location.pathname;
-
 		return (
 			<div className={"Menu page max-sized-page"}>
 				<Navbar expand="lg">
@@ -100,10 +98,9 @@ export default class Menu extends React.Component {
 						</a>
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
-					{(currentLocation !== "" && currentLocation !== "/")
-					&& <Navbar.Collapse id="basic-navbar-nav">
+					<Navbar.Collapse id="basic-navbar-nav">
 						{this.getNavBar()}
-					</Navbar.Collapse>}
+					</Navbar.Collapse>
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="Menu-top-right-about mr-sm-2 ml-auto">
 							<SearchField/>
