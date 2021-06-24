@@ -10,7 +10,7 @@
 }
 
 .navbar a:hover {
-    background: #000;
+    background: #e30613;
     text-decoration: none;
 }
 
@@ -42,7 +42,13 @@
 }
 
 .nav-link {
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
     color: #000 !important;
+}
+
+.nav-link-blue .Menu-title i {
+    padding: 0px !important;
 }
 
 .nav-item .dropdown-toggle {
@@ -66,6 +72,10 @@
     font-size: 30px;
     min-width: 0px;
     padding-top: 6px !important;
+}
+
+.Menu .dropdown-item {
+    padding: 8px 25px;
 }
 
 @media (min-width: 0px) {
@@ -185,6 +195,6 @@
     width: 35px;
 }
 
-.Menu-image-text {
-    float: left;
+.Menu .dropdown-toggle::after {
+    display: none !important;
 }

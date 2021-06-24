@@ -6,15 +6,14 @@ import GovBar from "./bar/GovBar.jsx";
 import Menu from "./bar/Menu.jsx";
 import Footer from "./bar/Footer.jsx";
 import PageHome from "./PageHome.jsx";
-import PageAbout from "./PageAbout.jsx";
 import PageDashboard from "./PageDashboard.jsx";
 import PagePrivateSector from "./PagePrivateSector.jsx";
 import PageMap from "./PageMap.jsx";
 import PageCompany from "./PageCompany.jsx";
 import PagePublic from "./PagePublic.jsx";
 import PageCivilSociety from "./PageCivilSociety.jsx";
-import PageSearch from "./PageSearch.jsx";
 import { getRequest } from "../utils/request.jsx";
+import getMailerliteFunction from "../utils/mailerlite.jsx";
 
 export default class InsideApp extends React.Component {
 	constructor(props) {
@@ -26,6 +25,7 @@ export default class InsideApp extends React.Component {
 			taxonomy: null,
 			logged: false,
 			email: null,
+			ml_account: getMailerliteFunction(),
 		};
 	}
 
@@ -53,6 +53,7 @@ export default class InsideApp extends React.Component {
 					render={(props) => <Menu
 						logged={this.state.logged}
 						email={this.state.email}
+						ml_account={this.state.ml_account}
 						{...props}
 					/>}
 				/>
@@ -75,20 +76,12 @@ export default class InsideApp extends React.Component {
 							render={(props) => <PageCivilSociety {...props} taxonomy={this.state.taxonomy} />}
 						/>
 						<Route
-							path="/about"
-							render={(props) => <PageAbout {...props} />}
-						/>
-						<Route
 							path="/dashboard"
 							render={(props) => <PageDashboard {...props} taxonomy={this.state.taxonomy} />}
 						/>
 						<Route
 							path="/map"
 							render={(props) => <PageMap {...props} taxonomy={this.state.taxonomy}/>}
-						/>
-						<Route
-							path="/search"
-							render={(props) => <PageSearch {...props} taxonomy={this.state.taxonomy}/>}
 						/>
 
 						<Route path="/" render={(props) => <PageHome {...props} />}/>

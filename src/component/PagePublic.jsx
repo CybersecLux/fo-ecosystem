@@ -10,6 +10,7 @@ import Company from "./item/Company.jsx";
 import SimpleTable from "./table/SimpleTable.jsx";
 import PublicSectorSearch from "./form/PublicSectorSearch.jsx";
 import { getUrlParameter, dictToURI } from "../utils/url.jsx";
+import { getMainAppURL } from "../utils/env.jsx";
 
 export default class PagePublic extends React.Component {
 	constructor(props) {
@@ -78,7 +79,10 @@ export default class PagePublic extends React.Component {
 				<div className="row">
 					<div className="col-md-12">
 						<Breadcrumb>
-							<Breadcrumb.Item><Link to="/">CYBERSECURITY LUXEMBOURG</Link></Breadcrumb.Item>
+							<Breadcrumb.Item href={getMainAppURL()}>
+								CYBERSECURITY LUXEMBOURG
+							</Breadcrumb.Item>
+							<Breadcrumb.Item><Link to="/">ECOSYSTEM</Link></Breadcrumb.Item>
 							<Breadcrumb.Item><Link to="/publicsector">PUBLIC SECTOR</Link></Breadcrumb.Item>
 						</Breadcrumb>
 					</div>

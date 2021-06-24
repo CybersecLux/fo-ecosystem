@@ -270,8 +270,12 @@ p {
 /* BREADCRUMB */
 
 .breadcrumb {
-	background-color: #009fe3;
+	background: 
+        linear-gradient( 135deg,transparent 10px,#009fe3 0) left /50.5% 100%,
+        linear-gradient( 315deg,transparent 10px,#009fe3 0) right /50.5% 100%;
+    background-repeat:no-repeat;
 	color: white !important;
+	border-radius: 0;
 }
 
 .breadcrumb a {
@@ -279,7 +283,7 @@ p {
 }
 
 .breadcrumb-item+.breadcrumb-item::before {
-	color: #fff;
+	color: #000;
 }
 
 /* INPUT */

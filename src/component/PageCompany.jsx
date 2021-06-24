@@ -7,7 +7,7 @@ import { getRequest } from "../utils/request.jsx";
 import Loading from "./box/Loading.jsx";
 import TreeTaxonomy from "./chart/TreeTaxonomy.jsx";
 import NoImage from "./box/NoImage.jsx";
-import { getApiURL } from "../utils/env.jsx";
+import { getApiURL, getMainAppURL } from "../utils/env.jsx";
 
 export default class PageCompany extends React.Component {
 	constructor(props) {
@@ -73,7 +73,10 @@ export default class PageCompany extends React.Component {
 				<div className="row">
 					<div className="col-md-12">
 						<Breadcrumb>
-							<Breadcrumb.Item><Link to="/">CYBERSECURITY LUXEMBOURG</Link></Breadcrumb.Item>
+							<Breadcrumb.Item href={getMainAppURL()}>
+								CYBERSECURITY LUXEMBOURG
+							</Breadcrumb.Item>
+							<Breadcrumb.Item><Link to="/">ECOSYSTEM</Link></Breadcrumb.Item>
 							<Breadcrumb.Item><Link to="/">COMPANY</Link></Breadcrumb.Item>
 							{this.state.company !== null && !this.state.loading
 								? <Breadcrumb.Item>

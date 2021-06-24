@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./SearchField.css";
 import { withRouter } from "react-router-dom";
+import { getMainAppURL } from "../../utils/env.jsx";
 
 class SearchField extends Component {
 	constructor(props) {
@@ -26,7 +27,8 @@ class SearchField extends Component {
 	}
 
 	onValidation() {
-		this.props.history.push("/search?r=" + this.state.value);
+		window.location.replace(getMainAppURL() + "search?r="
+			+ (this.state.value === null ? "" : this.state.value));
 	}
 
 	onChange(value) {
