@@ -47,6 +47,10 @@
     color: #000 !important;
 }
 
+.nav-link i {
+    padding: 0px !important;
+}
+
 .nav-link-blue .Menu-title i {
     padding: 0px !important;
 }

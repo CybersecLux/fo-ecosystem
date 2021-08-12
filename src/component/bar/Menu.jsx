@@ -25,10 +25,10 @@ export default class Menu extends React.Component {
 				<div className="Menu-title">Where to meet?</div>
 				<div className="Menu-description">Cybersecurity events</div>
 			</a>
-			{/* <a className="nav-link" href={getMainAppURL() + "strategy"}>
-				<div className="Menu-title">National strategy</div>
+			<a className="nav-link" href={getMainAppURL() + "strategy"}>
+				<div className="Menu-title">Strategy</div>
 				<div className="Menu-description">For a secure environment</div>
-			</a> */}
+			</a>
 			<NavDropdown
 				title={
 					<div>
@@ -73,10 +73,7 @@ export default class Menu extends React.Component {
 					</div>
 				</NavDropdown.Item>
 			</NavDropdown>
-			{/* eslint-disable no-script-url */}
-			<a href="javascript:;"
-				className="nav-link nav-link-blue"
-				onClick={() => this.props.ml_account("webforms", "3328240", "r1e0z6", "show")}>
+			<a className="nav-link" href={getMainAppURL() + "newsletter"}>
 				<div className="Menu-title"><i className="fas fa-envelope-open-text"/> Newsletter</div>
 				<div className="Menu-description">Our monthly selection</div>
 			</a>
