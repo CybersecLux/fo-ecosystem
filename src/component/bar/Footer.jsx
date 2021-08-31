@@ -1,6 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
+import { getMainAppURL } from "../../utils/env.jsx";
 
 export default class Footer extends React.Component {
 	constructor(props) {
@@ -59,12 +60,12 @@ export default class Footer extends React.Component {
 							<div className="Footer-title">MENU</div>
 							<div>
 								<a
-									href="https://www.c-3.lu/"
+									href={getMainAppURL() + "news"}
 									rel="noreferrer"
 									target="_blank"
 									title="Legal"
 									className="text-capitalize">
-									<Link to="/about"><b>About</b></Link>
+									<b>About</b>
 								</a>
 							</div>
 							<br/>
@@ -131,16 +132,6 @@ export default class Footer extends React.Component {
 							</div>
 							<br/>
 							<div>Copyright © SECURITYMADEIN.LU g.i.e 2021</div>
-							<div>
-								<a
-									href={"/pdf/2021-07-08 - Terms of Use CYBERLUX.pdf"}
-									rel="noreferrer"
-									target="_blank"
-									title="Terms of use"
-									className="text-capitalize">
-									Terms of use
-								</a>
-							</div>
 						</div>
 						<div className="col-md-2">
 							<div className="Footer-network">
@@ -167,6 +158,24 @@ export default class Footer extends React.Component {
 									title="GitHub CyberLux"
 									className="text-capitalize">
 									<i className="fab fa-github-alt Footer-network"/>
+								</a>
+							</div>
+							<div className="Footer-documentation-and-terms">
+								<a
+									href="/pdf/Documentation of the CYBERSECURITY Luxembourg website_release_v1.4.pdf"
+									rel="noreferrer"
+									target="_blank"
+									title="Documentation"
+									className="text-capitalize">
+									<i className="fas fa-book"/> Documentation
+								</a>
+								<a
+									href={"/pdf/2021-07-08 - Terms of Use CYBERLUX.pdf"}
+									rel="noreferrer"
+									target="_blank"
+									title="Terms of use"
+									className="text-capitalize">
+									<i className="fas fa-gavel"/> Terms of use
 								</a>
 							</div>
 						</div>
