@@ -313,7 +313,7 @@ export default class PageDashboard extends React.Component {
 				"Service de Renseignement de l'Etat",
 				"Ministry of the Economy",
 				"Institut Luxembourgeois de Régulation",
-				"Departement of Media, Telecommunications and Digital Policy",
+				"Department of Media, Telecommunications and Digital Policy",
 				"Ministry of Foreign and European Affairs",
 			].indexOf(p.name) >= 0);
 	}
