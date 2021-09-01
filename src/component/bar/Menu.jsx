@@ -25,10 +25,6 @@ export default class Menu extends React.Component {
 				<div className="Menu-title">Where to meet?</div>
 				<div className="Menu-description">Cybersecurity events</div>
 			</a>
-			<a className="nav-link" href={getMainAppURL() + "strategy"}>
-				<div className="Menu-title">Strategy</div>
-				<div className="Menu-description">For a secure environment</div>
-			</a>
 			<NavDropdown
 				title={
 					<div>
