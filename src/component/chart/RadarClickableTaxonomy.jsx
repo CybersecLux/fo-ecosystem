@@ -2,12 +2,14 @@ import React from "react";
 import "./RadarClickableTaxonomy.css";
 import { Radar } from "react-chartjs-2";
 import { withRouter } from "react-router-dom";
+/* import { Chart } from "chart.js"; */
 
 class RadarClickableTaxonomy extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
+			chartRef: React.createRef(),
 		};
 	}
 
@@ -21,7 +23,7 @@ class RadarClickableTaxonomy extends React.Component {
 				className="RadarClickableTaxonomy"
 				style={{ minHeight: this.props.minHeight === undefined ? 400 : this.props.minHeight }}>
 				<Radar
-					ref={this.chartRef}
+					ref={this.state.chartRef}
 					data={{
 						labels: Object.keys(this.props.data).map((l) => l + " - " + this.props.data[l].amount),
 						datasets: [{
@@ -29,7 +31,7 @@ class RadarClickableTaxonomy extends React.Component {
 							borderWidth: 2,
 							borderColor: "rgba(255, 255, 255, 1)",
 							backgroundColor: "rgba(255, 255, 255, 0.5)",
-							pointRadius: 5,
+							pointRadius: 10,
 							fillColor: "white",
 						}],
 					}}
