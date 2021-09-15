@@ -659,7 +659,7 @@ export default class PageDashboard extends React.Component {
 										</div>
 
 										<img
-											src={getApiURL() + "public/get_image/" + m.image}
+											src={getApiURL() + "public/get_public_image/" + m.image}
 											alt={m.name}
 										/>
 									</div>
@@ -709,7 +709,7 @@ export default class PageDashboard extends React.Component {
 
 									<img
 										className="PageDashboard-secin-department-logo"
-										src={getApiURL() + "public/get_image/" + d.image}
+										src={getApiURL() + "public/get_public_image/" + d.image}
 										alt={d.name}
 									/>
 								</div>)
@@ -742,7 +742,7 @@ export default class PageDashboard extends React.Component {
 										</div>
 
 										<img
-											src={getApiURL() + "public/get_image/" + c.image}
+											src={getApiURL() + "public/get_public_image/" + c.image}
 											alt={c.name}
 										/>
 									</div>)}
@@ -809,7 +809,7 @@ export default class PageDashboard extends React.Component {
 										className={"col-md-6 col-lg-6 col-xl-4 PageDashboard-image-wrapper"}
 										key={c.id}>
 										<img
-											src={getApiURL() + "public/get_image/" + c.image}
+											src={getApiURL() + "public/get_public_image/" + c.image}
 											alt={c.name}
 										/>
 									</div>)}
@@ -851,7 +851,7 @@ export default class PageDashboard extends React.Component {
 											</div>
 
 											<img
-												src={getApiURL() + "public/get_image/" + m.image}
+												src={getApiURL() + "public/get_public_image/" + m.image}
 												alt={m.name}
 											/>
 										</div>)
