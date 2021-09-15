@@ -3,6 +3,7 @@ import "./Menu.css";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import SearchField from "../form/SearchField.jsx";
 import { getPrivateSpaceURL, getMainAppURL } from "../../utils/env.jsx";
 
@@ -11,25 +12,59 @@ export default class Menu extends React.Component {
 		super(props);
 
 		this.state = {
+			showFlyingMenu: false,
 		};
+	}
+
+	componentDidMount() {
+		document.querySelector("#root").addEventListener("scroll", () => {
+			const currentScrollPos = document.getElementById("root").scrollTop;
+
+			if (currentScrollPos !== undefined && currentScrollPos !== 0) {
+				if (currentScrollPos > 300 && !this.state.showFlyingMenu) {
+					this.setState({ showFlyingMenu: true });
+				} else if (currentScrollPos < 300) {
+					this.setState({ showFlyingMenu: false });
+				}
+			}
+		});
 	}
 
 	// eslint-disable-next-line class-methods-use-this
 	getNavBar() {
 		return <Nav className="mr-sm-2 ml-auto">
-			<a className="nav-link" href={getMainAppURL() + "news"}>
-				<div className="Menu-title">What&apos;s up?</div>
-				<div className="Menu-description">Latest news</div>
-			</a>
-			<a className="nav-link" href={getMainAppURL() + "calendar"}>
-				<div className="Menu-title">Where to meet?</div>
-				<div className="Menu-description">Cybersecurity events</div>
-			</a>
+			<Nav.Link href={getMainAppURL() + "strategy"}>
+				<div className="Menu-title">Strategy</div>
+				<div className="Menu-description">National commitment</div>
+			</Nav.Link>
 			<NavDropdown
 				title={
-					<div>
+					<div className="Menu-item">
+						<div className="Menu-title">Cyber activity</div>
+						<div className="Menu-description">Keep up to date</div>
+						<i className="fas fa-sort-down"/>
+					</div>
+				}
+				id="basic-nav-dropdown">
+				<NavDropdown.Item href={getMainAppURL() + "news"}>
+					<div className="Menu-title">What&apos;s up?</div>
+					<div className="Menu-description">Latest news</div>
+				</NavDropdown.Item>
+				<NavDropdown.Item href={getMainAppURL() + "calendar"}>
+					<div className="Menu-title">Where to meet?</div>
+					<div className="Menu-description">Cybersecurity events</div>
+				</NavDropdown.Item>
+				<NavDropdown.Item href={getMainAppURL() + "marketplace"}>
+					<div className="Menu-title">Job marketplace</div>
+					<div className="Menu-description">Find or suggest a position</div>
+				</NavDropdown.Item>
+			</NavDropdown>
+			<NavDropdown
+				title={
+					<div className="Menu-item">
 						<div className="Menu-title">Ecosystem</div>
 						<div className="Menu-description">View on the community</div>
+						<i className="fas fa-sort-down"/>
 					</div>
 				}
 				id="basic-nav-dropdown">
@@ -69,10 +104,10 @@ export default class Menu extends React.Component {
 					</div>
 				</NavDropdown.Item>
 			</NavDropdown>
-			<a className="nav-link" href={getMainAppURL() + "newsletter"}>
+			<Nav.Link href={getMainAppURL() + "newsletter"}>
 				<div className="Menu-title"><i className="fas fa-envelope-open-text"/> Newsletter</div>
 				<div className="Menu-description">Our monthly selection</div>
-			</a>
+			</Nav.Link>
 		</Nav>;
 	}
 
@@ -112,6 +147,23 @@ export default class Menu extends React.Component {
 						</Nav>
 					</Navbar.Collapse>
 				</Navbar>
+
+				{this.state.showFlyingMenu
+					&& <div className={"Menu-flying-menu-wrapper"}>
+						<div className="Menu-flying-menu max-sized-page">
+							<Link to="/">
+								<img
+									className="logo"
+									src="/img/ecosystem-logo.jpg"
+									alt="CYBERLUX Logo"
+								/>
+							</Link>
+							<div className="navbar navbar-nav">
+								{this.getNavBar()}
+							</div>
+						</div>
+					</div>
+				}
 			</div>
 		);
 	}
