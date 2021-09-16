@@ -66,67 +66,41 @@ export default class Footer extends React.Component {
 							<div className="row">
 								<div className="col-md-6">
 									<div>
-										<a
-											href={getMainAppURL()}
-											rel="noreferrer"
-											target="_blank"
-											className="text-capitalize">
+										<a href={getMainAppURL()}>
 											Home
 										</a>
 									</div>
 									<br/>
 									<div>
-										<a
-											href={getMainAppURL() + "strategy"}
-											rel="noreferrer"
-											target="_blank"
-											className="text-capitalize">
+										<a href={getMainAppURL() + "strategy"}>
 											Strategy
 										</a>
 									</div>
 									<br/>
 									<div>
-										<a
-											href={getMainAppURL() + "news"}
-											rel="noreferrer"
-											target="_blank"
-											className="text-capitalize">
+										<a href={getMainAppURL() + "news"}>
 											What&apos;s up?
 										</a>
 									</div>
 									<div>
-										<a
-											href={getMainAppURL() + "calendar"}
-											rel="noreferrer"
-											target="_blank"
-											className="text-capitalize">
+										<a href={getMainAppURL() + "calendar"}>
 											Where to meet?
 										</a>
 									</div>
 									<div>
-										<a
-											href={getMainAppURL() + "marketplace"}
-											rel="noreferrer"
-											target="_blank"
-											className="text-capitalize">
+										<a href={getMainAppURL() + "marketplace"}>
 											Job marketplace
 										</a>
 									</div>
 									<br/>
 									<div>
-										<a
-											href={getMainAppURL() + "about"}
-											rel="noreferrer"
-											target="_blank"
-											className="text-capitalize">
+										<a href={getMainAppURL() + "about"}>
 											About
 										</a>
 									</div>
 									<div>
 										<a
-											href={getPrivateSpaceURL()}
-											rel="noreferrer"
-											target="_blank">
+											href={getPrivateSpaceURL()}>
 											My CYBERLUX
 										</a>
 									</div>
@@ -136,56 +110,24 @@ export default class Footer extends React.Component {
 									<div><b>Ecosystem</b></div>
 									<br/>
 									<div className="Footer-alinea">
-										<a
-											href="https://www.c-3.lu/"
-											rel="noreferrer"
-											target="_blank">
-											<Link to="/">Home</Link>
-										</a>
+										<Link to="/">Home</Link>
 									</div>
 									<br/>
 									<div className="Footer-alinea">
-										<a
-											href="https://www.circl.lu/"
-											rel="noreferrer"
-											target="_blank">
-											<Link to="/privatesector">Private sector</Link>
-										</a>
+										<Link to="/privatesector">Private sector</Link>
 									</div>
 									<div className="Footer-alinea">
-										<a
-											href="https://www.c-3.lu/"
-											rel="noreferrer"
-											target="_blank">
-											<Link to="/publicsector">Public sector</Link>
-										</a>
+										<Link to="/publicsector">Public sector</Link>
 									</div>
 									<div className="Footer-alinea">
-										<a
-											href="https://www.c-3.lu/"
-											rel="noreferrer"
-											target="_blank">
-											<Link to="/civilsociety">Civil society</Link>
-										</a>
+										<Link to="/civilsociety">Civil society</Link>
 									</div>
 									<br/>
 									<div className="Footer-alinea">
-										<a
-											href="https://www.c-3.lu/"
-											rel="noreferrer"
-											target="_blank"
-											className="text-capitalize">
-											<Link to="/dashboard">Dashboard</Link>
-										</a>
+										<Link to="/dashboard">Dashboard</Link>
 									</div>
 									<div className="Footer-alinea">
-										<a
-											href="https://www.c-3.lu/"
-											rel="noreferrer"
-											target="_blank"
-											className="text-capitalize">
-											<Link to="/map">Map</Link>
-										</a>
+										<Link to="/map">Map</Link>
 									</div>
 								</div>
 							</div>
