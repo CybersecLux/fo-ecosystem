@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
-import { getMainAppURL } from "../../utils/env.jsx";
+import { getMainAppURL, getPrivateSpaceURL } from "../../utils/env.jsx";
 
 export default class Footer extends React.Component {
 	constructor(props) {
@@ -18,108 +18,179 @@ export default class Footer extends React.Component {
 				<div className="Footer-content">
 					<div className="row">
 						<div className="col-md-3">
-
-							<div className="Footer-patronage">
-								Under the High Patronage of the <br/><b>Ministry of the Economy</b>
-							</div>
-							<div className="Footer-title">KEY PARTNERS</div>
-							<div className="Footer-alinea">
-								<a
-									href="https://hcpn.gouvernement.lu/en.html"
-									rel="noreferrer"
-									target="_blank"
-									title="HCPN">
-									High Commission for National Protection
-								</a>
-							</div>
-							<br/>
-							<div className="Footer-alinea">
-								<a
-									href="https://securitymadein.lu/"
-									rel="noreferrer"
-									target="_blank"
-									title="SECURITYMADEIN.LU GIE"
-									className="text-capitalize">
-									SECURITYMADEIN.LU
-								</a>
-							</div>
-							<br/>
-							<div className="Footer-alinea">
-								<a
-									href="https://www.luxinnovation.lu/"
-									rel="noreferrer"
-									target="_blank"
-									title="LUXINNOVATION GIE"
-									className="text-capitalize">
-									Luxinnovation
-								</a>
+							<div className="row">
+								<div className="col-md-12">
+									<div className="Footer-patronage">
+										Under the High Patronage of the <br/><b>Ministry of the Economy</b>
+									</div>
+									<br/>
+									<div className="Footer-title">KEY PARTNERS</div>
+									<br/>
+									<div className="Footer-alinea">
+										<a
+											href="https://hcpn.gouvernement.lu/en.html"
+											rel="noreferrer"
+											target="_blank"
+											title="HCPN">
+											High Commission for National Protection
+										</a>
+									</div>
+									<br/>
+									<div className="Footer-alinea">
+										<a
+											href="https://securitymadein.lu/"
+											rel="noreferrer"
+											target="_blank"
+											title="SECURITYMADEIN.LU GIE"
+											className="text-capitalize">
+											SECURITYMADEIN.LU
+										</a>
+									</div>
+									<br/>
+									<div className="Footer-alinea">
+										<a
+											href="https://www.luxinnovation.lu/"
+											rel="noreferrer"
+											target="_blank"
+											title="LUXINNOVATION GIE"
+											className="text-capitalize">
+											Luxinnovation
+										</a>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div className="col-md-1"/>
-						<div className="col-md-2">
+						<div className="col-md-4">
 							<div className="Footer-title">MENU</div>
-							<div>
-								<a
-									href={getMainAppURL() + "news"}
-									rel="noreferrer"
-									target="_blank"
-									title="Legal"
-									className="text-capitalize">
-									<b>About</b>
-								</a>
-							</div>
-							<br/>
-							<div><b>Ecosystem</b></div>
-							<div className="Footer-alinea">
-								<a
-									href="https://www.circl.lu/"
-									rel="noreferrer"
-									target="_blank"
-									title="About">
-									<Link to="/privatesector">Private sector</Link>
-								</a>
-							</div>
-							<div className="Footer-alinea">
-								<a
-									href="https://www.c-3.lu/"
-									rel="noreferrer"
-									target="_blank"
-									title="Legal">
-									<Link to="/publicsector">Public sector</Link>
-								</a>
-							</div>
-							<div className="Footer-alinea">
-								<a
-									href="https://www.c-3.lu/"
-									rel="noreferrer"
-									target="_blank"
-									title="Legal">
-									<Link to="/civilsociety">Civil society</Link>
-								</a>
-							</div>
-							<br/>
-							<div className="Footer-alinea">
-								<a
-									href="https://www.c-3.lu/"
-									rel="noreferrer"
-									target="_blank"
-									title="Legal"
-									className="text-capitalize">
-									<Link to="/dashboard">Dashboard</Link>
-								</a>
-							</div>
-							<div className="Footer-alinea">
-								<a
-									href="https://www.c-3.lu/"
-									rel="noreferrer"
-									target="_blank"
-									title="Legal"
-									className="text-capitalize">
-									<Link to="/map">Map</Link>
-								</a>
+
+							<div className="row">
+								<div className="col-md-6">
+									<div>
+										<a
+											href={getMainAppURL()}
+											rel="noreferrer"
+											target="_blank"
+											className="text-capitalize">
+											Home
+										</a>
+									</div>
+									<br/>
+									<div>
+										<a
+											href={getMainAppURL() + "strategy"}
+											rel="noreferrer"
+											target="_blank"
+											className="text-capitalize">
+											Strategy
+										</a>
+									</div>
+									<br/>
+									<div>
+										<a
+											href={getMainAppURL() + "news"}
+											rel="noreferrer"
+											target="_blank"
+											className="text-capitalize">
+											What&apos;s up?
+										</a>
+									</div>
+									<div>
+										<a
+											href={getMainAppURL() + "calendar"}
+											rel="noreferrer"
+											target="_blank"
+											className="text-capitalize">
+											Where to meet?
+										</a>
+									</div>
+									<div>
+										<a
+											href={getMainAppURL() + "marketplace"}
+											rel="noreferrer"
+											target="_blank"
+											className="text-capitalize">
+											Job marketplace
+										</a>
+									</div>
+									<br/>
+									<div>
+										<a
+											href={getMainAppURL() + "about"}
+											rel="noreferrer"
+											target="_blank"
+											className="text-capitalize">
+											About
+										</a>
+									</div>
+									<div>
+										<a
+											href={getPrivateSpaceURL()}
+											rel="noreferrer"
+											target="_blank">
+											My CYBERLUX
+										</a>
+									</div>
+								</div>
+
+								<div className="col-md-6">
+									<div><b>Ecosystem</b></div>
+									<br/>
+									<div className="Footer-alinea">
+										<a
+											href="https://www.c-3.lu/"
+											rel="noreferrer"
+											target="_blank">
+											<Link to="/">Home</Link>
+										</a>
+									</div>
+									<br/>
+									<div className="Footer-alinea">
+										<a
+											href="https://www.circl.lu/"
+											rel="noreferrer"
+											target="_blank">
+											<Link to="/privatesector">Private sector</Link>
+										</a>
+									</div>
+									<div className="Footer-alinea">
+										<a
+											href="https://www.c-3.lu/"
+											rel="noreferrer"
+											target="_blank">
+											<Link to="/publicsector">Public sector</Link>
+										</a>
+									</div>
+									<div className="Footer-alinea">
+										<a
+											href="https://www.c-3.lu/"
+											rel="noreferrer"
+											target="_blank">
+											<Link to="/civilsociety">Civil society</Link>
+										</a>
+									</div>
+									<br/>
+									<div className="Footer-alinea">
+										<a
+											href="https://www.c-3.lu/"
+											rel="noreferrer"
+											target="_blank"
+											className="text-capitalize">
+											<Link to="/dashboard">Dashboard</Link>
+										</a>
+									</div>
+									<div className="Footer-alinea">
+										<a
+											href="https://www.c-3.lu/"
+											rel="noreferrer"
+											target="_blank"
+											className="text-capitalize">
+											<Link to="/map">Map</Link>
+										</a>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div className="col-md-4 Footer-contact">
+						<div className="col-md-3 Footer-contact">
 							<div className="Footer-title">CONTACT</div>
 
 							<div>SECURITYMADEIN.LU g.i.e.</div>
