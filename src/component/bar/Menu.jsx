@@ -40,23 +40,20 @@ export default class Menu extends React.Component {
 			<NavDropdown
 				title={
 					<div className="Menu-item">
-						<div className="Menu-title">Cyber activity</div>
-						<div className="Menu-description">Keep up to date</div>
+						<div className="Menu-title">What&apos;s up?</div>
+						<div className="Menu-description">News, events and jobs</div>
 						<i className="fas fa-sort-down"/>
 					</div>
 				}
 				id="basic-nav-dropdown">
 				<NavDropdown.Item href={getMainAppURL() + "news"}>
-					<div className="Menu-title">What&apos;s up?</div>
-					<div className="Menu-description">Latest news</div>
+					<div className="Menu-title">News</div>
 				</NavDropdown.Item>
 				<NavDropdown.Item href={getMainAppURL() + "calendar"}>
-					<div className="Menu-title">Where to meet?</div>
-					<div className="Menu-description">Cybersecurity events</div>
+					<div className="Menu-title">Events</div>
 				</NavDropdown.Item>
 				<NavDropdown.Item href={getMainAppURL() + "marketplace"}>
-					<div className="Menu-title">Job marketplace</div>
-					<div className="Menu-description">Find or suggest a position</div>
+					<div className="Menu-title">Jobs</div>
 				</NavDropdown.Item>
 			</NavDropdown>
 			<NavDropdown
