@@ -37,15 +37,20 @@ export default class PagePublic extends React.Component {
 	}
 
 	getPublicCompany() {
-		getRequest.call(this, "public/get_public_companies?entity_type=PUBLIC SECTOR&"
-			+ dictToURI(this.state.filters), (data) => {
-			this.setState({
-				publicEntities: data.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1)),
+		this.setState({
+			publicEntities: null,
+		}, () => {
+			getRequest.call(this, "public/get_public_companies?entity_type=PUBLIC SECTOR&"
+				+ dictToURI(this.state.filters), (data) => {
+				this.setState({
+					publicEntities: data
+						.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1)),
+				});
+			}, (response) => {
+				nm.warning(response.statusText);
+			}, (error) => {
+				nm.error(error.message);
 			});
-		}, (response) => {
-			nm.warning(response.statusText);
-		}, (error) => {
-			nm.error(error.message);
 		});
 	}
 

@@ -46,7 +46,7 @@ export default class PrivateSectorSearch extends React.Component {
 			<div className={"PrivateSectorSearch row"}>
 				<div className={"col-md-12"}>
 					<FormLine
-						label={"Entity name (at least 3 characters)"}
+						label={"Entity name"}
 						value={this.props.filters.name === undefined
 							? [] : this.props.filters.name}
 						onChange={(v) => this.props.onChange("name", v)}

@@ -51,17 +51,17 @@ export default class PagePrivateSector extends React.Component {
 	getCompanies() {
 		this.setState({
 			actors: null,
-		});
-
-		getRequest.call(this, "public/get_public_companies?ecosystem_role=ACTOR&entity_type=PRIVATE%20SECTOR&"
-			+ dictToURI(this.state.filters), (data) => {
-			this.setState({
-				actors: data.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1)),
+		}, () => {
+			getRequest.call(this, "public/get_public_companies?ecosystem_role=ACTOR&entity_type=PRIVATE%20SECTOR&"
+				+ dictToURI(this.state.filters), (data) => {
+				this.setState({
+					actors: data.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1)),
+				});
+			}, (response) => {
+				nm.warning(response.statusText);
+			}, (error) => {
+				nm.error(error.message);
 			});
-		}, (response) => {
-			nm.warning(response.statusText);
-		}, (error) => {
-			nm.error(error.message);
 		});
 	}
 
