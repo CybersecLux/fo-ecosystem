@@ -36,17 +36,6 @@ export default class PagePublic extends React.Component {
 		this.getPublicCompany();
 	}
 
-	componentDidUpdate(_, prevState) {
-		if (prevState.filters.taxonomy_values !== this.state.filters.taxonomy_values
-			|| (prevState.filters.name !== this.state.filters.name
-				&& (this.state.filters.name.length === null
-					|| this.state.filters.name.length === undefined
-					|| this.state.filters.name.length > 2
-					|| this.state.filters.name.length === 0))) {
-			this.onSearch();
-		}
-	}
-
 	getPublicCompany() {
 		getRequest.call(this, "public/get_public_companies?entity_type=PUBLIC SECTOR&"
 			+ dictToURI(this.state.filters), (data) => {
@@ -92,6 +81,7 @@ export default class PagePublic extends React.Component {
 					taxonomy={this.props.taxonomy}
 					filters={this.state.filters}
 					onChange={this.modifyFilters}
+					onSearch={this.onSearch}
 				/>
 
 				<div className="row">

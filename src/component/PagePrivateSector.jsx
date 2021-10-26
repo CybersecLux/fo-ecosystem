@@ -48,19 +48,6 @@ export default class PagePrivateSector extends React.Component {
 		this.getAnalytics();
 	}
 
-	componentDidUpdate(_, prevState) {
-		if (prevState.filters.taxonomy_values !== this.state.filters.taxonomy_values
-			|| prevState.filters.startup_only !== this.state.filters.startup_only
-			|| prevState.filters.corebusiness_only !== this.state.filters.corebusiness_only
-			|| (prevState.filters.name !== this.state.filters.name
-				&& (this.state.filters.name.length === null
-					|| this.state.filters.name.length === undefined
-					|| this.state.filters.name.length > 2
-					|| this.state.filters.name.length === 0))) {
-			this.onSearch();
-		}
-	}
-
 	getCompanies() {
 		this.setState({
 			actors: null,
@@ -183,6 +170,7 @@ export default class PagePrivateSector extends React.Component {
 					analytics={this.state.analytics}
 					filters={this.state.filters}
 					onChange={this.modifyFilters}
+					onSearch={this.onSearch}
 				/>
 
 				<div className="row">
