@@ -14,6 +14,7 @@ import Tab from "./tab/Tab.jsx";
 import Article from "./item/Article.jsx";
 import Event from "./item/Event.jsx";
 import JobOffer from "./item/JobOffer.jsx";
+import ServiceHorizontal from "./item/ServiceHorizontal.jsx";
 
 export default class PageCompany extends React.Component {
 	constructor(props) {
@@ -23,6 +24,7 @@ export default class PageCompany extends React.Component {
 		this.getCompanyNews = this.getCompanyNews.bind(this);
 		this.getCompanyEvents = this.getCompanyEvents.bind(this);
 		this.getCompanyJobOffers = this.getCompanyJobOffers.bind(this);
+		this.getCompanyServices = this.getCompanyServices.bind(this);
 		this.getIndustryVertical = this.getIndustryVertical.bind(this);
 
 		this.state = {
@@ -30,6 +32,7 @@ export default class PageCompany extends React.Component {
 			news: null,
 			events: null,
 			jobOffers: null,
+			services: null,
 		};
 	}
 
@@ -38,6 +41,7 @@ export default class PageCompany extends React.Component {
 		this.getCompanyNews();
 		this.getCompanyEvents();
 		this.getCompanyJobOffers();
+		this.getCompanyServices();
 	}
 
 	getCompanyContent() {
@@ -104,6 +108,27 @@ export default class PageCompany extends React.Component {
 			+ dictToURI(params), (data) => {
 			this.setState({
 				jobOffers: data,
+			});
+		}, (response) => {
+			nm.warning(response.statusText);
+		}, (error) => {
+			nm.error(error.message);
+		});
+	}
+
+	getCompanyServices(page) {
+		const params = {
+			type: "SERVICE",
+			companies: this.props.match.params.id,
+			page: page || 1,
+			per_page: 3,
+			include_tags: true,
+		};
+
+		getRequest.call(this, "public/get_public_articles?"
+			+ dictToURI(params), (data) => {
+			this.setState({
+				services: data,
 			});
 		}, (response) => {
 			nm.warning(response.statusText);
@@ -258,7 +283,40 @@ export default class PageCompany extends React.Component {
 					/>
 				}
 
-				<div className="row">
+				{this.state.services && this.state.services.pagination.total > 0
+					&& <div className="row row-spaced">
+						<div className="col-md-12">
+							<h3>Services</h3>
+						</div>
+
+						<div className="col-md-12">
+							<DynamicTable
+								items={this.state.services.items}
+								pagination={this.state.services.pagination}
+								changePage={(page) => this.getCompanyServices(page)}
+								buildElement={(a) => <div className="col-md-12">
+									<ServiceHorizontal
+										info={a}
+										taxonomy={this.props.taxonomy}
+									/>
+								</div>
+								}
+							/>
+						</div>
+					</div>
+				}
+
+				{!this.state.services
+					&& <div className="row">
+						<div className="col-md-12">
+							<Loading
+								height={400}
+							/>
+						</div>
+					</div>
+				}
+
+				<div className="row row-spaced">
 					<div className="col-md-12">
 						<h3>Articles</h3>
 					</div>
