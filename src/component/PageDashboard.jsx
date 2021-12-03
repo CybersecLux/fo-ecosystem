@@ -88,7 +88,7 @@ export default class PageDashboard extends React.Component {
 
 	fetchActors() {
 		getRequest.call(this, "public/get_public_companies"
-			+ "?ecosystem_role=ACTOR", (data) => {
+			+ "?ecosystem_role=ACTOR&entity_type=PRIVATE SECTOR", (data) => {
 			this.setState({
 				actors: data,
 			});
