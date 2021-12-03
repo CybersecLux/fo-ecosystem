@@ -101,17 +101,22 @@ export default class Menu extends React.Component {
 					</div>
 				</NavDropdown.Item>
 			</NavDropdown>
-			<Nav.Link href={getMainAppURL() + "cyber4growth"}>
+			{/* <Nav.Link href={getMainAppURL() + "cyber4growth"}>
 				<div className="Menu-title">Cyber4Growth</div>
 				<div className="Menu-description">Startup accelerator</div>
-			</Nav.Link>
+			</Nav.Link> */}
 			<Nav.Link href={getMainAppURL() + "newsletter"}>
 				<div className="Menu-title"><i className="fas fa-envelope-open-text"/> Newsletter</div>
 				<div className="Menu-description">Our monthly selection</div>
 			</Nav.Link>
-			<Nav.Link href={getMainAppURL() + "help"}>
-				<div className="Menu-title">Help!</div>
-			</Nav.Link>
+			<a
+				className="nav-link"
+				href={getPrivateSpaceURL()}
+				rel="noreferrer"
+			>
+				<div className="Menu-title">My CYBERLUX</div>
+				<div className="Menu-description">Login or register</div>
+			</a>
 		</Nav>;
 	}
 
@@ -140,14 +145,9 @@ export default class Menu extends React.Component {
 								<div className="Menu-title">About</div>
 								<div className="Menu-description">What is CYBERLUX?</div>
 							</a>
-							<a
-								className="nav-link"
-								href={getPrivateSpaceURL()}
-								rel="noreferrer"
-							>
-								<div className="Menu-title">My CYBERLUX</div>
-								<div className="Menu-description">Login or subscribe</div>
-							</a>
+							<Nav.Link href={getMainAppURL() + "help"} className="Menu-help">
+								<div className="Menu-title">Help!</div>
+							</Nav.Link>
 						</Nav>
 					</Navbar.Collapse>
 				</Navbar>

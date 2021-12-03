@@ -91,21 +91,21 @@ export default class Footer extends React.Component {
 										</a>
 									</div>
 									<br/>
-									<div>
+									{/* <div>
 										<a href={getMainAppURL() + "cyber4growth"}>
 											Cyber4Growth
+										</a>
+									</div> */}
+									<div>
+										<a
+											href={getPrivateSpaceURL()}>
+											My CYBERLUX
 										</a>
 									</div>
 									<br/>
 									<div>
 										<a href={getMainAppURL() + "about"}>
 											About
-										</a>
-									</div>
-									<div>
-										<a
-											href={getPrivateSpaceURL()}>
-											My CYBERLUX
 										</a>
 									</div>
 								</div>
