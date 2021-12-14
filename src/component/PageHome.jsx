@@ -14,23 +14,31 @@ export default class PageHome extends React.Component {
 		super(props);
 
 		this.fetchAnalytics = this.fetchAnalytics.bind(this);
-		this.getEcosystemRoleCount = this.getEcosystemRoleCount.bind(this);
+		this.getCounts = this.getCounts.bind(this);
 		this.getValueChainDistribution = this.getValueChainDistribution.bind(this);
 		this.getLeavesOfNode = this.getLeavesOfNode.bind(this);
 
 		this.state = {
 			analytics: null,
+			privateSectorCount: null,
+			publicSectorCount: null,
+			civilSocietyCount: null,
+			distribution: null,
 		};
 	}
 
 	componentDidMount() {
 		this.fetchAnalytics();
+		this.getCounts();
+		this.getValueChainDistribution();
 	}
 
 	fetchAnalytics() {
 		getRequest.call(this, "public/get_public_analytics", (data) => {
 			this.setState({
 				analytics: data,
+			}, () => {
+				this.getValueChainDistribution();
 			});
 		}, (response) => {
 			nm.warning(response.statusText);
@@ -39,50 +47,74 @@ export default class PageHome extends React.Component {
 		});
 	}
 
-	getEcosystemRoleCount(category, value) {
-		if (this.state.analytics === null
-			|| this.state.analytics.taxonomy_values === undefined
-			|| this.state.analytics.taxonomy_assignments === undefined) {
-			return null;
-		}
+	getCounts() {
+		getRequest.call(this, "public/get_public_companies"
+			+ "?count=true&ecosystem_role=ACTOR&entity_type=PRIVATE SECTOR", (data) => {
+			this.setState({
+				privateSectorCount: data.count,
+			});
 
-		const values = this.state.analytics.taxonomy_values
-			.filter((v) => v.category === category && v.name === value);
+			getRequest.call(this, "public/get_public_companies"
+			+ "?count=true&entity_type=PUBLIC SECTOR", (data2) => {
+				this.setState({
+					publicSectorCount: data2.count,
+				});
 
-		if (values.length === 0) {
-			return null;
-		}
-
-		return this.state.analytics.taxonomy_assignments
-			.filter((a) => a.taxonomy_value === values[0].id)
-			.length;
+				getRequest.call(this, "public/get_public_companies"
+					+ "?count=true&ecosystem_role=ACTOR&entity_type=CIVIL SOCIETY", (data3) => {
+					this.setState({
+						civilSocietyCount: data3.count,
+					});
+				}, (response) => {
+					nm.warning(response.statusText);
+				}, (error) => {
+					nm.error(error.message);
+				});
+			}, (response) => {
+				nm.warning(response.statusText);
+			}, (error) => {
+				nm.error(error.message);
+			});
+		}, (response) => {
+			nm.warning(response.statusText);
+		}, (error) => {
+			nm.error(error.message);
+		});
 	}
 
 	getValueChainDistribution() {
-		if (this.state.analytics === null
-			|| this.state.analytics.taxonomy_values === undefined
-			|| this.state.analytics.taxonomy_assignments === undefined) {
-			return null;
+		if (this.state.analytics
+			&& this.state.analytics.taxonomy_values
+			&& this.state.analytics.taxonomy_assignments) {
+			const distribution = {};
+
+			const values = this.state.analytics.taxonomy_values
+				.filter((v) => v.category === "VALUE CHAIN");
+
+			Promise.all(values.map((v) => this.fetchValueChainCount(v.id))).then((data) => {
+				data.forEach((d, i) => {
+					distribution[values[i].name] = {
+						valueId: values[i].id,
+						amount: d.count,
+					};
+				});
+
+				this.setState({ distribution });
+			});
 		}
+	}
 
-		const distribution = {};
-
-		const values = this.state.analytics.taxonomy_values
-			.filter((v) => v.category === "VALUE CHAIN");
-
-		for (let i = 0; i < values.length; i++) {
-			const leaves = this.getLeavesOfNode([values[i]]).map((v) => v.id);
-			let concernedCompanies = this.state.analytics.taxonomy_assignments
-				.filter((a) => leaves.indexOf(a.taxonomy_value) >= 0)
-				.map((a) => a.company);
-			concernedCompanies = [...new Set(concernedCompanies)];
-			distribution[values[i].name] = {
-				valueId: values[i].id,
-				amount: concernedCompanies.length,
-			};
-		}
-
-		return distribution;
+	fetchValueChainCount(taxonomyValueId) {
+		return new Promise((resolve) => getRequest.call(this, "public/get_public_companies"
+			+ "?count=true&ecosystem_role=ACTOR"
+			+ "&entity_type=PRIVATE SECTOR"
+			+ "&taxonomy_values=" + taxonomyValueId, (data) => {
+			resolve(data);
+		}, () => {
+			resolve(null);
+		}, () => {
+			resolve(null);
+		}));
 	}
 
 	getLeavesOfNode(taxonomyValues) {
@@ -291,7 +323,7 @@ export default class PageHome extends React.Component {
 								<div className="col-md-4">
 									<Link to="/privatesector">
 										<Analytic
-											value={this.getEcosystemRoleCount("ECOSYSTEM ROLE", "ACTOR")}
+											value={this.state.privateSectorCount || 0}
 											desc={"Private<br/>companies"}
 										/>
 									</Link>
@@ -299,7 +331,7 @@ export default class PageHome extends React.Component {
 								<div className="col-md-4">
 									<Link to="/publicsector">
 										<Analytic
-											value={this.getEcosystemRoleCount("ENTITY TYPE", "PUBLIC SECTOR")}
+											value={this.state.publicSectorCount || 0}
 											desc={"Public<br/>entities"}
 										/>
 									</Link>
@@ -307,7 +339,7 @@ export default class PageHome extends React.Component {
 								<div className="col-md-4">
 									<Link to="/civilsociety">
 										<Analytic
-											value={this.getEcosystemRoleCount("ENTITY TYPE", "CIVIL SOCIETY")}
+											value={this.state.civilSocietyCount || 0}
 											desc={"Civil society<br/>organisations"}
 										/>
 									</Link>
@@ -317,9 +349,9 @@ export default class PageHome extends React.Component {
 								</div>
 								<div className="col-md-1"/>
 								<div className="col-md-11">
-									{this.getValueChainDistribution() !== null
+									{this.state.distribution !== null
 										&& <RadarClickableTaxonomy
-											data={this.getValueChainDistribution()}
+											data={this.state.distribution}
 										/>}
 								</div>
 							</div>
