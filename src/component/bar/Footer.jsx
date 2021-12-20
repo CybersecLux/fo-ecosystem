@@ -96,6 +96,7 @@ export default class Footer extends React.Component {
 											Cyber4Growth
 										</a>
 									</div>
+									<br/>
 									<div>
 										<a
 											href={getPrivateSpaceURL()}>
