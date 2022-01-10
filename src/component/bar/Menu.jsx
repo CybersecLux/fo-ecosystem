@@ -145,9 +145,9 @@ export default class Menu extends React.Component {
 								<div className="Menu-title">About</div>
 								<div className="Menu-description">What is CYBERLUX?</div>
 							</a>
-							<Nav.Link href={getMainAppURL() + "help"} className="Menu-help">
+							{/* <Nav.Link href={getMainAppURL() + "help"} className="Menu-help">
 								<div className="Menu-title">Help!</div>
-							</Nav.Link>
+							</Nav.Link> */}
 						</Nav>
 					</Navbar.Collapse>
 				</Navbar>
